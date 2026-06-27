@@ -95,5 +95,10 @@ server (service_role) can read leads or edit the catalog.
 
 ## Stack & accounts
 - **Next.js 16** + React 19 + Tailwind 4 (this repo).
+- **GitHub:** https://github.com/easycarparts/EasyAuto (account `easycarparts`, branch `main`, public).
 - **Supabase** project `qsuawztcgpheaxewzbyt` (region: Tokyo / ap-northeast-1). URL: https://qsuawztcgpheaxewzbyt.supabase.co
-- **Hosting:** deploy to Vercel (connect the GitHub repo).
+- **Cloudinary** cloud name `diw6rekpm` (shared with grand-touch; cloud name is public). Upload API key/secret
+  are NOT in the repo — get them from the Cloudinary dashboard if migrating images, or use Supabase Storage instead.
+- **Hosting / Vercel:** create a **brand-new** Vercel project by importing the GitHub repo above.
+  ⚠️ Do NOT reuse the grand-touch Vercel project. The old `.vercel/` config was deliberately left out so this
+  stays separate. Add the env vars from `.env.local` into the new Vercel project's Environment Variables.
