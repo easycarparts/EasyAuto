@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Easy Auto design system — clean / light / trustworthy.
+  Tailwind v4: design tokens live in @theme and auto-generate utilities
+  (e.g. --color-brand-600 -> bg-brand-600, text-brand-600, border-brand-600).
+*/
+
+@theme {
+  /* Brand — a confident, trustworthy blue (the primary action colour). */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #d9e6ff;
+  --color-brand-200: #bcd2ff;
+  --color-brand-300: #8eb4ff;
+  --color-brand-400: #598cff;
+  --color-brand-500: #3366ff;
+  --color-brand-600: #1f4ae0;
+  --color-brand-700: #1b3bba;
+  --color-brand-800: #1c3596;
+  --color-brand-900: #1c3175;
+
+  /* Accent — warm amber, used sparingly for ratings / highlights. */
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+
+  /* Success / WhatsApp green (lead buttons land here in Step 6). */
+  --color-success-500: #16a34a;
+  --color-success-600: #15803d;
+
+  /* Danger — form validation errors, destructive actions. */
+  --color-danger-50: #fef2f2;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+
+  /* Neutrals — slate-based, calm and readable. */
+  --color-ink: #0f172a; /* headings */
+  --color-body: #334155; /* body copy */
+  --color-muted: #64748b; /* secondary text */
+  --color-faint: #94a3b8; /* tertiary / icons */
+  --color-line: #e2e8f0; /* hairline borders */
+  --color-line-strong: #cbd5e1;
+  --color-canvas: #f8fafc; /* page background */
+  --color-surface: #ffffff; /* cards */
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Soft, modern radii and shadow. */
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.125rem;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12);
+  --shadow-pop: 0 8px 30px -8px rgba(15, 23, 42, 0.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings default to the darker ink colour. */
+h1, h2, h3, h4 {
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+
+/* Consistent focus ring for keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Rich text (news articles) rendered from stored HTML. */
+.prose-article {
+  color: var(--color-body);
+  line-height: 1.75;
+}
+.prose-article h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+.prose-article h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1.75rem 0 0.5rem;
+}
+.prose-article p {
+  margin: 0 0 1rem;
+}
+.prose-article ul,
+.prose-article ol {
+  margin: 0 0 1.25rem 1.25rem;
+}
+.prose-article ul { list-style: disc; }
+.prose-article ol { list-style: decimal; }
+.prose-article li { margin: 0.35rem 0; }
+.prose-article a {
+  color: var(--color-brand-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-article strong { color: var(--color-ink); }
+.prose-article img {
+  border-radius: var(--radius-xl);
+  margin: 1.5rem 0;
 }

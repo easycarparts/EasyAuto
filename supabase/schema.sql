@@ -42,12 +42,16 @@ create table if not exists businesses (
   claimed        boolean default false,
   featured       boolean default false,
   status         text default 'publish',
+  easy_auto_score smallint,                 -- 0-100 quality score (completeness + dampened reputation + trust)
+  score_breakdown jsonb,                    -- {completeness, reputation, trust, bayesian_rating, penalised}
   created_at     timestamptz,
   updated_at     timestamptz
 );
 
 create index if not exists businesses_category_idx on businesses (category_slug);
 create index if not exists businesses_city_idx     on businesses (city);
+-- Default ranking is by the Easy Auto score (highest first).
+create index if not exists businesses_score_idx    on businesses (easy_auto_score desc nulls last);
 -- For programmatic "category in city" pages and the search box:
 create index if not exists businesses_search_idx
   on businesses using gin (to_tsvector('english', coalesce(name,'') || ' ' || coalesce(description,'') || ' ' || coalesce(city,'')));

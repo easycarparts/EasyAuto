@@ -2,17 +2,17 @@
   {
     "slug": "car-wash",
     "name": "Car Wash",
-    "listing_count": 889
+    "listing_count": 784
   },
   {
     "slug": "auto-parts-store",
     "name": "Auto parts store",
-    "listing_count": 727
+    "listing_count": 726
   },
   {
     "slug": "towing-service",
     "name": "Towing service",
-    "listing_count": 525
+    "listing_count": 254
   },
   {
     "slug": "car-dealer",
@@ -22,12 +22,12 @@
   {
     "slug": "auto-repair-shop",
     "name": "Auto repair shop",
-    "listing_count": 216
+    "listing_count": 188
   },
   {
     "slug": "used-car-dealer",
     "name": "Used car dealer",
-    "listing_count": 139
+    "listing_count": 133
   },
   {
     "slug": "car-accessories-store",
@@ -42,7 +42,7 @@
   {
     "slug": "car-repair-and-maintenance-service",
     "name": "Car repair and maintenance service",
-    "listing_count": 97
+    "listing_count": 83
   },
   {
     "slug": "auto-parts-market",
@@ -52,12 +52,12 @@
   {
     "slug": "transportation-service",
     "name": "Transportation service",
-    "listing_count": 81
+    "listing_count": 35
   },
   {
     "slug": "car-battery-store",
     "name": "Car battery store",
-    "listing_count": 69
+    "listing_count": 68
   },
   {
     "slug": "auto-accessories-wholesaler",
@@ -67,7 +67,7 @@
   {
     "slug": "car-detailing-service",
     "name": "Car detailing service",
-    "listing_count": 65
+    "listing_count": 52
   },
   {
     "slug": "auto-body-shop",
@@ -82,7 +82,7 @@
   {
     "slug": "auto-restoration-service",
     "name": "Auto restoration service",
-    "listing_count": 28
+    "listing_count": 24
   },
   {
     "slug": "self-service-car-wash",
@@ -97,7 +97,7 @@
   {
     "slug": "auto-window-tinting-service",
     "name": "Auto window tinting service",
-    "listing_count": 20
+    "listing_count": 16
   },
   {
     "slug": "auto-body-parts-supplier",
@@ -127,7 +127,7 @@
   {
     "slug": "auto-air-conditioning-service",
     "name": "Auto air conditioning service",
-    "listing_count": 15
+    "listing_count": 11
   },
   {
     "slug": "auction-broker",
@@ -167,7 +167,7 @@
   {
     "slug": "data-recovery-service",
     "name": "Data recovery service",
-    "listing_count": 9
+    "listing_count": 4
   },
   {
     "slug": "atm",
@@ -197,7 +197,7 @@
   {
     "slug": "auto-tune-up-service",
     "name": "Auto tune up service",
-    "listing_count": 5
+    "listing_count": 4
   },
   {
     "slug": "3d-printing-service",
@@ -207,12 +207,12 @@
   {
     "slug": "air-filter-supplier",
     "name": "Air filter supplier",
-    "listing_count": 5
+    "listing_count": 1
   },
   {
     "slug": "auto-auction",
     "name": "Auto auction",
-    "listing_count": 5
+    "listing_count": 0
   },
   {
     "slug": "auto-machine-shop",
@@ -262,7 +262,7 @@
   {
     "slug": "junkyard",
     "name": "Junkyard",
-    "listing_count": 3
+    "listing_count": 0
   },
   {
     "slug": "oil-change-service",
@@ -302,22 +302,22 @@
   {
     "slug": "trucking-company",
     "name": "Trucking company",
-    "listing_count": 2
+    "listing_count": 1
   },
   {
     "slug": "crane-rental-agency",
     "name": "Crane rental agency",
-    "listing_count": 2
+    "listing_count": 1
   },
   {
     "slug": "car-alarm-supplier",
     "name": "Car alarm supplier",
-    "listing_count": 2
+    "listing_count": 1
   },
   {
     "slug": "transcription-service",
     "name": "Transcription service",
-    "listing_count": 2
+    "listing_count": 1
   },
   {
     "slug": "engine-rebuilding-service",

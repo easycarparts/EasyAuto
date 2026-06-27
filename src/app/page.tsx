@@ -1,65 +1,214 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/container";
+import { SearchBar } from "@/components/search-bar";
+import { BusinessCard } from "@/components/business-card";
+import { JsonLd } from "@/components/json-ld";
+import { GeolocateButton } from "@/components/geolocate-button";
+import {
+  getAllCategories,
+  getCities,
+  getFeaturedBusinesses,
+  getAllNews,
+} from "@/lib/data";
+import { SERVICE_GROUPS, ALL_SERVICES } from "@/lib/taxonomy";
+import { EMIRATES, emirateForCity } from "@/lib/locations";
+import { decodeEntities, formatCount } from "@/lib/format";
+import { websiteJsonLd } from "@/lib/structured-data";
 
-export default function Home() {
+// Regenerate daily so the featured rotation refreshes (ISR).
+export const revalidate = 86400;
+
+export default async function Home() {
+  const [categories, featured, cities, news] = await Promise.all([
+    getAllCategories(),
+    getFeaturedBusinesses(8),
+    getCities(),
+    getAllNews(),
+  ]);
+
+  const categoryNames = new Map(categories.map((c) => [c.slug, c.name]));
+  const countBySlug = new Map(categories.map((c) => [c.slug, c.listing_count]));
+  const totalListings = categories.reduce((sum, c) => sum + c.listing_count, 0);
+
+  // The 9 service groups with aggregated counts (Step 3 taxonomy).
+  const groups = SERVICE_GROUPS.map((g) => ({
+    ...g,
+    count: g.members.reduce((sum, m) => sum + (countBySlug.get(m) ?? 0), 0),
+  }));
+
+  // Listing counts per emirate (normalise raw city names → emirate).
+  const emirateCounts = new Map<string, number>();
+  for (const { city, count } of cities) {
+    const e = emirateForCity(city);
+    if (e) emirateCounts.set(e.slug, (emirateCounts.get(e.slug) ?? 0) + count);
+  }
+  const emirates = EMIRATES.map((e) => ({ ...e, count: emirateCounts.get(e.slug) ?? 0 })).sort(
+    (a, b) => b.count - a.count,
+  );
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <JsonLd data={websiteJsonLd()} />
+
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-line bg-gradient-to-b from-brand-50 to-canvas">
+        <Container className="py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-surface px-3 py-1 text-sm font-medium text-brand-700 shadow-sm">
+              {formatCount(totalListings)}+ auto businesses across the UAE
+            </span>
+            <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
+              Find trusted auto services near you
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
+              Car wash, detailing, auto parts, towing, repair and more — compare
+              ratings and reviews, then book in a tap.
+            </p>
+            <div className="mx-auto mt-8 max-w-xl">
+              <SearchBar size="lg" />
+            </div>
+            <div className="mt-4 flex flex-wrap justify-center gap-2 text-sm text-muted">
+              <span className="text-faint">Popular:</span>
+              <PopularLink slug="car-wash">Car wash</PopularLink>
+              <PopularLink slug="car-detailing-service">Detailing</PopularLink>
+              <PopularLink slug="window-tinting-service">Window tint</PopularLink>
+              <PopularLink slug="towing-service">Towing</PopularLink>
+            </div>
+
+            <div className="mt-6 flex flex-col items-center gap-4">
+              <GeolocateButton label="Find services near me" />
+              <div className="flex flex-wrap justify-center gap-2">
+                {emirates.map((e) => (
+                  <Link
+                    key={e.slug}
+                    href={`/${ALL_SERVICES.slug}-in-${e.slug}`}
+                    className="rounded-full border border-line bg-surface/70 px-3 py-1 text-sm font-medium text-body hover:border-brand-300 hover:text-brand-700"
+                  >
+                    {e.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Service groups */}
+      <Container className="py-14">
+        <SectionHeading title="Browse by service" />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {groups.map((g) => (
+            <Link
+              key={g.slug}
+              href={`/business-category/${g.slug}`}
+              className="group flex flex-col rounded-2xl border border-line bg-surface p-5 shadow-card transition-colors hover:border-brand-300 hover:bg-brand-50"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-ink group-hover:text-brand-700">{g.name}</h3>
+                <span className="rounded-full bg-canvas px-2.5 py-0.5 text-xs font-semibold text-muted">
+                  {formatCount(g.count)}
+                </span>
+              </div>
+              <p className="mt-1.5 text-sm text-muted">{g.tagline}</p>
+            </Link>
+          ))}
+        </div>
+      </Container>
+
+      {/* Featured listings */}
+      <section className="bg-surface py-14">
+        <Container>
+          <SectionHeading title="Featured businesses" />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {featured.map((b) => (
+              <BusinessCard
+                key={b.id}
+                business={b}
+                categoryName={
+                  b.category_slug
+                    ? categoryNames.get(b.category_slug)
+                    : undefined
+                }
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Browse by emirate */}
+      <Container className="py-14">
+        <SectionHeading title="Browse by emirate" />
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {emirates.map((e) => (
+            <Link
+              key={e.slug}
+              href={`/${ALL_SERVICES.slug}-in-${e.slug}`}
+              className="flex items-center justify-between rounded-xl border border-line bg-surface px-4 py-3.5 text-sm shadow-card transition-colors hover:border-brand-300 hover:bg-brand-50"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <span className="font-semibold text-ink">{e.name}</span>
+              <span className="text-muted">{formatCount(e.count)}</span>
+            </Link>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </Container>
+
+      {/* News teaser */}
+      {news.length > 0 && (
+        <section className="bg-surface py-14">
+          <Container>
+            <SectionHeading title="Guides & news" action={{ href: "/news", label: "All articles" }} />
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {news.slice(0, 3).map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/news/${post.slug}`}
+                  className="rounded-2xl border border-line bg-canvas p-6 shadow-card transition-shadow hover:shadow-pop"
+                >
+                  <h3 className="font-semibold text-ink">{decodeEntities(post.title)}</h3>
+                  {post.excerpt && (
+                    <p className="mt-2 line-clamp-3 text-sm text-muted">
+                      {decodeEntities(post.excerpt)}
+                    </p>
+                  )}
+                  <span className="mt-3 inline-block text-sm font-semibold text-brand-600">
+                    Read guide →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+    </>
+  );
+}
+
+function SectionHeading({
+  title,
+  action,
+}: {
+  title: string;
+  action?: { href: string; label: string };
+}) {
+  return (
+    <div className="mb-6 flex items-end justify-between gap-4">
+      <h2 className="text-2xl font-bold tracking-tight text-ink">{title}</h2>
+      {action?.label && (
+        <Link href={action.href} className="text-sm font-semibold text-brand-600 hover:text-brand-700">
+          {action.label} →
+        </Link>
+      )}
     </div>
+  );
+}
+
+function PopularLink({ slug, children }: { slug: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={`/business-category/${slug}`}
+      className="rounded-full border border-line bg-surface px-3 py-1 font-medium text-body hover:border-brand-300 hover:text-brand-700"
+    >
+      {children}
+    </Link>
   );
 }

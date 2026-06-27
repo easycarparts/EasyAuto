@@ -59,6 +59,16 @@ console.log("Importing businesses...");
 await upsert("businesses", load("businesses.json"));
 
 console.log("Importing news...");
-await upsert("news", load("news.json"));
+// Drop the default WP "Hello world!" post and de-duplicate by slug (the auto-parts
+// guide appears twice in the export — a legacy post + a news post). The news.slug
+// column is UNIQUE, so importing the raw file would violate the constraint.
+const newsSeen = new Set();
+const news = load("news.json").filter((p) => {
+  if (p.slug === "hello-world") return false;
+  if (newsSeen.has(p.slug)) return false;
+  newsSeen.add(p.slug);
+  return true;
+});
+await upsert("news", news);
 
 console.log("Done.");
