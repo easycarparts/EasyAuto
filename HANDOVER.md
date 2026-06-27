@@ -1,7 +1,11 @@
 # Easy Auto — Handover & Build Plan
 
-> **Read this first.** It's the complete context for continuing the project in a fresh chat.
-> Nothing here assumes you saw the earlier conversation.
+> **Read this first** for full context, then follow **`ROADMAP.md`** for the ordered task list
+> and the copy-paste kickoff prompt. Nothing here assumes you saw the earlier conversation.
+>
+> **Two standing design decisions:** (1) build a **fresh, modern design** — do NOT copy the old
+> WordPress look, but keep its URLs for SEO. (2) the categories will be **restructured** into a
+> sensible taxonomy, with 301 redirects from old category URLs.
 
 ---
 
