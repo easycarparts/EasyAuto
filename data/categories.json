@@ -1,0 +1,482 @@
+[
+  {
+    "slug": "car-wash",
+    "name": "Car Wash",
+    "listing_count": 889
+  },
+  {
+    "slug": "auto-parts-store",
+    "name": "Auto parts store",
+    "listing_count": 727
+  },
+  {
+    "slug": "towing-service",
+    "name": "Towing service",
+    "listing_count": 525
+  },
+  {
+    "slug": "car-dealer",
+    "name": "Car dealer",
+    "listing_count": 342
+  },
+  {
+    "slug": "auto-repair-shop",
+    "name": "Auto repair shop",
+    "listing_count": 216
+  },
+  {
+    "slug": "used-car-dealer",
+    "name": "Used car dealer",
+    "listing_count": 139
+  },
+  {
+    "slug": "car-accessories-store",
+    "name": "Car accessories store",
+    "listing_count": 131
+  },
+  {
+    "slug": "used-auto-parts-store",
+    "name": "Used auto parts store",
+    "listing_count": 116
+  },
+  {
+    "slug": "car-repair-and-maintenance-service",
+    "name": "Car repair and maintenance service",
+    "listing_count": 97
+  },
+  {
+    "slug": "auto-parts-market",
+    "name": "Auto parts market",
+    "listing_count": 97
+  },
+  {
+    "slug": "transportation-service",
+    "name": "Transportation service",
+    "listing_count": 81
+  },
+  {
+    "slug": "car-battery-store",
+    "name": "Car battery store",
+    "listing_count": 69
+  },
+  {
+    "slug": "auto-accessories-wholesaler",
+    "name": "Auto accessories wholesaler",
+    "listing_count": 68
+  },
+  {
+    "slug": "car-detailing-service",
+    "name": "Car detailing service",
+    "listing_count": 65
+  },
+  {
+    "slug": "auto-body-shop",
+    "name": "Auto body shop",
+    "listing_count": 57
+  },
+  {
+    "slug": "truck-parts-supplier",
+    "name": "Truck parts supplier",
+    "listing_count": 37
+  },
+  {
+    "slug": "auto-restoration-service",
+    "name": "Auto restoration service",
+    "listing_count": 28
+  },
+  {
+    "slug": "self-service-car-wash",
+    "name": "Self service car wash",
+    "listing_count": 23
+  },
+  {
+    "slug": "auto-repair-service",
+    "name": "Auto Repair &amp; Service",
+    "listing_count": 20
+  },
+  {
+    "slug": "auto-window-tinting-service",
+    "name": "Auto window tinting service",
+    "listing_count": 20
+  },
+  {
+    "slug": "auto-body-parts-supplier",
+    "name": "Auto body parts supplier",
+    "listing_count": 19
+  },
+  {
+    "slug": "auto-bodywork-mechanic",
+    "name": "Auto bodywork mechanic",
+    "listing_count": 16
+  },
+  {
+    "slug": "vehicle-wrapping-service",
+    "name": "Vehicle wrapping service",
+    "listing_count": 16
+  },
+  {
+    "slug": "auto-dent-removal-service",
+    "name": "Auto dent removal service",
+    "listing_count": 16
+  },
+  {
+    "slug": "car-rental-leasing",
+    "name": "Car Rental &amp; Leasing",
+    "listing_count": 16
+  },
+  {
+    "slug": "auto-air-conditioning-service",
+    "name": "Auto air conditioning service",
+    "listing_count": 15
+  },
+  {
+    "slug": "auction-broker",
+    "name": "Auction / Broker",
+    "listing_count": 14
+  },
+  {
+    "slug": "auto-parts-manufacturer",
+    "name": "Auto parts manufacturer",
+    "listing_count": 13
+  },
+  {
+    "slug": "auto-painting",
+    "name": "Auto painting",
+    "listing_count": 12
+  },
+  {
+    "slug": "advertising-agency",
+    "name": "Advertising agency",
+    "listing_count": 12
+  },
+  {
+    "slug": "other",
+    "name": "Other",
+    "listing_count": 12
+  },
+  {
+    "slug": "auto-upholsterer",
+    "name": "Auto upholsterer",
+    "listing_count": 10
+  },
+  {
+    "slug": "bakery",
+    "name": "Bakery",
+    "listing_count": 10
+  },
+  {
+    "slug": "data-recovery-service",
+    "name": "Data recovery service",
+    "listing_count": 9
+  },
+  {
+    "slug": "atm",
+    "name": "ATM",
+    "listing_count": 8
+  },
+  {
+    "slug": "tire-wheel-shop",
+    "name": "Tire &amp; Wheel Shop",
+    "listing_count": 7
+  },
+  {
+    "slug": "parking-storage",
+    "name": "Parking &amp; Storage",
+    "listing_count": 7
+  },
+  {
+    "slug": "auto-care-products-store",
+    "name": "Auto care products store",
+    "listing_count": 6
+  },
+  {
+    "slug": "acrylic-store",
+    "name": "Acrylic store",
+    "listing_count": 6
+  },
+  {
+    "slug": "auto-tune-up-service",
+    "name": "Auto tune up service",
+    "listing_count": 5
+  },
+  {
+    "slug": "3d-printing-service",
+    "name": "3D printing service",
+    "listing_count": 5
+  },
+  {
+    "slug": "air-filter-supplier",
+    "name": "Air filter supplier",
+    "listing_count": 5
+  },
+  {
+    "slug": "auto-auction",
+    "name": "Auto auction",
+    "listing_count": 5
+  },
+  {
+    "slug": "auto-machine-shop",
+    "name": "Auto machine shop",
+    "listing_count": 4
+  },
+  {
+    "slug": "window-tinting-service",
+    "name": "Window tinting service",
+    "listing_count": 4
+  },
+  {
+    "slug": "bike-wash",
+    "name": "Bike wash",
+    "listing_count": 4
+  },
+  {
+    "slug": "tire-shop",
+    "name": "Tire shop",
+    "listing_count": 4
+  },
+  {
+    "slug": "motorcycle-atv-dealer",
+    "name": "Motorcycle / ATV Dealer",
+    "listing_count": 4
+  },
+  {
+    "slug": "mechanic",
+    "name": "Mechanic",
+    "listing_count": 3
+  },
+  {
+    "slug": "auto-electrical-service",
+    "name": "Auto electrical service",
+    "listing_count": 3
+  },
+  {
+    "slug": "automobile-storage-facility",
+    "name": "Automobile storage facility",
+    "listing_count": 3
+  },
+  {
+    "slug": "wash-detail-tint",
+    "name": "Wash / Detail / Tint",
+    "listing_count": 3
+  },
+  {
+    "slug": "junkyard",
+    "name": "Junkyard",
+    "listing_count": 3
+  },
+  {
+    "slug": "oil-change-service",
+    "name": "Oil change service",
+    "listing_count": 2
+  },
+  {
+    "slug": "auto-market",
+    "name": "Auto market",
+    "listing_count": 2
+  },
+  {
+    "slug": "digital-printing-service",
+    "name": "Digital printing service",
+    "listing_count": 2
+  },
+  {
+    "slug": "home-improvement-store",
+    "name": "Home improvement store",
+    "listing_count": 2
+  },
+  {
+    "slug": "battery-store",
+    "name": "Battery store",
+    "listing_count": 2
+  },
+  {
+    "slug": "banner-store",
+    "name": "Banner store",
+    "listing_count": 2
+  },
+  {
+    "slug": "transport-chauffeur",
+    "name": "Transport &amp; Chauffeur",
+    "listing_count": 2
+  },
+  {
+    "slug": "trucking-company",
+    "name": "Trucking company",
+    "listing_count": 2
+  },
+  {
+    "slug": "crane-rental-agency",
+    "name": "Crane rental agency",
+    "listing_count": 2
+  },
+  {
+    "slug": "car-alarm-supplier",
+    "name": "Car alarm supplier",
+    "listing_count": 2
+  },
+  {
+    "slug": "transcription-service",
+    "name": "Transcription service",
+    "listing_count": 2
+  },
+  {
+    "slug": "engine-rebuilding-service",
+    "name": "Engine rebuilding service",
+    "listing_count": 1
+  },
+  {
+    "slug": "floor-refinishing-service",
+    "name": "Floor refinishing service",
+    "listing_count": 1
+  },
+  {
+    "slug": "airbrushing-service",
+    "name": "Airbrushing service",
+    "listing_count": 1
+  },
+  {
+    "slug": "auto-glass-repair-service",
+    "name": "Auto glass repair service",
+    "listing_count": 1
+  },
+  {
+    "slug": "graphic-designer",
+    "name": "Graphic designer",
+    "listing_count": 1
+  },
+  {
+    "slug": "neon-sign-shop",
+    "name": "Neon sign shop",
+    "listing_count": 1
+  },
+  {
+    "slug": "engraver",
+    "name": "Engraver",
+    "listing_count": 1
+  },
+  {
+    "slug": "branding-agency",
+    "name": "Branding agency",
+    "listing_count": 1
+  },
+  {
+    "slug": "motoring-club",
+    "name": "Motoring club",
+    "listing_count": 1
+  },
+  {
+    "slug": "chauffeur-service",
+    "name": "Chauffeur service",
+    "listing_count": 1
+  },
+  {
+    "slug": "interior-decorator",
+    "name": "Interior Decorator",
+    "listing_count": 1
+  },
+  {
+    "slug": "barber-shop",
+    "name": "Barber shop",
+    "listing_count": 1
+  },
+  {
+    "slug": "catering-food-and-drink-supplier",
+    "name": "Catering food and drink supplier",
+    "listing_count": 1
+  },
+  {
+    "slug": "brake-shop",
+    "name": "Brake shop",
+    "listing_count": 1
+  },
+  {
+    "slug": "home-goods-store",
+    "name": "Home goods store",
+    "listing_count": 1
+  },
+  {
+    "slug": "auto-radiator-repair-service",
+    "name": "Auto radiator repair service",
+    "listing_count": 1
+  },
+  {
+    "slug": "convenience-store",
+    "name": "Convenience store",
+    "listing_count": 1
+  },
+  {
+    "slug": "cafe",
+    "name": "Cafe",
+    "listing_count": 1
+  },
+  {
+    "slug": "laundry",
+    "name": "Laundry",
+    "listing_count": 1
+  },
+  {
+    "slug": "corporate-office",
+    "name": "Corporate office",
+    "listing_count": 1
+  },
+  {
+    "slug": "gas-station",
+    "name": "Gas station",
+    "listing_count": 1
+  },
+  {
+    "slug": "car-leasing-service",
+    "name": "Car leasing service",
+    "listing_count": 1
+  },
+  {
+    "slug": "air-conditioning-repair-service",
+    "name": "Air conditioning repair service",
+    "listing_count": 1
+  },
+  {
+    "slug": "vehicle-inspection-service",
+    "name": "Vehicle inspection service",
+    "listing_count": 1
+  },
+  {
+    "slug": "truck-equipment-dealer",
+    "name": "Truck &amp; Equipment Dealer",
+    "listing_count": 1
+  },
+  {
+    "slug": "salvage-scrap-yard",
+    "name": "Salvage / Scrap Yard",
+    "listing_count": 1
+  },
+  {
+    "slug": "manufacturer-wholesale",
+    "name": "Manufacturer / Wholesale",
+    "listing_count": 1
+  },
+  {
+    "slug": "vehicle-exporter",
+    "name": "Vehicle exporter",
+    "listing_count": 1
+  },
+  {
+    "slug": "service-establishment",
+    "name": "Service establishment",
+    "listing_count": 1
+  },
+  {
+    "slug": "equipment-rental-agency",
+    "name": "Equipment rental agency",
+    "listing_count": 1
+  },
+  {
+    "slug": "association-organization",
+    "name": "Association / Organization",
+    "listing_count": 1
+  },
+  {
+    "slug": "insurance-agency",
+    "name": "Insurance agency",
+    "listing_count": 1
+  }
+]
