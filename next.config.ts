@@ -10,13 +10,20 @@ const nextConfig: NextConfig = {
     return categoryRedirects();
   },
   images: {
-    // Listing thumbnails currently live on the old WordPress install and will be
-    // migrated to Cloudinary/Supabase Storage before cutover (HANDOVER §7).
+    // Listing thumbnails were migrated off the old WordPress install to Cloudinary
+    // (scripts/migrate-images-cloudinary.mjs). The easyauto.ae/wp-content pattern was
+    // removed once the DB held zero wp-content references.
     // `remotePatterns` replaces the deprecated `images.domains` in Next 16.
     remotePatterns: [
-      { protocol: "https", hostname: "easyauto.ae", pathname: "/wp-content/**" },
+      { protocol: "https", hostname: "www.grandtouchauto.ae" },
+      { protocol: "https", hostname: "grandtouchauto.ae" },
       { protocol: "https", hostname: "res.cloudinary.com" },
       { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/**" },
+      // Google-Maps-scraper featured images (see scripts/import-scraper.mjs).
+      // These survive WordPress cutover; rehost to Cloudinary later for permanence.
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+      { protocol: "https", hostname: "lh3.ggpht.com" },
+      { protocol: "https", hostname: "streetviewpixels-pa.googleapis.com" },
     ],
   },
   // Step 3 will add the old-category-slug -> new-slug 301 map here via redirects().

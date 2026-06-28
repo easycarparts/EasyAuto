@@ -39,6 +39,7 @@ create table if not exists businesses (
   review_keywords text,                     -- comma-separated keywords from reviews
   competitors    text,                      -- raw competitor block (kept for later parsing)
   thumbnail_url  text,                      -- resolved featured image URL
+  original_thumbnail_url text,              -- import-time cover (Google/WordPress); restore target for owners
   claimed        boolean default false,
   featured       boolean default false,
   status         text default 'publish',

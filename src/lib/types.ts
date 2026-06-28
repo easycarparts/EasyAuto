@@ -26,6 +26,7 @@ export type Business = {
   review_keywords: string | null;
   competitors: string | null;
   thumbnail_url: string | null;
+  original_thumbnail_url: string | null;
   claimed: boolean;
   featured: boolean;
   status: string;
@@ -71,4 +72,29 @@ export type NewsPost = {
   excerpt: string | null;
   published_at: string | null;
   thumbnail_url: string | null;
+};
+
+export type BusinessPost = {
+  id: string;
+  business_id: number;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  content: string | null;
+  cover_image_url: string | null;
+  cover_image_alt: string | null;
+  meta_title: string | null;
+  meta_description: string | null;
+  og_image_url: string | null;
+  author_name: string | null;
+  noindex: boolean;
+  status: "draft" | "publish";
+  published_at: string | null;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type BusinessPostWithBusiness = BusinessPost & {
+  business: { slug: string; name: string; city: string | null };
 };

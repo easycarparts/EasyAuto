@@ -14,6 +14,8 @@ type Initial = Partial<{
   email: string;
   website: string;
   hours: string;
+  googleMapsLink: string;
+  hasMapPin: boolean;
 }>;
 
 export function BusinessForm({
@@ -81,6 +83,22 @@ export function BusinessForm({
 
       <Field label="Address">
         <input name="address" defaultValue={initial.address} className={inputCls} placeholder="Street, area, emirate" />
+      </Field>
+
+      <Field
+        label="Google Maps link"
+        hint="Open your business in Google Maps → Share → Copy link. Paste it here to show the map pin on your listing page. Address alone does not power the map."
+      >
+        <input
+          name="googleMapsLink"
+          type="url"
+          defaultValue={initial.googleMapsLink}
+          className={inputCls}
+          placeholder="https://www.google.com/maps/place/…"
+        />
+        {initial.hasMapPin && (
+          <p className="mt-1.5 text-xs text-success-600">Map pin saved — update the link above to move it.</p>
+        )}
       </Field>
 
       <Field label="Opening hours" hint="One line per day, e.g. “Monday: 9:00 AM – 9:00 PM”.">

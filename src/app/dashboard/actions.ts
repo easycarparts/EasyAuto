@@ -10,6 +10,7 @@ import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/auth";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { getOwnedBusiness, getMediaForOwner } from "@/lib/owner-data";
+import { parseGoogleMapsUrl } from "@/lib/parse-google-maps-url";
 import { recomputeScore } from "@/lib/score";
 import type { Business } from "@/lib/types";
 
@@ -53,6 +54,47 @@ async function uniqueSlug(db: AdminDb, base: string): Promise<string> {
   return `${base}-${Date.now()}`;
 }
 
+function geoFromForm(
+  formData: FormData,
+  existing?: Business | null,
+): ParsedGeo | FormResult | { skip: true } {
+  const raw = field(formData, "googleMapsLink");
+  if (!raw) {
+    if (existing?.latitude != null || existing?.google_link) return { skip: true };
+    return { clear: true };
+  }
+  const parsed = parseGoogleMapsUrl(raw);
+  if (!parsed) return { clear: true };
+  if ("error" in parsed) return { error: parsed.error };
+  return parsed;
+}
+
+type ParsedGeo =
+  | { clear: true }
+  | {
+      latitude: number;
+      longitude: number;
+      place_id: string | null;
+      google_link: string;
+    };
+
+function geoPatch(geo: ParsedGeo) {
+  if ("clear" in geo) {
+    return {
+      latitude: null,
+      longitude: null,
+      place_id: null,
+      google_link: null,
+    };
+  }
+  return {
+    latitude: geo.latitude,
+    longitude: geo.longitude,
+    place_id: geo.place_id,
+    google_link: geo.google_link,
+  };
+}
+
 async function syncCategories(db: AdminDb, businessId: number, categories: string[]) {
   await db.from("business_categories").delete().eq("business_id", businessId);
   if (categories.length) {
@@ -69,6 +111,10 @@ export async function submitBusiness(_prev: FormResult, formData: FormData): Pro
   if (!name || name.length < 2) return { error: "Please enter the business name." };
 
   const categories = formData.getAll("categories").map(String).filter(Boolean);
+  const geo = geoFromForm(formData);
+  if ("error" in geo && geo.error) return { error: geo.error };
+  const geoFields = "skip" in geo ? {} : geoPatch(geo as ParsedGeo);
+
   const db = createSupabaseAdminClient();
   const slug = await uniqueSlug(db, slugify(name));
   const now = new Date().toISOString();
@@ -85,6 +131,7 @@ export async function submitBusiness(_prev: FormResult, formData: FormData): Pro
       email: field(formData, "email"),
       website: normaliseUrl(field(formData, "website")),
       hours: field(formData, "hours"),
+      ...geoFields,
       category_slug: categories[0] ?? null,
       owner_id: user.id,
       claimed: true, // owner submitted it themselves
@@ -114,6 +161,9 @@ export async function updateBusiness(_prev: FormResult, formData: FormData): Pro
   if (!existing) return { error: "You don't have access to this listing." };
 
   const categories = formData.getAll("categories").map(String).filter(Boolean);
+  const geo = geoFromForm(formData, existing);
+  if ("error" in geo && geo.error) return { error: geo.error };
+
   const updates = {
     description: field(formData, "description"),
     address: field(formData, "address"),
@@ -122,6 +172,7 @@ export async function updateBusiness(_prev: FormResult, formData: FormData): Pro
     email: field(formData, "email"),
     website: normaliseUrl(field(formData, "website")),
     hours: field(formData, "hours"),
+    ...("skip" in geo ? {} : geoPatch(geo as ParsedGeo)),
     category_slug: categories[0] ?? existing.category_slug,
     updated_at: new Date().toISOString(),
   };
@@ -197,6 +248,72 @@ export async function addMedia(
   return { ok: true };
 }
 
+function preserveOriginalCover(biz: Business, nextUrl: string | null) {
+  const patch: { thumbnail_url: string | null; original_thumbnail_url?: string } = {
+    thumbnail_url: nextUrl,
+  };
+  if (!biz.original_thumbnail_url && biz.thumbnail_url && nextUrl !== biz.thumbnail_url) {
+    patch.original_thumbnail_url = biz.thumbnail_url;
+  }
+  return patch;
+}
+
+export async function setCoverImage(businessId: number, url: string): Promise<FormResult> {
+  const user = await requireUser();
+  const db = createSupabaseAdminClient();
+  const biz = await getOwnedBusiness(user.id, businessId);
+  if (!biz) return { error: "You don't have access to this listing." };
+  if (!url) return { error: "Missing image URL." };
+
+  const gallery = await getMediaForOwner(businessId);
+  if (!gallery.some((m) => m.kind === "image" && m.url === url)) {
+    return { error: "Choose one of your uploaded photos as the cover image." };
+  }
+
+  const { error } = await db
+    .from("businesses")
+    .update(preserveOriginalCover(biz, url))
+    .eq("id", businessId);
+  if (error) return { error: error.message };
+
+  const { easy_auto_score, score_breakdown } = recomputeScore(
+    { ...biz, thumbnail_url: url } as Business,
+    { hasImage: true },
+  );
+  await db.from("businesses").update({ easy_auto_score, score_breakdown }).eq("id", businessId);
+
+  revalidatePath(`/business/${biz.slug}`);
+  revalidatePath(`/dashboard/business/${businessId}`);
+  return { ok: true };
+}
+
+export async function restoreCoverImage(businessId: number): Promise<FormResult> {
+  const user = await requireUser();
+  const db = createSupabaseAdminClient();
+  const biz = await getOwnedBusiness(user.id, businessId);
+  if (!biz) return { error: "You don't have access to this listing." };
+  if (!biz.original_thumbnail_url) {
+    return { error: "No original image is saved for this listing." };
+  }
+  if (biz.thumbnail_url === biz.original_thumbnail_url) return { ok: true };
+
+  const { error } = await db
+    .from("businesses")
+    .update({ thumbnail_url: biz.original_thumbnail_url })
+    .eq("id", businessId);
+  if (error) return { error: error.message };
+
+  const { easy_auto_score, score_breakdown } = recomputeScore(
+    { ...biz, thumbnail_url: biz.original_thumbnail_url } as Business,
+    { hasImage: true },
+  );
+  await db.from("businesses").update({ easy_auto_score, score_breakdown }).eq("id", businessId);
+
+  revalidatePath(`/business/${biz.slug}`);
+  revalidatePath(`/dashboard/business/${businessId}`);
+  return { ok: true };
+}
+
 export async function deleteMedia(mediaId: string): Promise<FormResult> {
   const user = await requireUser();
   const db = createSupabaseAdminClient();
@@ -210,7 +327,22 @@ export async function deleteMedia(mediaId: string): Promise<FormResult> {
   const biz = await getOwnedBusiness(user.id, media.business_id as number);
   if (!biz) return { error: "You don't have access to this listing." };
 
+  const deletedUrl = media.url as string;
   await db.from("business_media").delete().eq("id", mediaId);
+
+  if (biz.thumbnail_url === deletedUrl) {
+    const remaining = await getMediaForOwner(media.business_id as number);
+    const nextCover = remaining.find((m) => m.kind === "image")?.url ?? null;
+    await db.from("businesses").update({ thumbnail_url: nextCover }).eq("id", biz.id);
+
+    const hasImage =
+      Boolean(nextCover) || remaining.some((m) => m.kind === "image");
+    const { easy_auto_score, score_breakdown } = recomputeScore(
+      { ...biz, thumbnail_url: nextCover } as Business,
+      { hasImage },
+    );
+    await db.from("businesses").update({ easy_auto_score, score_breakdown }).eq("id", biz.id);
+  }
 
   revalidatePath(`/business/${biz.slug}`);
   revalidatePath(`/dashboard/business/${media.business_id}`);

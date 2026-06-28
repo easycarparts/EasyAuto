@@ -60,7 +60,17 @@ export function stripHtml(html: string): string {
 
 // Remove WordPress block-editor comments from stored post HTML before rendering.
 export function cleanPostHtml(html: string): string {
-  return html.replace(/<!--[\s\S]*?-->/g, "").trim();
+  return sanitizeOwnerHtml(html);
+}
+
+// Strip dangerous markup from owner-authored blog HTML.
+export function sanitizeOwnerHtml(html: string): string {
+  return html
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<iframe[\s\S]*?<\/iframe>/gi, "")
+    .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .trim();
 }
 
 // Normalise a UAE phone string to an international wa.me number (digits only).

@@ -18,9 +18,9 @@ import {
 } from "@/lib/taxonomy";
 import { COMMUNITIES, getEmirate, getLocation } from "@/lib/locations";
 import { computeLocationCombos } from "@/lib/location-combos";
-import { decodeEntities, formatCount } from "@/lib/format";
+import { decodeEntities, formatCount, formatRating } from "@/lib/format";
 import { SITE, absoluteUrl } from "@/lib/site";
-import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 
 const PER_PAGE = 24;
 const MIN_LISTINGS = 3; // don't build thin pages
@@ -97,6 +97,29 @@ export default async function LocationServicePage({
   const serviceName = decodeEntities(service.name);
   const emirate = location.kind === "emirate" ? location : getEmirate(location.emirate);
 
+  // Unique, indexable copy + FAQ rich results — the levers that get these
+  // non-brand "service in location" pages ranking (see GSC: this layer earns ~0 now).
+  const topRated = [...items]
+    .filter((b) => b.rating != null && (b.google_reviews ?? 0) > 0)
+    .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))[0];
+  const svcLower = serviceName.toLowerCase();
+  const faqs = [
+    {
+      question: `How many ${svcLower} businesses are there in ${location.name}?`,
+      answer: `Easy Auto lists ${formatCount(total)} ${svcLower} ${total === 1 ? "business" : "businesses"} in ${location.name}, UAE — each with ratings, reviews, opening hours and contact details.`,
+    },
+    topRated
+      ? {
+          question: `What is a top-rated ${svcLower} in ${location.name}?`,
+          answer: `${decodeEntities(topRated.name)} is among the highest-rated, with ${formatRating(topRated.rating)}★ from ${formatCount(topRated.google_reviews ?? 0)} Google reviews.`,
+        }
+      : null,
+    {
+      question: `How do I choose the best ${svcLower} in ${location.name}?`,
+      answer: `Compare the Easy Auto Score on each listing — it blends real Google ratings, review volume and profile completeness — then check opening hours and contact the business directly from its page.`,
+    },
+  ].filter(Boolean) as { question: string; answer: string }[];
+
   return (
     <>
       <JsonLd
@@ -106,6 +129,7 @@ export default async function LocationServicePage({
           { name: serviceName, url: absoluteUrl(`/${combo}`) },
         ])}
       />
+      <JsonLd data={faqJsonLd(faqs)} />
 
       <div className="border-b border-line bg-surface">
         <Container className="py-8">
@@ -123,6 +147,14 @@ export default async function LocationServicePage({
             {formatCount(total)} {total === 1 ? "business" : "businesses"}
             {location.kind === "community" && emirate ? `, ${emirate.name}` : ""}
             {" · UAE"}
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-body">
+            Compare {formatCount(total)} {serviceName.toLowerCase()}{" "}
+            {total === 1 ? "business" : "businesses"} in {location.name}
+            {location.kind === "community" && emirate ? `, ${emirate.name}` : ""}, UAE.
+            Each listing is ranked by the Easy Auto Score — built from real Google ratings,
+            review volume and how complete the profile is — so you can find a trusted{" "}
+            {serviceName.toLowerCase()} fast, check opening hours, and contact them directly.
           </p>
         </Container>
       </div>
@@ -169,6 +201,21 @@ export default async function LocationServicePage({
             </Link>
           </p>
         )}
+
+        {/* FAQ — unique content + eligible for FAQ rich results */}
+        <section className="mt-14 max-w-3xl">
+          <h2 className="text-2xl font-bold text-ink">
+            {serviceName} in {location.name} — FAQs
+          </h2>
+          <dl className="mt-6 space-y-5">
+            {faqs.map((f) => (
+              <div key={f.question} className="rounded-2xl border border-line bg-surface p-5 shadow-card">
+                <dt className="font-semibold text-ink">{f.question}</dt>
+                <dd className="mt-2 text-body">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
       </Container>
     </>
   );

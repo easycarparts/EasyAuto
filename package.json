@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "extract": "node scripts/extract-wordpress.mjs",
-    "import": "node scripts/import-to-supabase.mjs"
+    "import": "node scripts/import-to-supabase.mjs",
+    "import:scraper": "node scripts/import-scraper.mjs",
+    "migrate:images": "node scripts/migrate-images-cloudinary.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.0",

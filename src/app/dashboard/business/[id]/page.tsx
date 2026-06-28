@@ -54,6 +54,12 @@ export default async function EditBusinessPage({
                 email: business.email ?? "",
                 website: business.website ?? "",
                 hours: business.hours ?? "",
+                googleMapsLink:
+                  business.google_link ??
+                  (business.latitude != null && business.longitude != null
+                    ? `https://www.google.com/maps?q=${business.latitude},${business.longitude}`
+                    : ""),
+                hasMapPin: business.latitude != null && business.longitude != null,
               }}
             />
           </div>
@@ -61,10 +67,16 @@ export default async function EditBusinessPage({
           <div className="mt-6 rounded-2xl border border-line bg-surface p-6 shadow-card">
             <h2 className="text-base font-bold text-ink">Photos &amp; videos</h2>
             <p className="mt-1 text-sm text-muted">
-              Showcase your work. The first photo becomes your main listing image.
+              Upload photos and videos, then pick which photo is the main hero image on your
+              public listing page.
             </p>
             <div className="mt-4">
-              <MediaManager businessId={businessId} media={media} />
+              <MediaManager
+                businessId={businessId}
+                media={media}
+                coverUrl={business.thumbnail_url}
+                originalCoverUrl={business.original_thumbnail_url}
+              />
             </div>
           </div>
         </div>
@@ -82,6 +94,12 @@ export default async function EditBusinessPage({
                 View public page →
               </Link>
             )}
+            <Link
+              href={`/dashboard/business/${businessId}/blog`}
+              className="mt-3 block font-semibold text-brand-600 hover:text-brand-700"
+            >
+              Manage blog articles →
+            </Link>
           </div>
         </aside>
       </div>

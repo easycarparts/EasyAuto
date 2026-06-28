@@ -5,16 +5,19 @@ import {
   getAllNews,
   getLocationFacets,
 } from "@/lib/data";
+import { getAllPublishedPostsForSitemap, getBusinessSlugsWithBlog } from "@/lib/post-data";
 import { SERVICE_GROUPS } from "@/lib/taxonomy";
 import { computeLocationCombos } from "@/lib/location-combos";
 import { absoluteUrl } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [bizSlugs, categories, news, facets] = await Promise.all([
+  const [bizSlugs, categories, news, facets, blogPosts, blogIndexes] = await Promise.all([
     getAllBusinessSlugs(),
     getAllCategories(),
     getAllNews(),
     getLocationFacets(),
+    getAllPublishedPostsForSitemap(),
+    getBusinessSlugsWithBlog(),
   ]);
 
   const topCats = new Set(categories.slice(0, 15).map((c) => c.slug));
@@ -33,5 +36,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...news.map((n) => entry(`/news/${n.slug}`)),
     // Every listing
     ...bizSlugs.map((s) => entry(`/business/${s}`)),
+    // Business blogs
+    ...blogIndexes.map((s) => entry(`/business/${s}/blog`)),
+    ...blogPosts.map((p) => ({
+      url: absoluteUrl(`/business/${p.businessSlug}/blog/${p.postSlug}`),
+      lastModified: p.updated_at,
+    })),
   ];
 }

@@ -14,6 +14,7 @@ import {
   getBusinessMedia,
   getCategoryBySlug,
 } from "@/lib/data";
+import { blogIndexPath, getPublishedPostsForBusiness, postPublicPath } from "@/lib/post-data";
 
 // ISR: owner edits, new photos/videos and claim approvals appear without a full
 // rebuild. generateStaticParams still prerenders every listing at build time.
@@ -34,13 +35,24 @@ export async function generateMetadata({
   const business = await getBusinessBySlug(slug);
   if (!business) return { title: "Business not found" };
 
-  const where = business.city ? ` in ${business.city}` : "";
-  const title = `${business.name}${where}`;
+  const category = business.category_slug
+    ? await getCategoryBySlug(business.category_slug)
+    : null;
+  const name = decodeEntities(business.name);
+  const catName = category ? decodeEntities(category.name) : "Auto services";
+  const area = business.city ?? "the UAE";
+
+  // Keyword + location in the title (was just "<name> in <city>"); category is the
+  // commercial query users actually search ("car detailing in Al Quoz").
+  const title = `${name} — ${catName} in ${area}`;
   const ratingBit =
     business.rating != null
-      ? `Rated ${business.rating}/5${business.google_reviews ? ` from ${formatCount(business.google_reviews)} reviews` : ""}. `
+      ? `★ ${business.rating}${business.google_reviews ? ` · ${formatCount(business.google_reviews)} reviews` : ""}. `
       : "";
-  const description = `${ratingBit}${business.address ?? `Auto services${where}`}. View contact details, opening hours, location and reviews on ${SITE.name}.`;
+  const description =
+    `${ratingBit}${name} — ${catName.toLowerCase()} in ${area}. ` +
+    `${business.address ? `${business.address}. ` : ""}` +
+    `See photos, opening hours, phone, reviews & directions on ${SITE.name}.`;
 
   return {
     title,
@@ -68,6 +80,7 @@ export default async function BusinessPage({
   const categoryName = category ? decodeEntities(category.name) : null;
 
   const media = await getBusinessMedia(business.id);
+  const blogPosts = await getPublishedPostsForBusiness(business.id);
 
   const hasGeo = business.latitude != null && business.longitude != null;
   const mapsLink = business.google_link
@@ -152,6 +165,71 @@ export default async function BusinessPage({
               <p className="mt-3 whitespace-pre-line leading-relaxed text-body">
                 {business.description}
               </p>
+            </section>
+          )}
+
+          {/* Unique, crawlable content from real Google reviews. Strengthens
+              rich-result eligibility for the AggregateRating stars and gives each
+              listing distinct on-page text (kills the "thin directory page" signal). */}
+          {(() => {
+            const keywords = business.review_keywords
+              ?.split(",")
+              .map((k) => k.trim())
+              .filter(Boolean)
+              .slice(0, 12);
+            if (!keywords?.length) return null;
+            return (
+              <section className="mt-8">
+                <h2 className="text-xl font-bold text-ink">
+                  What customers mention
+                </h2>
+                <p className="mt-2 text-sm text-muted">
+                  Themes from {business.name}&apos;s Google reviews
+                  {business.google_reviews
+                    ? ` (${formatCount(business.google_reviews)} reviews)`
+                    : ""}
+                  :
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {keywords.map((k) => (
+                    <span
+                      key={k}
+                      className="rounded-full border border-line bg-canvas px-3 py-1 text-sm capitalize text-body"
+                    >
+                      {k}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            );
+          })()}
+
+          {blogPosts.length > 0 && (
+            <section className="mt-8">
+              <div className="flex items-end justify-between gap-4">
+                <h2 className="text-xl font-bold text-ink">Guides &amp; articles</h2>
+                <Link
+                  href={blogIndexPath(slug)}
+                  className="text-sm font-semibold text-brand-600 hover:text-brand-700"
+                >
+                  View all →
+                </Link>
+              </div>
+              <ul className="mt-4 space-y-3">
+                {blogPosts.slice(0, 3).map((post) => (
+                  <li key={post.id}>
+                    <Link
+                      href={postPublicPath(slug, post.slug)}
+                      className="block rounded-xl border border-line bg-surface px-4 py-3 shadow-card transition hover:border-brand-300 hover:bg-brand-50"
+                    >
+                      <span className="font-semibold text-ink">{post.title}</span>
+                      {post.excerpt && (
+                        <p className="mt-1 line-clamp-2 text-sm text-muted">{post.excerpt}</p>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
 

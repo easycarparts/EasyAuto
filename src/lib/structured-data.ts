@@ -2,7 +2,8 @@
 // shapes are reusable. We have rating, address, geo and hours → LocalBusiness is
 // eligible for rich results.
 
-import type { Business } from "./types";
+import type { Business, BusinessPost } from "./types";
+import { postPublicPath } from "./post-data";
 import { SITE, absoluteUrl } from "./site";
 import { decodeEntities, stripHtml } from "./format";
 
@@ -69,6 +70,22 @@ export function breadcrumbJsonLd(
   };
 }
 
+// FAQPage — eligible for FAQ rich results in Google. Use on category/location hubs
+// to win more SERP real estate and add unique, crawlable content.
+export function faqJsonLd(
+  items: { question: string; answer: string }[],
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.question,
+      acceptedAnswer: { "@type": "Answer", text: it.answer },
+    })),
+  };
+}
+
 export function websiteJsonLd(): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
@@ -83,5 +100,79 @@ export function websiteJsonLd(): Record<string, unknown> {
       },
       "query-input": "required name=search_term_string",
     },
+  };
+}
+
+export function businessBlogPostingJsonLd(
+  post: BusinessPost,
+  business: Business,
+): Record<string, unknown> {
+  const url = absoluteUrl(postPublicPath(business.slug, post.slug));
+  const headline = post.meta_title?.trim() || post.title;
+  const description =
+    post.meta_description?.trim() ||
+    post.excerpt?.trim() ||
+    (post.content ? stripHtml(post.content).slice(0, 160) : undefined);
+  const image = post.og_image_url || post.cover_image_url || business.thumbnail_url || undefined;
+  const author = post.author_name?.trim() || business.name;
+
+  const data: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": url,
+    headline,
+    name: post.title,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    author: {
+      "@type": "Organization",
+      name: author,
+      url: absoluteUrl(`/business/${business.slug}`),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+    },
+    isPartOf: {
+      "@type": "Blog",
+      name: `${business.name} — Guides & Articles`,
+      url: absoluteUrl(`/business/${business.slug}/blog`),
+    },
+    about: {
+      "@type": "LocalBusiness",
+      name: business.name,
+      url: absoluteUrl(`/business/${business.slug}`),
+    },
+  };
+
+  if (description) data.description = description;
+  if (image) data.image = [image];
+  if (post.published_at) data.datePublished = post.published_at;
+  if (post.updated_at) data.dateModified = post.updated_at;
+  if (post.excerpt) data.abstract = post.excerpt;
+
+  return data;
+}
+
+export function businessBlogIndexJsonLd(
+  business: Business,
+  posts: { title: string; slug: string; published_at: string | null }[],
+): Record<string, unknown> {
+  const url = absoluteUrl(`/business/${business.slug}/blog`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": url,
+    name: `${business.name} — Guides & Articles`,
+    url,
+    description: `Articles and guides from ${business.name}${business.city ? ` in ${business.city}` : ""}.`,
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: absoluteUrl(postPublicPath(business.slug, p.slug)),
+      datePublished: p.published_at ?? undefined,
+    })),
   };
 }

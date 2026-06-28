@@ -109,6 +109,12 @@ export default async function DashboardPage({
                     >
                       Edit listing →
                     </Link>
+                    <Link
+                      href={`/dashboard/business/${b.id}/blog`}
+                      className="text-brand-600 hover:text-brand-700"
+                    >
+                      Blog →
+                    </Link>
                     {b.status === "publish" && (
                       <Link
                         href={`/business/${b.slug}`}
