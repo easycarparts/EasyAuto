@@ -26,6 +26,10 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+  // GSC ownership verification (HTML-tag method). The old WordPress property was
+  // verified via an HTML file that won't exist on the new app after migration; this
+  // meta tag keeps the easyauto.ae Search Console property verified. Do not remove.
+  verification: { google: "W6Nzg-MdP3RvZuamhBTTj-xM1CRZRxo7BsVBdPXShNA" },
 };
 
 export default function RootLayout({

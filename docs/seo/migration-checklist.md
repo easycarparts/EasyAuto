@@ -49,10 +49,10 @@ Tested against the deployed preview. **Build under test: commit `dd7837d` (preda
 | Sitemaps (new + old Yoast URLs) | ✅ 200 |
 | 404 behaviour | ✅ real 404 (no soft-200) |
 | Home | ✅ 200 |
-| **Place-id permalink → canonical** | ⚠️ **404 on this build** — the fix is in an **uncommitted** `redirects.ts` edit, not yet deployed. Destinations verified 200, so it will work once committed + redeployed. **Re-test after deploy.** |
+| **Place-id permalink → canonical** | ✅ **CONFIRMED on redeploy** (commit `a313067`) — `/business/{slug}/{placeid}` → 308 → `/business/{slug}` → 200; with trailing slash 2 hops → 200; guard verified (`/business/{slug}/blog` = 404, not 308). |
 
-**Net:** live build is green except the place-id rule, which only needs `redirects.ts` committed + a Vercel
-redeploy. Trailing-slash 308s are expected and fine.
+**Net: all green.** Every test passes on the deployed build. Migration is technically ready — proceed with the
+DNS-flip pre-flight below. Trailing-slash 308s are expected and fine.
 
 ## Pre-flight (do on staging, before DNS flip)
 
