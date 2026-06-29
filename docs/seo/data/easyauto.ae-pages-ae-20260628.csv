@@ -1,0 +1,823 @@
+URL,Traffic (%),Number of Keywords,Traffic,Adwords Positions,Positions with commercial intents in top 20,Positions with informational intents in top 20,Positions with navigational intents in top 20,Positions with transactional intents in top 20,Positions with unknown intents in top 20,Traffic with commercial intents in top 20,Traffic with informational intents in top 20,Traffic with navigational intents in top 20,Traffic with transactional intents in top 20,Traffic with unknown intents in top 20,Traffic Change,Answer Engines,Top Keyword,Primary Intent,LLM Prompts
+https://easyauto.ae/business/adnoc-service-station-khalifa-city-766/,22.08,30,694,0,4,4,3,3,0,15,0,301,317,0,223,,adnoc near me,"Commercial, Informational",0
+https://easyauto.ae/business/enoc-1077-jvc/,10.05,3,316,0,0,3,0,0,0,0,316,0,0,0,182,,enoc petrol station jvc,Informational,0
+https://easyauto.ae/business/prowash-1050/,5.66,8,178,0,1,2,0,3,0,1,49,0,128,0,-52,,pro wash,Transactional,0
+https://easyauto.ae/business/welldone-car-wash-3/,3.66,2,115,0,0,2,0,0,0,0,115,0,0,0,115,google,well done car wash,Informational,1
+https://easyauto.ae/business/baghdad-auto-spare-parts-trading-establishment/,3.11,6,98,0,0,2,0,2,0,0,98,0,3,0,-1,,baghdad auto spare parts trading establishment,"Transactional, Informational",0
+https://easyauto.ae/business/skyline-auto-repair-workshop-llc/,2.54,2,80,0,1,1,0,0,0,0,80,0,0,0,0,,skyline auto repair workshop llc,"Commercial, Informational",0
+https://easyauto.ae/business/bab-alsatwa-car-accessories/,2.19,3,69,0,1,1,0,0,0,4,65,0,0,0,0,search-gpt,bab al satwa car accessories,"Commercial, Informational",4
+https://easyauto.ae/business/car-wash-havoline-caltex-sharjah/,1.97,3,62,0,1,0,0,0,0,62,0,0,0,0,19,,havoline car wash,Commercial,0
+https://easyauto.ae/business/bubbles-foams-car-washing-station/,1.94,2,61,0,0,1,0,0,0,0,61,0,0,0,0,,bubbles foams car washing station,Informational,0
+https://easyauto.ae/business/oasis-carwash/,1.84,5,58,0,1,0,1,0,0,57,0,1,0,0,0,search-gpt,oasis car wash,"Commercial, Navigational",1
+https://easyauto.ae/business/prowash-7825/,1.68,8,53,0,1,3,1,0,0,49,4,0,0,0,49,google,pro wash near me,Informational,1
+https://easyauto.ae/business/al-futtaim-automall-dubai-festival-city/,1.65,30,52,0,0,3,8,2,0,0,0,8,44,0,48,,al futtaim automall dubai festival city,Navigational,0
+https://easyauto.ae/business/alba-cars-marina-mall-abu-dhabi/,1.62,11,51,0,0,1,5,0,0,0,47,4,0,0,3,gemini,albacars,Navigational,1
+https://easyauto.ae/business/rccr-motors-auto-repair/,1.59,1,50,0,0,1,0,0,0,0,50,0,0,0,0,,rccr motors auto repair,Informational,0
+https://easyauto.ae/business/one-piece-car-wash-and-polishing/,1.59,1,50,0,0,1,0,0,0,0,50,0,0,0,0,,one piece car wash and polishing,Informational,0
+https://easyauto.ae/business/al-barakah-car-wash/,1.49,2,47,0,0,2,0,1,0,0,47,0,7,0,0,,al barakah car wash,Informational,0
+https://easyauto.ae/business/enoc-1029-discovery-gardens/,1.2,9,38,0,0,4,0,0,0,0,31,0,0,0,5,,enoc 1029,Informational,0
+https://easyauto.ae/business/free-look-auto-repairing/,1.14,1,36,0,0,1,0,1,0,0,36,0,36,0,0,,free look auto repairing,"Transactional, Informational",0
+https://easyauto.ae/business/grand-service-station-al-warqa/,0.98,13,31,0,1,5,1,0,0,0,31,0,0,0,27,,grand service station al warqa reviews,Informational,0
+https://easyauto.ae/business/samira-auto-spare-parts-ajman/,0.92,5,29,0,0,3,0,2,0,0,29,0,0,0,0,,samira auto spare parts ajman,Informational,0
+https://easyauto.ae/business/very-easy-car-sell-my-car-sell-any-car/,0.92,3,29,0,0,0,1,0,0,0,0,29,0,0,26,,very easy car,Navigational,0
+https://easyauto.ae/business/adnoc-service-station-production-city-329/,0.89,13,28,0,2,1,2,2,0,0,3,25,3,0,13,,adnoc service station,"Transactional, Commercial",0
+https://easyauto.ae/business/oldtimer-motorcycles/,0.82,5,26,0,0,3,0,2,0,0,26,0,26,0,0,,oldtimer motorcycles dubai,Informational,0
+https://easyauto.ae/business/wheel-to-wheel-auto-service-station/,0.82,3,26,0,0,2,0,0,0,0,26,0,0,0,-6,google,wheel2wheel car service,Informational,1
+https://easyauto.ae/business/al-ghazal-car-washing-station/,0.76,1,24,0,0,1,0,0,0,0,24,0,0,0,24,,al ghazal car washing station,Informational,0
+https://easyauto.ae/business/insurancemarket-ae/,0.76,10,24,0,0,0,0,0,0,0,0,0,0,0,-11,,,,0
+https://easyauto.ae/business/sellanycar-com-dubai-umm-suqeim-street/,0.73,2,23,0,0,2,0,1,0,0,23,0,23,0,23,,sellanycar com dubai umm suqeim street,Informational,0
+https://easyauto.ae/business/aksa-trade-auto-spare-parts-accessories/,0.7,1,22,0,0,1,0,1,0,0,22,0,22,0,22,,aksa trade auto spare parts & accessories,"Transactional, Informational",0
+https://easyauto.ae/business/car-centre-service-sharjah/,0.7,7,22,0,0,2,0,1,0,0,22,0,2,0,0,,car centre service sharjah,Informational,0
+https://easyauto.ae/business/al-tawash-neon/,0.6,1,19,0,0,1,0,0,0,0,19,0,0,0,5,,al tawash neon,Informational,0
+https://easyauto.ae/business/ag-cars-services-sharjah/,0.57,14,18,0,0,1,2,0,0,0,0,18,0,0,-3,google,ag cars sharjah,Navigational,1
+https://easyauto.ae/business/advantage-auto-spare-parts-sharjah/,0.57,2,18,0,0,1,0,0,0,0,18,0,0,0,0,search-gpt,advantage auto spare parts sharjah,Informational,2
+https://easyauto.ae/business/leadright-protech-abu-dhabi/,0.54,4,17,0,1,2,1,2,0,0,17,0,17,0,0,"gemini, google-ai, search-gpt",leadright protech abu dhabi,"Transactional, Informational",7
+https://easyauto.ae/business/ssg-asia-auto-spare-parts-online-store/,0.5,3,16,0,0,0,3,0,0,0,0,16,0,0,0,"gemini, search-gpt",ssg asia,Navigational,7
+https://easyauto.ae/business/bin-hamoodah-gmc-chevy-auto-service-center/,0.5,6,16,0,0,1,2,2,0,0,16,16,0,0,15,,bin hamoodah auto service center,"Transactional, Navigational",0
+https://easyauto.ae/business/al-shibl-car-wash/,0.5,1,16,0,0,1,0,1,0,0,16,0,16,0,-7,,al shibl car wash,"Transactional, Informational",0
+https://easyauto.ae/business/al-mitha-car-wash/,0.47,1,15,0,0,1,0,0,0,0,15,0,0,0,15,,al mitha car wash,Informational,0
+https://easyauto.ae/business/adnoc-xpress-al-raha-144/,0.44,3,14,0,0,0,2,0,0,0,0,14,0,0,0,,adnoc xpress,Navigational,0
+https://easyauto.ae/business/al-ihsan-used-cars-tr/,0.44,1,14,0,0,1,0,0,0,0,14,0,0,0,0,,al ihsan used cars tr,Informational,0
+https://easyauto.ae/business/avantgarde-motors/,0.44,1,14,0,1,0,0,0,0,14,0,0,0,0,0,,avantgarde motors,Commercial,0
+https://easyauto.ae/business/luxury-lounge-car-showroom/,0.44,3,14,0,0,1,0,0,0,0,14,0,0,0,0,,luxury lounge car showroom,Informational,0
+https://easyauto.ae/business/golden-bearing-auto-spare-parts-trading-llc/,0.44,1,14,0,1,0,0,0,0,14,0,0,0,0,0,,golden bearing auto spare parts trading llc,Commercial,0
+https://easyauto.ae/business/esn-ten-srar-auto-spare-parts-l-l-c/,0.44,1,14,0,0,1,0,0,0,0,14,0,0,0,0,,ten star auto spare parts,Informational,0
+https://easyauto.ae/business/fujairah-recovery-ghurfa/,0.41,3,13,0,2,0,0,0,0,13,0,0,0,0,0,,fujairah recovery,Commercial,0
+https://easyauto.ae/business/dajla-car-washing-ajman/,0.38,1,12,0,0,1,0,0,0,0,12,0,0,0,0,,dajla auto service center,Informational,0
+https://easyauto.ae/business/burj-khaibar-cars-auctions-branch-1/,0.38,5,12,0,3,1,0,0,0,10,2,0,0,0,-10,google-ai,burj khaibar cars auction,Commercial,1
+https://easyauto.ae/business/west-city-auto-spare-parts-llc/,0.38,2,12,0,0,1,0,0,0,0,12,0,0,0,7,,west city auto spare parts llc,Informational,0
+https://easyauto.ae/business/al-ras-ref-devices-spare-parts-tr-al-ain/,0.38,8,12,0,0,0,0,0,0,0,0,0,0,0,12,,,,0
+https://easyauto.ae/business/page/299/,0.38,1,12,0,0,1,0,0,0,0,12,0,0,0,12,,althana car wash & polishing,Informational,0
+https://easyauto.ae/business/oh-my-car/,0.35,1,11,0,0,1,0,1,0,0,11,0,11,0,0,,oh my car,"Transactional, Informational",0
+https://easyauto.ae/business/al-ras-used-cars-trd-ajman-car-souq-showroom-no-165/,0.35,11,11,0,3,0,0,0,0,7,0,0,0,0,-5,,ajman car souq,Commercial,0
+https://easyauto.ae/business/copart-uae-auctions-llc-sharjah-branch/,0.35,10,11,0,0,0,8,0,0,0,0,11,0,0,1,"google, search-gpt",copart uae auctions llc sharjah branch,Navigational,2
+https://easyauto.ae/business/al-yousuf-motors-ras-al-khaimah/,0.31,20,10,0,1,1,0,0,0,0,1,0,0,0,-6,,al yousuf motors ras al khaimah,"Commercial, Informational",0
+https://easyauto.ae/business/munich-auto-parts-trading-llc-german-car-parts-uae/,0.31,10,10,0,0,1,1,0,0,0,1,9,0,0,0,"gemini, google-ai",munich auto parts trading llc german car parts uae,"Navigational, Informational",3
+https://easyauto.ae/business/al-mubashir-auto-repair-llc/,0.28,1,9,0,1,0,0,0,0,9,0,0,0,0,9,,al mubasher garage,Commercial,0
+https://easyauto.ae/business/palatty-traders-llc-br/,0.28,1,9,0,1,0,0,0,0,9,0,0,0,0,0,,palatty traders llc,Commercial,0
+https://easyauto.ae/business/cars-shipping-llc/,0.28,2,9,0,0,2,0,0,0,0,9,0,0,0,6,,cars shipping llc,Informational,0
+https://easyauto.ae/business/joy-scrap/,0.28,2,9,0,0,1,0,0,0,0,9,0,0,0,9,,سكراب جوي,Informational,0
+https://easyauto.ae/business/adnoc-automatic-car-wash/,0.28,11,9,0,0,1,0,0,0,0,0,0,0,0,8,,adnoc automatic,Informational,0
+https://easyauto.ae/business/humaid-ali-trading-al-quoz-hyundaikiahondasuzukimazda-spare-parts/,0.28,2,9,0,0,1,1,0,0,0,9,0,0,0,8,,humaid ali,"Navigational, Informational",0
+https://easyauto.ae/business/epic-repair-a-car/,0.25,1,8,0,0,0,1,0,0,0,0,8,0,0,0,,epic repair a car,Navigational,0
+https://easyauto.ae/business/landmark-int-auto-spare-parts-trading-llc-jurf-ajman/,0.25,8,8,0,3,1,1,1,0,0,1,1,6,0,6,search-gpt,landmark ajman,Commercial,1
+https://easyauto.ae/business/mitsubishi-motors-showroom-service-parts-sharjah-al-habtoor-motors/,0.25,27,8,0,1,4,1,2,0,0,8,0,0,0,8,google,mitsubishi showroom sharjah,Informational,1
+https://easyauto.ae/business/al-khataf-car-accessories/,0.25,2,8,0,0,1,0,0,0,0,8,0,0,0,0,,al khataf shop,Informational,0
+https://easyauto.ae/business/speed-vehicles-repairing-tow-services-llc/,0.22,1,7,0,0,1,0,0,0,0,7,0,0,0,0,,speed vehicles repairing & tow services llc,Informational,0
+https://easyauto.ae/business/hot-pistonz-garage-24-7-auto-repair-garage-in-dip-audi-bmw-jaguar-mercedes-volkswagen-bently-mg-ford-gmc-more/,0.22,4,7,0,0,0,1,0,0,0,0,7,0,0,7,search-gpt,hot pistonz garage,Navigational,2
+https://easyauto.ae/business/shiners-premium-mobile-car-wash/,0.22,3,7,0,0,3,0,0,0,0,7,0,0,0,0,,shiners,Informational,0
+https://easyauto.ae/business/trade-link-automotive-parts-trading/,0.22,1,7,0,1,0,0,0,0,7,0,0,0,0,0,,trade link automotive parts trading,Commercial,0
+https://easyauto.ae/business/volkswagen-showroom-and-service-center-dubai-al-nabooda-automobiles/,0.19,40,6,0,0,2,0,0,0,0,0,0,0,0,5,search-gpt,volkswagen service center rashidiya,Informational,1
+https://easyauto.ae/business/naser-mohsin-auto-spare-parts-l-l-c-branch-2/,0.19,2,6,0,2,0,0,0,0,6,0,0,0,0,2,,naser mohsin auto spare parts,Commercial,0
+https://easyauto.ae/business/marhaba-auctions-souq-al-haraj/,0.19,4,6,0,0,0,1,0,0,0,0,6,0,0,-6,,marhaba auction,Navigational,0
+https://easyauto.ae/business/moatamadcars-souq-al-haraj-showroom/,0.19,5,6,0,0,0,2,0,0,0,0,0,0,0,4,,moatamad cars,Navigational,0
+https://easyauto.ae/business/dream-cars-dubai/,0.19,1,6,0,1,0,0,0,0,6,0,0,0,0,0,,dream cars dubai,Commercial,0
+https://easyauto.ae/business/colombia-used-cars-trading-llc/,0.19,1,6,0,0,0,1,0,0,0,0,6,0,0,6,,colombia used cars trading llc,Navigational,0
+https://easyauto.ae/business/autopro-7825/,0.19,9,6,0,0,5,6,0,0,0,4,6,0,0,1,google,autopro 7025,Navigational,2
+https://easyauto.ae/business/autotrust-multi-brand-car-service-centre-abudhabi/,0.15,14,5,0,4,5,2,1,0,1,4,0,0,0,4,"google-ai, search-gpt",autotrust mussafah,Informational,2
+https://easyauto.ae/business/awawdeh-auto-spare-parts/,0.15,3,5,0,0,2,1,0,0,0,1,4,0,0,1,,awawdeh auto spare parts,Informational,0
+https://easyauto.ae/business/autopro-7039/,0.15,4,5,0,0,2,0,2,0,0,5,0,5,0,0,,autopro 7034,"Transactional, Informational",0
+https://easyauto.ae/business/auto-nation-cars-pre-owned-cars-showroom-in-ras-al-khaimah/,0.15,6,5,0,4,1,1,0,0,4,1,0,0,0,-2,,used cars in ras al khaimah,Commercial,0
+https://easyauto.ae/business/emarat-car-wash/,0.15,7,5,0,0,1,0,0,0,0,5,0,0,0,-11,,emarat beach,Informational,0
+https://easyauto.ae/business/volkswagen-showroom-al-ain/,0.15,8,5,0,1,0,0,0,0,5,0,0,0,0,0,search-gpt,volkswagen showroom al ain,Commercial,1
+https://easyauto.ae/business/enoc-1039-int-media-production-zone/,0.15,1,5,0,0,0,1,0,0,0,0,5,0,0,0,,enoc 1039,Navigational,0
+https://easyauto.ae/business/landmark-int-llc-auto-spare-parts-sanaiya-al-ain-abu-dhabi/,0.15,12,5,0,2,0,5,0,0,4,0,1,0,0,0,,landmark al ain,Navigational,0
+https://easyauto.ae/business/al-marafi-automobile-services-wrsh-lmrfy-lkhdmt-lsyrt/,0.15,1,5,0,0,1,0,1,0,0,5,0,5,0,2,,al marafi automobile services,"Transactional, Informational",0
+https://easyauto.ae/business/bin-hamoodah-auto-chevrolet-gmc-showroom-abu-dhabi-main/,0.15,27,5,0,0,2,7,0,0,0,0,4,0,0,1,,bin hamoodah auto main showroom,Navigational,0
+https://easyauto.ae/business/dasman-auto-spare-parts-llc-bidya/,0.15,1,5,0,0,1,0,0,0,0,5,0,0,0,5,,dasman auto spare parts trading,Informational,0
+https://easyauto.ae/business/geowash-dubai-festival-city-mall/,0.15,3,5,0,1,0,1,0,0,5,0,0,0,0,1,,geowash,"Commercial, Navigational",0
+https://easyauto.ae/business/car-recovery-tow-truck-and-roadside-assistance-service-near-me-dubai/,0.12,8,4,0,0,2,0,0,0,0,4,0,0,0,0,,tow truck near me,Informational,0
+https://easyauto.ae/business/mg-used-auto-engines-spare-parts-sharjah-uae/,0.12,7,4,0,2,0,0,0,0,4,0,0,0,0,2,,used auto engines,Commercial,0
+https://easyauto.ae/business/noble-auto-repair-workshop/,0.12,1,4,0,0,1,0,1,0,0,4,0,4,0,0,,noble auto repair workshop abu dhabi,"Transactional, Informational",0
+https://easyauto.ae/business/seven-stars-auto-spare-parts/,0.12,1,4,0,0,0,0,1,0,0,0,0,4,0,0,search-gpt,seven stars auto spare parts,Transactional,2
+https://easyauto.ae/business/uaq-towing-recovery/,0.12,1,4,0,1,0,0,0,0,4,0,0,0,0,4,,recovery umm al quwain,Commercial,0
+https://easyauto.ae/business/lexus-showroom-abu-dhabi/,0.12,16,4,0,0,1,1,1,0,0,4,0,4,0,0,,lexus showroom abu dhabi,"Transactional, Navigational",0
+https://easyauto.ae/business/new-euro-autospare-parts-llc/,0.12,7,4,0,0,0,0,0,0,0,0,0,0,0,4,,,,0
+https://easyauto.ae/business/royal-carwash/,0.12,2,4,0,1,1,0,0,0,4,0,0,0,0,-49,,royal car wash,"Commercial, Informational",0
+https://easyauto.ae/business/totalenergies-bawabat-al-khaleej-car-service-center/,0.12,4,4,0,0,1,0,0,0,0,4,0,0,0,4,search-gpt,al khaleej auto maint centre,Informational,3
+https://easyauto.ae/business/ag-cars-services-llc-abu-dhabi/,0.12,16,4,0,0,0,9,0,0,0,0,4,0,0,0,,ag cars services llc deira,Navigational,0
+https://easyauto.ae/business/al-ghazal-car-wash-center-tyre-repairing-service/,0.12,1,4,0,0,1,0,0,0,0,4,0,0,0,-1,,al ghazal car washing station,Informational,0
+https://easyauto.ae/business/gotrade-llc-thouban-branch/,0.09,2,3,0,0,0,1,0,0,0,0,0,0,0,3,,gotrade llc,Navigational,0
+https://easyauto.ae/business/sparemax-auto-spare-parts-trading-llc-ras-al-khor-dubai/,0.09,1,3,0,1,0,0,0,0,3,0,0,0,0,3,google-ai,car accessories ras al khor,Commercial,1
+https://easyauto.ae/business/golden-bearing-auto-spare-parts-trading-l-l-c/,0.09,2,3,0,1,0,0,0,0,3,0,0,0,0,0,,golden bearing auto spare parts trading llc,Commercial,0
+https://easyauto.ae/business/allparts-ae-fast-trip-auto-new-spare-parts-trading-llc/,0.09,4,3,0,0,0,1,0,0,0,0,3,0,0,3,,allparts,Navigational,0
+https://easyauto.ae/business/nissan-showroom-khalidiyah-al-masaood-automobiles/,0.09,22,3,0,0,0,6,0,0,0,0,1,0,0,2,,nissan showroom abu dhabi,Navigational,0
+https://easyauto.ae/business/ajman-beach-car-care-center/,0.09,1,3,0,0,1,0,0,0,0,3,0,0,0,0,,ajman beach car care center,Informational,0
+https://easyauto.ae/business/al-faris-used-cars/,0.09,1,3,0,1,0,0,0,0,3,0,0,0,0,0,,al faris used cars,Commercial,0
+https://easyauto.ae/business/al-yousuf-motors-abu-dhabi/,0.09,13,3,0,0,1,0,0,0,0,2,0,0,0,1,,al yousuf motors abu dhabi,Informational,0
+https://easyauto.ae/business/best-auto-parts-abu-dhabi-main-branch-m7/,0.09,13,3,0,4,0,0,0,0,3,0,0,0,0,0,google,best auto parts m7 main br,Commercial,1
+https://easyauto.ae/business/adnoc-service-station-mahawi-917/,0.09,3,3,0,3,0,0,0,0,3,0,0,0,0,1,,mahawi adnoc,Commercial,0
+https://easyauto.ae/business/dublin-auto-spare-parts-trading-l-l-c-branch-01/,0.09,16,3,0,2,2,0,1,0,1,2,0,2,0,1,,dublin spare parts ajman,"Commercial, Informational",0
+https://easyauto.ae/business/al-ras-ref-devices-spare-parts-trading-abu-dhabi/,0.09,14,3,0,5,0,3,0,0,3,0,0,0,0,2,,al ras ref devices spare parts,Commercial,0
+https://easyauto.ae/business/bosch-car-service-al-diyar-auto-repairing/,0.09,5,3,0,0,1,0,0,0,0,3,0,0,0,3,,al diyar auto repairing,Informational,0
+https://easyauto.ae/business/al-jamhoor-tyre-shop-dibba/,0.09,1,3,0,0,1,0,0,0,0,3,0,0,0,0,,al jamhoor tyre shop,Informational,0
+https://easyauto.ae/business/delta-auto-spare-parts-s-p-s-llc/,0.09,2,3,0,1,1,0,0,0,2,1,0,0,0,3,,delta auto spare parts llc,"Commercial, Informational",0
+https://easyauto.ae/business/pal-auto-garage-br-dip-1-pal-platina-tesla-approved-bodyshop/,0.09,4,3,0,0,1,2,0,0,0,0,3,0,0,3,,pal auto garage,Navigational,0
+https://easyauto.ae/business/universal-auto-garage-body-shop/,0.09,1,3,0,0,1,0,0,0,0,3,0,0,0,3,,universal auto garage,Informational,0
+https://easyauto.ae/business/nissan-showroom-madinat-zayed-al-masaood-automobiles/,0.09,29,3,0,1,0,0,0,0,3,0,0,0,0,-3,,nissan showroom near me,Commercial,0
+https://easyauto.ae/business/shift-car-rental-ras-al-khaimah/,0.06,8,2,0,0,0,2,0,0,0,0,2,0,0,1,,shift car rental ras al khaimah,Navigational,0
+https://easyauto.ae/business/haval-tank-and-gwm-showroom-abu-dhabi-otaiba-st/,0.06,5,2,0,0,0,2,2,0,0,0,2,0,0,2,,gwm abu dhabi,"Transactional, Navigational",0
+https://easyauto.ae/business/baniyas-cars-showroom/,0.06,7,2,0,0,2,0,0,0,0,0,0,0,0,-1,,baniyas car establishment,Informational,0
+https://easyauto.ae/business/elite-motors-mitsubishi-motors/,0.06,2,2,0,0,0,1,0,0,0,0,2,0,0,-1,,elite motors mitsubishi motors,Navigational,0
+https://easyauto.ae/business/audi-dubai-showroom-new-pre-owned-al-nabooda-automobiles-llc/,0.06,2,2,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tyreplus-marwan-abbas-auto/,0.06,1,2,0,0,1,0,0,0,0,2,0,0,0,0,,marwan abbas auto,Informational,0
+https://easyauto.ae/business/al-aswar-spare-parts-llc-br5/,0.06,1,2,0,1,0,0,0,0,2,0,0,0,0,2,,al aswar auto spare parts,Commercial,0
+https://easyauto.ae/business/best-auto-parts-al-ain/,0.06,2,2,0,1,1,0,0,0,0,2,0,0,0,-5,,best auto parts al ain,"Commercial, Informational",0
+https://easyauto.ae/business/lexus-showroom-dfc/,0.06,16,2,0,0,2,2,2,0,0,2,0,2,0,0,,lexus showroom dfc,"Transactional, Navigational",0
+https://easyauto.ae/business/honda-sheikh-zayed-road-car-service-centre-trading-enterprises/,0.06,5,2,0,0,2,0,2,0,0,0,0,0,0,2,search-gpt,honda sheikh zayed road,"Transactional, Informational",1
+https://easyauto.ae/business/deutsches-auto-service-center-dascenter-ajman-german-car-specialists-garage-audi-bmw-vw-mercedes-porsche/,0.06,8,2,0,3,2,0,1,0,0,2,0,2,0,0,,dascenter,Commercial,0
+https://easyauto.ae/business/liberty-auto-spare-parts/,0.06,4,2,0,0,1,0,0,0,0,2,0,0,0,-34,,liberty auto spare parts,Informational,0
+https://easyauto.ae/business/adnoc-auto-car-wash-emirates-585/,0.06,2,2,0,0,0,0,0,0,0,0,0,0,0,2,,,,0
+https://easyauto.ae/business/al-darwish-tyres-and-oil-br-5/,0.06,3,2,0,2,0,1,0,0,2,0,0,0,0,0,,درويش للاطارات,Commercial,0
+https://easyauto.ae/business/i-care-car-express/,0.06,2,2,0,0,0,0,0,0,0,0,0,0,0,2,search-gpt,,,1
+https://easyauto.ae/business/mister-clean-car-wash/,0.06,3,2,0,0,0,3,0,0,0,0,2,0,0,-3,,mr clean car wash,Navigational,0
+https://easyauto.ae/business/prowash-1075/,0.06,8,2,0,0,0,0,0,0,0,0,0,0,0,2,,,,0
+https://easyauto.ae/business/hnd-auto-spare-parts-llc-ajman-branch/,0.06,4,2,0,0,0,2,0,0,0,0,2,0,0,0,,hnd auto spare parts,Navigational,0
+https://easyauto.ae/business/al-nasr-used-cars/,0.06,1,2,0,0,1,0,0,0,0,2,0,0,0,0,,al nasr used cars,Informational,0
+https://easyauto.ae/business/dasman-auto-spare-parts-llc-rak/,0.06,1,2,0,0,1,0,0,0,0,2,0,0,0,2,,dasman auto spare parts trading,Informational,0
+https://easyauto.ae/business/hexis-middle-east/,0.06,1,2,0,0,1,0,0,0,0,2,0,0,0,1,,hexis middle east,Informational,0
+https://easyauto.ae/business/emirates-parkings/,0.03,3,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/toyota-showroom-fujairah/,0.03,2,1,0,0,1,0,1,0,0,1,0,1,0,1,,toyota fujairah,"Transactional, Informational",0
+https://easyauto.ae/business/nissan-spare-parts-center-musaffah-al-masaood-automobiles/,0.03,12,1,0,3,0,0,0,0,1,0,0,0,0,-1,,al masaood spare parts,Commercial,0
+https://easyauto.ae/business/suzuki-showroom-al-ain/,0.03,10,1,0,0,0,0,0,0,0,0,0,0,0,1,,,,0
+https://easyauto.ae/business/emirates-oasis-car-wash/,0.03,2,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dasman-auto-spare-parts-llc/,0.03,2,1,0,0,0,0,0,0,0,0,0,0,0,1,,,,0
+https://easyauto.ae/business/sharjah-car-towing-recovery-2/,0.03,5,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/formula-tires-trading-al-qouz/,0.03,7,1,0,0,0,2,0,0,0,0,1,0,0,0,,formula tyres trading al quoz,Navigational,0
+https://easyauto.ae/business/al-tayer-motors-ford-showroom-sheikh-zayed-road/,0.03,29,1,0,0,3,0,3,0,0,1,0,1,0,0,search-gpt,ford sheikh zayed,"Transactional, Informational",1
+https://easyauto.ae/business/divine-autos/,0.03,1,1,0,1,0,0,0,0,1,0,0,0,0,1,,divine auto,Commercial,0
+https://easyauto.ae/business/toyota-showroom-musaffah/,0.03,11,1,0,0,1,1,2,0,0,1,0,1,0,0,search-gpt,toyota showroom mussafah,Transactional,1
+https://easyauto.ae/business/alfa-used-auto-spare-parts-ras-al-khaima-u-a-e/,0.03,2,1,0,1,0,0,0,0,1,0,0,0,0,0,,alfa auto spares,Commercial,0
+https://easyauto.ae/business/toyota-showroom-airport-road-abu-dhabi/,0.03,17,1,0,0,1,5,3,0,0,1,0,1,0,0,,toyota showroom airport road abu dhabi,Navigational,0
+https://easyauto.ae/business/oman-auto-spare-parts/,0.03,3,1,0,0,0,0,0,0,0,0,0,0,0,1,,,,0
+https://easyauto.ae/business/eurostar-rent-a-car-musaffah-branch-workshop/,0.03,4,1,0,4,0,0,0,0,1,0,0,0,0,0,"gemini, search-gpt",eurostar rent a car,Commercial,2
+https://easyauto.ae/business/autopro-7085/,0.03,4,1,0,0,2,0,0,0,0,1,0,0,0,0,,autopro 7007,Informational,0
+https://easyauto.ae/business/nissan-certified-pre-owned-showroom-al-ain-al-masaood-automobiles/,0.03,8,1,0,1,2,0,1,0,0,0,0,0,0,1,,al masaood pre owned cars,Informational,0
+https://easyauto.ae/business/landmark-middle-east-auto-spare-parts-trading-llc-opc/,0.03,1,1,0,1,0,0,0,0,1,0,0,0,0,0,,landmark mussafah,Commercial,0
+https://easyauto.ae/business/al-ruwais-automobile-services-bosch-car-service-2/,0.03,2,1,0,0,1,0,0,0,0,1,0,0,0,1,,al ruwais automobile services,Informational,0
+https://easyauto.ae/business/3m-our-car-auto-accessories-fixing/,0.03,1,1,0,1,0,0,0,0,1,0,0,0,0,0,,our car auto accessories fixing,Commercial,0
+https://easyauto.ae/business/al-aqsa-car-wash/,0.03,4,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-amani-tvr-auto-parts-l-l-c-ras-al-khaimah/,0.03,5,1,0,1,0,0,0,0,1,0,0,0,0,0,,al amani tvr auto parts llc,Commercial,0
+https://easyauto.ae/business/auto-drome-car-wash-fujairah-zeez-outlet/,0.03,1,1,0,1,0,0,0,0,1,0,0,0,0,1,,car wash fujairah,Commercial,0
+https://easyauto.ae/business/joker-automotive/,0.03,1,1,0,0,1,0,0,0,0,1,0,0,0,-23,,joker automotive,Informational,0
+https://easyauto.ae/business/mazda-showroom-dubai-sheikh-zayed-rd-galadari-automobiles/,0.03,39,1,0,2,1,1,0,0,0,0,0,0,0,1,,mazda sheikh zayed road,Commercial,0
+https://easyauto.ae/business/jetour-showroom-al-quoz/,0.03,4,1,0,0,0,0,0,0,0,0,0,0,0,1,,,,0
+https://easyauto.ae/business/al-daam-altiqani-auto-mobile-repair-workshop/,0.03,1,1,0,0,1,0,0,0,0,1,0,0,0,1,,altiqani alawal auto diagnostic,Informational,0
+https://easyauto.ae/business/car-plaza-dubai-modification-accessories-car-android-screen-car-wrapping-car-seat-covers-ppf-installation-in-dubai/,0.03,1,1,0,0,1,0,0,0,0,1,0,0,0,1,,car plaza,Informational,0
+https://easyauto.ae/business/popular-auto-parts-automobile-accessories-auto-spare-parts-supplier-in-abu-dhabi-uae/,0.03,15,1,0,0,0,2,0,0,0,0,1,0,0,0,,popular auto parts,Navigational,0
+https://easyauto.ae/business/classic-steam-car-wash/,0.03,2,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-mumtaz-auto-spare-parts-trading-llc/,0.03,3,1,0,0,0,1,0,0,0,0,1,0,0,0,,mumtaz auto spare parts,Navigational,0
+https://easyauto.ae/business/pioneer-auto-spare-parts-llc-ajman/,0.03,5,1,0,3,1,0,0,0,1,0,0,0,0,1,,pioneer auto spare parts,Commercial,0
+https://easyauto.ae/business/volkswagen-showroom-dubai-al-nabooda-automobiles/,0.03,24,1,0,0,1,0,0,0,0,0,0,0,0,1,,volkswagen sheikh zayed road,Informational,0
+https://easyauto.ae/business/al-futtaim-motors-light-commercial-vehicles-pre-owned-showroom-and-service-center/,0.03,51,1,0,0,0,1,0,0,0,0,0,0,0,1,,al futtaim toyota ras al khaimah,Navigational,0
+https://easyauto.ae/business/al-yousuf-motors-spare-parts-ajman/,0.03,3,1,0,2,1,0,1,0,1,0,0,0,0,1,"google, search-gpt",al yousuf motors spare parts dubai,Commercial,2
+https://easyauto.ae/business/al-ahram-auto-spare-parts-llc/,0.03,3,1,0,0,0,2,0,0,0,0,1,0,0,0,,al ahram auto spare parts llc,Navigational,0
+https://easyauto.ae/business/al-futtaim-automall-dalma-mall-abu-dhabi/,0.03,9,1,0,2,1,4,0,0,0,0,1,0,0,0,,al futtaim abu dhabi,Navigational,0
+https://easyauto.ae/business/sajja-car-recovery-services/,0.03,6,1,0,1,0,0,0,0,0,0,0,0,0,0,,car recovery service sharjah,Commercial,0
+https://easyauto.ae/business-category/car-wash/page/84/,0.03,1,1,0,0,1,0,0,0,0,1,0,0,0,1,,al sharq car wash musaafah,Informational,0
+https://easyauto.ae/business/dibba-al-fujairah-recovery-servicewnsh-db-lfyjrh/,0.03,1,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-ijtihad-auto-spare-parts-tr/,0.03,1,1,0,1,0,0,0,0,1,0,0,0,0,1,,al ijtihad auto spare parts,Commercial,0
+https://easyauto.ae/business/ditec-sharjah/,0.03,4,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/bin-hamoodah-gmc-chevrolet-al-ain-showroom/,0.03,2,1,0,0,0,1,1,0,0,0,0,1,0,0,,gmc alain,"Transactional, Navigational",0
+https://easyauto.ae/business/adnoc-service-station-khalifa-city-a-south-639/,0.03,4,1,0,1,0,0,0,0,1,0,0,0,0,-101,,adnoc khalifa city,Commercial,0
+https://easyauto.ae/business/al-nakheel-auto-spare-parts/,0.03,2,1,0,1,1,0,0,0,1,0,0,0,0,0,,al nakheel auto spare parts,"Commercial, Informational",0
+https://easyauto.ae/business/kavak-buy-sell-used-cars-dubai/,0.03,2,1,0,0,0,2,0,0,0,0,1,0,0,1,,kavak dubai,Navigational,0
+https://easyauto.ae/business/gargash-auto-multi-brand-car-service-centre-al-quoz-4-dubai/,0.03,16,1,0,2,0,1,0,0,1,0,0,0,0,0,,gargash al quoz,Commercial,0
+https://easyauto.ae/business/dubai-recovery-services-rt/,0.03,3,1,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/cars-accessories-and-wrapping-ajman-uae/,0.03,3,1,0,3,0,0,0,0,1,0,0,0,0,-8,,car accessories ajman,Commercial,0
+https://easyauto.ae/business/iskander-garage/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-al-dana-966/,0,6,0,0,1,0,0,0,0,0,0,0,0,0,0,,adnoc car wash 24 hours,Commercial,0
+https://easyauto.ae/business/mg-motor-showroom-al-ain/,0,7,0,0,1,0,0,0,0,0,0,0,0,0,0,,mg abu dhabi showroom,Commercial,0
+https://easyauto.ae/business/soueast-showroom-sheikh-zayed-road-szr/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-wash-khalifa-city-services/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/international-motoring-club-l-l-c-imc/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/keno-car-wash/,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,,keno car wash,Informational,0
+https://easyauto.ae/business/rana-vehicle-recovery/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-al-raha-144/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/towing-and-roadside-assistance-fujairah-khdm-lfjyr-llstrdd-wlqtr-3/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/nissan-sheikh-zayed-road-dubai-showroom-arabian-automobiles-llc/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/good-steam-auto-center/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mitsubishi-motors-showroom-service-centre-parts-al-ain-al-habtoor-motors-royal-car/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/topaz-detailing-dubai-ppf-detailing-window-tint-car-storage/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,search-gpt,topaz detailing,Commercial,1
+https://easyauto.ae/business/al-qusais-recovery-services/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,,,,0
+https://easyauto.ae/business/al-ain-star-auto-spare-parts-br-2/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/galadari-trucks-heavy-equipment-fujairah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1099/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/parts-gallary-auto-spare-parts-trd-llc-abu-dhabi-br/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/welcome-auto-upholstery/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/smart-repair-auto-services/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-service-station-sanayiyya-942/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/wrapido-car-care-wrapping-ppf-tinting/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-rams-car-wash/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/recovery-mirbah-fujairah/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-recovery-abu-dhabi-6/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/nano-car-tinting-nanoz/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/hino-pickup-truckstoyota-sales-al-futtaim-motors-musaffah-abu-dhabi/,0,3,0,0,0,3,0,0,0,0,0,0,0,0,0,,al futtaim hino,Informational,0
+https://easyauto.ae/business/auto-master-garage/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,auto master fujairah,Informational,0
+https://easyauto.ae/business/saleh-car-care-service-depot/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-yousuf-motors-spare-parts-abu-dhabi/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/frsn-lkhlyj-trkyb-jld-lsyrt-fursaan-al-khaleej-car-wrap-accessories/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-wash/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-alam-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/kenzies-car-wash-detailing/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,kenzie's car wash,Navigational,0
+https://easyauto.ae/business/nad-al-hammar-recovery-service/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tyreplus-auto-spa/,0,1,0,0,0,1,0,1,0,0,0,0,0,0,-4,,tyreplus khalifa city,"Transactional, Informational",0
+https://easyauto.ae/business/lexus-service-center-umm-al-quwain/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/performance-motor-spares-tuning-parts-motorsport-store-in-dubai/,0,4,0,0,0,0,1,0,0,0,0,0,0,0,0,,performance motor spares,Navigational,0
+https://easyauto.ae/business/tyre-express-bin-humaidan-dubai/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,-8,,tyre express garhoud,Informational,0
+https://easyauto.ae/business/arrow-head-auto-repairing-services-l-l-c/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/autotrust-multibrand-used-cars-sharjah/,0,8,0,0,1,1,1,1,0,0,0,0,0,0,0,,autotrust multi brand,"Transactional, Commercial",0
+https://easyauto.ae/business/perfect-car-recovery-general-transport/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-motors-al-ain-lincoln-showroom/,0,2,0,0,0,0,1,1,0,0,0,0,0,0,0,search-gpt,بريمير موتورز العين,"Transactional, Navigational",1
+https://easyauto.ae/business-category/car-wash/page/30/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1085/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1079/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/enzo-car-care-llc-nzw-kr-kyr/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,enzo car care,Navigational,0
+https://easyauto.ae/business/haval-great-wall-showroom-and-service-center-fujairah/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dynatrade-auto-car-repair-service-centre-ruwais-5/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-futtaim-trade-point-al-ain/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/cars24-inspection-center-barsha-heights/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/wahat-al-wafa-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-80/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sparemax-auto-spare-parts-llc-al-nakheel-ras-al-khaimah/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dublin-auto-spare-parts-trading-l-l-c/,0,13,0,0,1,0,0,0,0,0,0,0,0,0,0,,dublin auto,Commercial,0
+https://easyauto.ae/business/car-garage-expert-jvc-br/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1035/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-ayyan-new-spare-parts-tr/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-repair-shop/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ram-abu-dhabi-showroom-trading-enterprises/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/xclusive-car-care-ppf-and-wrapping/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tornado-car-wash/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-recovery-assistance-and-towing-service-dubai/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/full-down-sports-recovery/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,full down recovery,Informational,0
+https://easyauto.ae/business/car-spa-dubai-3-al-qouz/,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,,car spa,Commercial,0
+https://easyauto.ae/business/advantage-auto-spare-parts-umm-al-quwain/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,advantage auto spare parts sharjah,Informational,0
+https://easyauto.ae/business/totalenergies-bin-bader-cars-washing-station/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/automaxx-spare-parts-llc-dubai/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,-3,,automaxx spare parts llc,Navigational,0
+https://easyauto.ae/business/mans-auto-acc-sticker-wrapping-window-tinting/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/the-diamond-arrow-cars-cleaning/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/toyota-showroom-al-wahda-sharjah/,0,7,0,0,0,0,1,1,0,0,0,0,0,0,-1,,toyota al wahda sharjah,"Transactional, Navigational",0
+https://easyauto.ae/business/hexis-training-center/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adavantage-motors-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-mjra-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dublin-auto-spare-parts-trading-l-l-c-branch-1/,0,16,0,0,1,0,1,0,0,0,0,0,0,0,0,,dublin auto spare parts trading,"Commercial, Navigational",0
+https://easyauto.ae/business/dalma-motors/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,dalma motors,Navigational,0
+https://easyauto.ae/business/amc-motors-trading-llc-ajman/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/a-plus-advertising-l-l-c-sign-board-factory/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,aplus advertising,Informational,0
+https://easyauto.ae/business/car-towing-recovery-dubai-sharjah/,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tintingtintppfwrapinstant-windows-tint-auto-acessories-fitting-dubai-uae/,0,15,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-yas-north/,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,,yas car wash,Commercial,0
+https://easyauto.ae/business/al-ruwais-automobile-services-bosch-car-service/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/swaidan-workshop/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/avenue-auto-services/,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,,avenue auto,"Transactional, Informational",0
+https://easyauto.ae/business/volkswagen-service-center-fujairah-al-nabooda-automobiles/,0,7,0,0,1,0,0,0,0,0,0,0,0,0,0,,volkswagen service center fujairah al nabooda automobiles,Commercial,0
+https://easyauto.ae/business/nissan-service-centre-fujairah-arabian-automobiles-llc/,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/page/80/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/the-best-spare-parts-co-wll-al-quoz-branch/,0,11,0,0,1,0,2,0,0,0,0,0,0,0,-1,,best auto parts al quoz,Navigational,0
+https://easyauto.ae/business/dubizzle-cars-hub-musaffah-abu-dhabi/,0,3,0,0,0,1,0,0,0,0,0,0,0,0,0,,067034900,Informational,0
+https://easyauto.ae/business/car-recovery-service-dubai/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mansory-middle-east-l-l-c-dubai/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/zarouni-auto-parts-main-br/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,search-gpt,al zarouni auto spare parts sharjah,Commercial,2
+https://easyauto.ae/business/mg-motor-service-center-abu-dhabi/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,gemini,,,1
+https://easyauto.ae/business/dodge-al-ain-showroom-trading-enterprises/,0,10,0,0,1,0,0,0,0,0,0,0,0,0,0,,trading enterprises dodge,Commercial,0
+https://easyauto.ae/business/exotic-cars-dubai/,0,3,0,0,0,1,0,0,0,0,0,0,0,0,0,,msm 2 building al safa first sheikh zayed rd dubai,Informational,0
+https://easyauto.ae/business/toyota-pre-owned-showroom-al-ain/,0,3,0,0,0,0,1,1,0,0,0,0,0,0,0,,toyota showroom al ain,"Transactional, Navigational",0
+https://easyauto.ae/business/volkswagen-showroom-abu-dhabi/,0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,2
+https://easyauto.ae/business/one-way-car-wash/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/used-car-market-baniyas/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,,,,0
+https://easyauto.ae/business/south-east-auto-new-spare-parts-trading/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/zarouni-auto-parts-br1/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/zarouni-auto-parts-br3/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/totalenergies-al-sir-cars-service-center-br-1/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/volkswagen-showroom-sharjah-al-nabooda-automobiles/,0,18,0,0,0,0,0,1,0,0,0,0,0,0,0,,volkswagen car showroom,Transactional,0
+https://easyauto.ae/business/al-qarib-auto-spare-parts-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/safari-parts/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,safari parts,Informational,0
+https://easyauto.ae/business/parts-gallary-auto-parts-ras-al-khor-br/,0,3,0,0,0,0,1,0,0,0,0,0,0,0,0,,parts gallery,Navigational,0
+https://easyauto.ae/business/al-mahra-car-accessories/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,car accessories ras al khaimah,Commercial,0
+https://easyauto.ae/business/auto-clean-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/totalenergies-al-safeer-auto-polishing-washing/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-care-car-wash-station/,0,9,0,0,0,0,0,0,0,0,0,0,0,0,-3,,,,0
+https://easyauto.ae/business/kia-service-center-fujairah/,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,,وكالة كيا الفجيرة,"Transactional, Informational",0
+https://easyauto.ae/business/acdelco-al-dhaid-auto-spare-parts-center/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/abu-ali-trading-establishment-satwa/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/brake-shop/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/majestic-car-care-ppf-detailing-color-change-window-tinting-dubai/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,,,,0
+https://easyauto.ae/business/zahra-al-hassan-parking-car-wash-company/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sama-al-dhaid-used-auto-tr-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dfsk-abu-dhabi-khalidiyah-showroom-green-motors/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/kenzies-car-wash-mobile-service/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/the-elite-cars-abu-dhabi-brand-new-pre-owned-luxury-cars-showroom/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/umm-alquwain-cars-showroom/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/smart-star-autospare-parts-trading-l-l-c/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/autopro-7511/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/trustndrive-car-repair-workshop-in-mussafah-car-mechanic-auto-body-shop-abu-dhabi/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-sahraa-group/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,al sahraa transport,Navigational,0
+https://easyauto.ae/business/kamdhenu-cars-abu-dhabi-uae-used-premium-second-hand-cars/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/amc-motors-trading-abu-dhabi-branch/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,amc motors,Navigational,0
+https://easyauto.ae/business/al-ghandi-auto-parts-abu-dhabi/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-safeer-used-auto-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dasman-auto-spare-parts-llc-fujairah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/recovery-services-umm-ul-qwain/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/galadari-trucks-heavy-equipment-abu-dhabi/,0,7,0,0,1,0,0,0,0,0,0,0,0,0,0,,galadari abu dhabi,Commercial,0
+https://easyauto.ae/business/tyreplus-ctc-ras-al-khaimah/,0,4,0,0,0,2,0,1,0,0,0,0,0,0,0,,tyreplus ctc deira suzuki تايربلاس المركزية التجارية فرع ديرة سوزوكي,Informational,0
+https://easyauto.ae/business/al-adil-auto-spare-parts-trading-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-service-station-ruwais-housing-complex-987/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,adnoc service station ruwais,Commercial,0
+https://easyauto.ae/business/al-sirag-second-hand-cars-showroom-l-l-c/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/volvo-service-center-abu-dhabi/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/bosch-car-service-golden-workshop-car-repairing/,0,4,0,0,0,2,1,0,0,0,0,0,0,0,0,"gemini, search-gpt",golden workshop,Informational,7
+https://easyauto.ae/business/zarouni-auto-parts-br2/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,al zarouni auto spare parts sharjah,Commercial,0
+https://easyauto.ae/business/sparemax-auto-spare-parts-trading-llc-ajman/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,2
+https://easyauto.ae/business/maqam-carwash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/toyota-showroom-ajman/,0,13,0,0,0,3,3,3,0,0,0,0,0,0,0,search-gpt,ajman toyota showroom,"Transactional, Navigational",1
+https://easyauto.ae/business/alghazal-alabyadh-car-washing/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,-1,,,,0
+https://easyauto.ae/business/al-shatry-american-cars-spare-parts/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/jac-showroom-service-parts-ras-al-khaimah-al-habtoor-motors/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,gemini,,,1
+https://easyauto.ae/business/prowash-85/,0,3,0,0,0,1,0,0,0,0,0,0,0,0,0,,autopro tecom,Informational,0
+https://easyauto.ae/business/the-partfinder-uae-used-car-spare-parts/,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/lamborghini-abu-dhabi/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-faris-auto-spare-parts-llc/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,-1,,al faris auto spare parts llc,Commercial,0
+https://easyauto.ae/business/alzayan-auto-spare-parts-l-l-c/,0,3,0,0,0,0,2,0,0,0,0,0,0,0,0,,al zayan auto spare parts llc,Navigational,0
+https://easyauto.ae/business/gulf-motors-auto-parts-br/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/battmobile-car-battery-replacement-dubai-oil-change-service-in-dubai-car-repair/,0,7,0,0,0,0,1,0,0,0,0,0,0,0,0,,battmobile uae,Navigational,0
+https://easyauto.ae/business/abu-faisal-automotive-parts-llc-opc/,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0,,abu faisal auto spare parts sharjah,Commercial,0
+https://easyauto.ae/business/asghar-garaj-ajman/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mega-motorcycle-spare-parts-trading-llc/,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,gemini,,,1
+https://easyauto.ae/business/two-brothers-used-auto-spare-parts-trading/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/page/160/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/super-shine-car-polishing/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,super shine,Commercial,0
+https://easyauto.ae/business/cars-shine-mobile-car-wash/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sparemax-genuine-auto-spare-parts-al-hayl-fujeirah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/page/169/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-hasani-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-auto-spare-parts-llc-rak-branch/,0,4,0,0,2,0,1,0,0,0,0,0,0,0,0,,premier auto parts llc,Commercial,0
+https://easyauto.ae/business/super-glory-parking-car-washing-company/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,super car wash,Commercial,0
+https://easyauto.ae/business/ajman-car-recovery-service-and-car-towing/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tarif-car-accessories/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-ghandi-auto-service-ras-al-khor-lkndy-llsyrt-mrkz-lsyn-rs-lkhwr/,0,7,0,0,0,1,3,3,0,0,0,0,0,0,0,,al ghandi service ras al khor,"Transactional, Navigational",0
+https://easyauto.ae/business/quick-cool-refrigeration-ac-spare-parts-supplier-in-abu-dhabi/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/national-auto-fiat-abarth-showroom/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,search-gpt,,,2
+https://easyauto.ae/business/infiniti-certified-used-cars-sheikh-zayed-road/,0,6,0,0,0,2,0,2,0,0,0,0,0,0,0,,infiniti certified pre owned cars,"Transactional, Informational",0
+https://easyauto.ae/business/al-sharooq-car-wash/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,,car wash umm al quwain,Commercial,0
+https://easyauto.ae/business/al-sharq-car-washmusaafah/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-50,,,,0
+https://easyauto.ae/business/remal-dubai-auto-accessories-trdg/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-tayer-motors-jaguar-showroom-fujairah/,0,3,0,0,0,1,0,1,0,0,0,0,0,0,0,,al tayer motors fujairah,"Transactional, Informational",0
+https://easyauto.ae/business/kia-showroom-rak-maard-ky-rs-lkhym/,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,,kia rak,Transactional,0
+https://easyauto.ae/business/recovery-services-umm-all-quain/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/nxt-used-cars-umm-suqeim-st/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/foil-my-car/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/green-motors-auto-tech-jryn-mwtwrz/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,green motors dubai,Navigational,0
+https://easyauto.ae/business/korean-auto-parts-hyundai-and-kia/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/liberty-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-musaffah-auto-parts/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/my-parking-car-wash-services/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-73/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/euro-experts-auto-services/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/new-faisalabad-general-transport-car-recovery/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-safa-car-wash-polishing-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/united-motors-heavy-equipment-co-l-l-c-abu-dhabi-branch-street-16-m35-man-trucks-buses-wacker-neuson-yale-mrf/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-naboodah-goodyear-autocare/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/toyota-showroom-ras-al-khaimah/,0,4,0,0,0,0,1,1,0,0,0,0,0,0,0,,toyota showroom ras al khaimah,"Transactional, Navigational",0
+https://easyauto.ae/business/flex-car-wash-polish-detailing/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/renault-sharjah-showroom-arabian-automobiles-llc/,0,4,0,0,0,0,2,1,0,0,0,0,0,0,0,,renault sharjah,Navigational,0
+https://easyauto.ae/business/tristar-trading-company-br/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/page/368/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/landmark-int-auto-spare-parts-trading-llc-al-quoz-dubai/,0,4,0,0,0,0,1,0,0,0,0,0,0,0,0,search-gpt,landmark auto spare parts dubai,Navigational,1
+https://easyauto.ae/business/auto-clean-car-washing/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/rak-recovery-services-24-7/,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,,rak recovery service,Commercial,0
+https://easyauto.ae/business/mitsubishi-motors-showroom-mussafah-abu-dhabi-al-habtoor-motors-royal-car/,0,27,0,0,1,2,4,4,0,0,0,0,0,0,0,,الحبتور موتورز رويال كار صالة عرض ميتسوبيشي أبوظبي,"Transactional, Navigational",0
+https://easyauto.ae/business/toyota-showroom-dfc/,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,,toyota showroom festival city,"Transactional, Informational",0
+https://easyauto.ae/business/hyundai-showroom-abu-dhabi/,0,9,0,0,0,1,1,0,0,0,0,0,0,0,0,,hyundai showroom abu dhabi,"Navigational, Informational",0
+https://easyauto.ae/business/al-nayef-car-accessories-car-battery-electronics-repairing/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ring-road-auto-spare-parts-tr-llc-hyundai-kia-ajman/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-dubai-hills-526/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/flat-tyre-service-24-7-tyre-fixer-dubai/,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/evergreen-autozone-spare-parts-trading-llc/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,autozone spare parts,Navigational,0
+https://easyauto.ae/business/recovery-and-towing-service-dubai/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/abc-used-cars-96/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ajman-recovery-service-wnsh-aajmn-rykfry-lkhdmt-syrt/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,ajman recovery,Commercial,0
+https://easyauto.ae/business/landmark-int-auto-spare-parts-trading-llc-ajman/,0,3,0,0,1,0,1,1,0,0,0,0,0,0,0,,landmark ajman,"Transactional, Commercial",0
+https://easyauto.ae/business/tuning-uae-customs-garage-body-shop/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ag-cars-services-llc-rak/,0,9,0,0,0,0,1,0,0,0,0,0,0,0,0,,ag cars ras al khaimah,Navigational,0
+https://easyauto.ae/business/kia-showroom-mussafah-maard-ky-lmsfh/,0,5,0,0,0,0,1,1,0,0,0,0,0,0,0,,kia showroom mussafah,"Transactional, Navigational",0
+https://easyauto.ae/business/kamdhenu-cars-dubai-uae-used-cars-in-dubai-uae/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-dawali-car-accessories/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/drive-zone-auto-parts-car-accessories/,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,,car zone abu dhabi,Informational,0
+https://easyauto.ae/business/lexus-body-shop-mrkz-slh-hykl-lsyr-w-ldhn-lkzs/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/we-buy-cars-dxb-sell-any-car-to-us/,0,4,0,0,1,0,1,0,0,0,0,0,0,0,0,,webuycars dxb,"Commercial, Navigational",0
+https://easyauto.ae/business/belhasa-motors-company-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/speedway-auto-spare-parts-ajman-br/,0,3,0,0,0,0,1,0,0,0,0,0,0,0,0,,speedway auto spare parts,Navigational,0
+https://easyauto.ae/business/hyderabad-car-wash-sharjah/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,car wash in sharjah industrial area,Commercial,0
+https://easyauto.ae/business/lexus-showroom-dubai-szr/,0,9,0,0,0,2,3,2,0,0,0,0,0,0,0,,lexus sheikh zayed road,Navigational,0
+https://easyauto.ae/business/landmark-int-auto-spare-parts-llc-umm-ramool-dubai/,0,12,0,0,0,0,3,0,0,0,0,0,0,0,0,google-ai,landmark auto spare parts dubai,Navigational,1
+https://easyauto.ae/business/ayaz-muhammad-american-used-auto-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1666/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-ras-auto-ac-spare-parts/,0,11,0,0,0,0,1,0,0,0,0,0,0,0,0,,al ras ac parts,Navigational,0
+https://easyauto.ae/business/abu-mohd-used-auto-parts/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/perfect-sign-auto-spare-partsmussafahauto-ac-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/elegant-car-wash-polishing-office/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/new-best-auto-spare-parts-co-llc/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/lexus-showroom-sharjah/,0,8,0,0,0,0,1,1,0,0,0,0,0,0,0,,lexus showroom sharjah,"Transactional, Navigational",0
+https://easyauto.ae/business/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/suzuki-showroom-abu-dhabi/,0,9,0,0,0,0,1,0,0,0,0,0,0,0,-1,,al rostamani suzuki,Navigational,0
+https://easyauto.ae/business/adnoc-service-station-al-jeemi-857/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/volkswagen-showroom-fujairah-al-nabooda-automobiles/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/kenzies-car-washing-detailing-services/,0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,,kenzie's car wash,Navigational,0
+https://easyauto.ae/business/al-asrar-auto-spare-parts-trading/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/public-spare-parts-br-2/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/auto-koroosh-3m-authorized-auto-care/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,-2,search-gpt,,,3
+https://easyauto.ae/business/popular-auto-parts-top-car-spare-parts-automobile-accessories-supplier-in-abu-dhabi-uae/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,,,,0
+https://easyauto.ae/business/al-yad-auto-spare-parts-trading-llc/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/toyota-showroom-umm-al-quwain/,0,7,0,0,0,0,1,0,0,0,0,0,0,0,0,,toyota umm al quwain,Navigational,0
+https://easyauto.ae/business/al-murshidi-workshop/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-auto-parts-llc-shj/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/model-automotive-parts-est-m8-branch/,0,5,0,0,0,1,0,1,0,0,0,0,0,0,0,,model auto spare parts sharjah,"Transactional, Informational",0
+https://easyauto.ae/business/mercedes-benz-showroom-emc/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-barakah-auto-spare-parts-llcbr2-lbrk-lqtaa-gyr-lsyrt-lsly/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-marjan-rent-cars-ras-al-khaimah-rak/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/gargash-mercedes-amg-store/,0,18,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/exotic-car-care-abu-dhabi-detailing-polishing-ppf-tinting-ceramic-coating/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/chinese-car-parts-l-l-c-ajman-branch/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/project-cars/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/carry-on-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/blue-sky-car-wash-mussafah-10/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/majid-al-majid-auto-spare-parts-trading-llc-auto-spare-parts-company-sharjah-best-auto-spare-parts-shop-in-sharjah/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-recovery-sharjah/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/model-automotive-parts-est-m7/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/first-hand-car-wash/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/naoki-automotive-systems-llc-showroom/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,naoki automotive systems llc,Navigational,0
+https://easyauto.ae/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/topgear-detailing-ajman-car-tinting-car-polishing-ceramic-coating-and-ppf/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,,car tinting ajman,Commercial,0
+https://easyauto.ae/business/chinese-car-parts-dubai/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/abdullah-al-hammadi-auto-spare-parts-trading/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/europcar-sharjah-office/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-ihsan-car-used-new-spare-parts-car-a-c-electrical-mechanical-works-m-23-lhsn-lqtaa-gyr-lsyrt-lmstaaml-msfh/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/renault-al-ain-service-center-al-masaood-automobiles/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/popular-auto-parts-automobile-accessories-car-auto-spare-parts-supplier-retailer-in-abu-dhabi-uae/,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/spider-auto-spare-parts-trdg/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,spider auto spare parts,Informational,0
+https://easyauto.ae/business/ghayar-auto-spare-parts-head-office/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/farman-ahmad-noshad-new-auto-spare-parts-tr/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tareeq-al-khaleej-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/private-car-center/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/car-wash/page/65/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/landmark-int-auto-spare-parts-trading-llc-ras-al-khaimah/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sharjah-auto-world-preowned-cars/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,,auto car world,Commercial,0
+https://easyauto.ae/business/right-way-garage-auto-repairs-denting-painting-garage-in-dubai/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/car-wash/page/46/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-boom-for-cars-new-space-parts-ajman/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mini-cooper-abu-dhabi-motors-khalidiya-showroom/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mukhtar-ahmad-used-cars-tr-cars-auctions-l-l-c-s-p/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/citytrack-cars-services-detailing-bodyshop/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,2
+https://easyauto.ae/business/car-dezire-best-car-detailing-and-ceramic-coating-centre-in-fujairah/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sharjah-recovery-services/,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/turbo-spa-mobile-car-wash/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/totalenergies-al-sir-cars-service-center-br-2/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/suzuki-service-parts-center-ras-al-khaimah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-yarmouk-cars-towing-servicelyrmwk-llqtr-lsyrt/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-al-madina-929/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/auto-repair-shop/page/16/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,,,,0
+https://easyauto.ae/business/dx-garage-i-car-repair-garage-in-al-quoz-dubai-car-service-center-near-barsha/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,dx garage,Navigational,0
+https://easyauto.ae/business/mohammed-abdulmannan-used-auto-spare-parts-tr-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/best-spare-parts-wll/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-yousuf-motors-spare-parts-dubai/,0,14,0,0,0,0,0,0,0,0,0,0,0,0,-2,search-gpt,,,1
+https://easyauto.ae/business/mitsubishi-motors-showroom-szr-dubai-al-habtoor-motors/,0,53,0,0,2,2,4,3,0,0,0,0,0,0,0,,توكيل ميتسوبيشي الامارات,Navigational,0
+https://easyauto.ae/business/perfect-clean-car-washing-station/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/nissan-fujairah-showroom-arabian-automobiles-llc/,0,6,0,0,1,0,0,0,0,0,0,0,0,0,0,,nissan showroom fujairah,Commercial,0
+https://easyauto.ae/business/mazda-service-al-ain-galadari-automobiles/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-mazaya-auto-spare-parts-llc/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,al mazaya auto spare parts,Navigational,0
+https://easyauto.ae/business/pro-touch-car-washing/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-car-wash-auto-and-manual-washing/,0,4,0,0,0,0,0,1,0,0,0,0,0,0,0,,adnoc car wash sharjah,Transactional,0
+https://easyauto.ae/business/fast-car-recovery-service/,0,4,0,0,0,0,1,0,0,0,0,0,0,0,0,,fast car recovery,Navigational,0
+https://easyauto.ae/business/akmal-auto-parts-alain-branch/,0,5,0,0,0,0,1,0,0,0,0,0,0,0,0,,akmal group sharjah,Navigational,0
+https://easyauto.ae/business/al-taqwa-auto-spare-parts-trading/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/gg-recovery-24-7-car-recovery-dubai-sharjah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mini-cooper-abu-dhabi-motors-showroom/,0,3,0,0,0,0,1,0,0,0,0,0,0,0,0,,mini cooper abu dhabi motors showroom,Navigational,0
+https://easyauto.ae/business/bentley-emirates/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,4
+https://easyauto.ae/business/baghdad-auto-spare-parts-l-l-c/,0,6,0,0,1,1,0,0,0,0,0,0,0,0,0,,baghdad auto spare parts sharjah,"Commercial, Informational",0
+https://easyauto.ae/business/al-khubaizi-motor-cycles-co-llc-rak-branch/,0,4,0,0,0,0,2,0,0,0,0,0,0,0,0,,al khubaizi motorcycle,Navigational,0
+https://easyauto.ae/business/mini-agmc/,0,4,0,0,0,0,1,0,0,0,0,0,0,0,0,,agmc mini,Navigational,0
+https://easyauto.ae/business/first-class-car-wash-al-markhaniya/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-hero-mobile-tire-repair-fitting-and-battery-24-hours-emergency-services/,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-omran-auto-spare-parts-trading/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/armolan-polyester-insulation-and-protection-materials-trading-llc-window-tinting-paintprotection-film-ppf-nano-ceramic/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dream-racing-llc/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-lamah-used-auto-spare-parts-trading/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dynatrade-auto-car-repair-service-centre-al-ain/,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,search-gpt,dynatrade al ain,"Transactional, Informational",1
+https://easyauto.ae/business/tibao-auto-spare-parts-sharjah/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,,,,0
+https://easyauto.ae/business/galaxy-german-auto-spare-parts-l-l-c/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/elite-shine-ras-al-khor/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/car-mods-modification-accessories-best-car-ppf-car-wrapping-services-in-dubai/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/nissan-service-center-al-ain-al-masaood-automobiles/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/one-of-one-auto-repairing/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ardah-al-sadaah-used-auto-spare-parts-bmw/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/bright-moon-auto-repair-workshop-l-l-c/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/deutsche-technik-dubai/,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,,dt service centre dubai,"Navigational, Informational",0
+https://easyauto.ae/business/jac-showroom-service-center-al-ain-al-habtoor-motors-royal-car/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/beda-zayed-car-recovery/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/lavarlo-car-detailing/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/care-auto-repair-services/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-showroom/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/protech-battery-and-auto-accessories-abu-dhabi-uae/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-recovery-service-car-towing-service-near-me-2/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/maxus-showroom-swaidan-trading-company-llc/,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/khf-automotive-trading-l-l-c-abu-dhabi/,0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,search-gpt,khf,Navigational,1
+https://easyauto.ae/business/popular-auto-parts-automobile-accessories-top-auto-spare-parts-supplier-retailer-company-in-sharjah-uae/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/noor-al-najah-auto-parts-trading/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/public-spare-parts-shop-main-branch-republic-auto-parts/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,public auto spare parts,Commercial,0
+https://easyauto.ae/business/ahmad-car-recovery-solution/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/profix-auto-care-garage/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,profix auto care,Informational,0
+https://easyauto.ae/business/gulf-auto-spare-parts-trading-l-l-c/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tire-ae-baniyas-abu-dhabi/,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-qamar-auto-spare-parts-trading-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/emarat-al-ebdaa/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/al-rashed-tyre-fujairah-automo/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/car-wash/page/41/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ajman-recovery-services-zulfiqar/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-motors-jaguar-showroom-rowdhat-abu-dhabi/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,premier motors,Navigational,0
+https://easyauto.ae/business/nano-car-tinting-nanoz-dubai-al-quoz-branch/,0,6,0,0,0,1,2,1,0,0,0,0,0,0,0,,نانوز,Navigational,0
+https://easyauto.ae/business/suzuki-showroom-fujairah/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/naveed-recovery-service/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-tayer-motors-ford-al-barsha-pre-owned/,0,20,0,0,0,1,5,4,0,0,0,0,0,0,0,,al tayer motors al barsha,Navigational,0
+https://easyauto.ae/business/ahlan-auto-spare-parts-llc/,0,6,0,0,0,1,0,0,0,0,0,0,0,0,0,,al rams auto spare parts,Informational,0
+https://easyauto.ae/business/land-rover-authorised-repairer-premier-motors/,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-motors-al-ain-ford-showroom/,0,3,0,0,0,0,1,0,0,0,0,0,0,0,0,search-gpt,premier motors dubai,Navigational,1
+https://easyauto.ae/business/autopro-7775/,0,3,0,0,0,0,2,1,0,0,0,0,0,0,0,,autopro 7177,Navigational,0
+https://easyauto.ae/business/kassab-car-recovery-services/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,car recovery service ajman,Commercial,0
+https://easyauto.ae/business/wrapstyle-dubai-uae-car-wrapping-company/,0,6,0,0,0,0,3,0,0,0,0,0,0,0,0,,wrapstyle dubai,Navigational,0
+https://easyauto.ae/business/go7-car-wash-detailing-studio/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,,car wash international city,Commercial,0
+https://easyauto.ae/business/arabian-automobile-association/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-khalid-auto-spare-parts-trading/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/arabian-cars-tyres-trading-ras-al-khaimah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,-5,,,,0
+https://easyauto.ae/business/ashok-leyland-bus-swaidan-trading-co-llc-al-naboodah-abudhabi/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/safari-prime-car-wash-station/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/page/362/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-ain-star-auto-spare-parts-abu-dhabi-njm-laayn-lqtaa-gyr-lsyrt-bw-zby/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/steer-well-auto-sharjah-branch-no-26/,0,8,0,0,0,0,1,0,0,0,0,0,0,0,0,search-gpt,steer well auto,Navigational,3
+https://easyauto.ae/business/adnoc-auto-car-wash-al-nakheel-586/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/emarat-al-ataa/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/aarya-premium-auto-ev-german-car-repair-abu-dhabi/,0,3,0,0,1,0,1,0,0,0,0,0,0,0,0,,aarya auto repairs abu dhabi,"Commercial, Navigational",0
+https://easyauto.ae/business/total-majan-grand-station/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/jac-showroom-abu-dhabi-al-habtoor-motors-royal-car/,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/ajmal-cars-new-spare-parts-trading/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/recovery-services-umm-al-quwain/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/totalenergies-al-nakhla-car-wash/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/fast-tire-service-24-7-tire-repair-new-tires-battery/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,24 7 tire shop near me,Commercial,0
+https://easyauto.ae/business/famous-heavy-equipment-spare-parts-trading-branch/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,superlink heavy equipment spare parts trading,Informational,0
+https://easyauto.ae/business/bestune-al-khalid-auto/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/jac-showroom-service-parts-musaffah-abu-dhabi-al-habtoor-motors-royal-car/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/landmark-int-auto-spare-parts-trading-llc-al-dhaid-sharjah/,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,,لاند مارك الشارقة,Informational,0
+https://easyauto.ae/business/princess-cars/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,search-gpt,princess cars dubai,Navigational,1
+https://easyauto.ae/business/diablofoil-car-wrapping-ppf-detailing-experts-dubai-complete-car-styling-studio/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/car-wash/page/67/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-9,,,,0
+https://easyauto.ae/business/al-ruqaa-al-khadra-auto-spare-parts-trading-llc/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,al ruqaa,Navigational,0
+https://easyauto.ae/business/auto-mart-car-accessories-l-l-c/,0,4,0,0,0,1,0,0,0,0,0,0,0,0,0,,auto mall car accessories,Informational,0
+https://easyauto.ae/business/tesla-city-center-mirdif-pop-up-dubai/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/auto-mart-motors/,0,3,0,0,1,1,1,0,0,0,0,0,0,0,0,,auto mart,"Commercial, Navigational",0
+https://easyauto.ae/business/smart-car-care/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-yousuf-motors-spare-parts-rak/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/popular-auto-parts-automotive-spare-parts-company-spare-parts-suppliers-in-musaffah-abu-dhabi/,0,23,0,0,1,0,0,0,0,0,0,0,0,0,0,,popular auto parts mussafah,Commercial,0
+https://easyauto.ae/business/master-class-auto-service-center/,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,,master automotive service center,Informational,0
+https://easyauto.ae/business/royal-track-auto-accessories-window-tinting-upholstery-sharjah/,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/alfahim-motors-lfhym-llsyrt/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/baghdad-al-jadeed-auto-spare-parts-tr-l-l-c/,0,7,0,0,1,0,0,0,0,0,0,0,0,0,0,,baghdad auto spare parts sharjah,Commercial,0
+https://easyauto.ae/business/lexus-showroom-al-ain/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/ajman-car-towing-service-near-me-car-recovery-service/,0,5,0,0,1,0,0,0,0,0,0,0,0,0,0,,car recovery service ajman,Commercial,0
+https://easyauto.ae/business/al-athbah-auto-spare-parts-tr/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/suzuki-showroom-sharjah/,0,7,0,0,0,1,3,4,0,0,0,0,0,0,0,,وكالة السوزوكي الشارقة,Transactional,0
+https://easyauto.ae/business/elite-auto-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/lexus-showroom-rak/,0,5,0,0,0,1,0,1,0,0,0,0,0,0,0,,lexus ras al khaimah,"Transactional, Informational",0
+https://easyauto.ae/business/mg-motor-service-center-fujairah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/leen-smart-auto-repairing-workshop/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/popular-auto-parts-automobile-accessories-top-auto-spare-parts-supplier-retailer-company-in-dubai-uae/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/gulf-motors-auto-parts/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,gulf motors,Navigational,0
+https://easyauto.ae/business/ghayar-auto-spare-parts-al-quoz-branch/,0,7,0,0,4,0,0,0,0,0,0,0,0,0,0,,car spare parts al quoz,Commercial,0
+https://easyauto.ae/business/3m-expert-touch-car-care/,0,8,0,0,1,0,0,0,0,0,0,0,0,0,0,gemini,3m sharjah,Commercial,1
+https://easyauto.ae/business-category/car-wash/page/45/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/porsche-centre-sharjah-al-nabooda-automobiles-llc/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/suzuki-service-parts-centre-abu-dhabi/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,-1,,,,0
+https://easyauto.ae/business/al-zeen-rent-a-car-ras-al-khaimah/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/fix-my-car-auto-repair/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mitsubishi-motors-service-parts-al-quoz-dubai-al-habtoor-motors/,0,49,0,0,2,3,3,5,0,0,0,0,0,0,0,,al habtoor mitsubishi spare parts dubai,Transactional,0
+https://easyauto.ae/business/al-deyar-auto-spare-parts/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/lexus-showroom-ajman/,0,4,0,0,0,1,1,2,0,0,0,0,0,0,0,,lexus showroom ajman,Transactional,0
+https://easyauto.ae/business/seres-abu-dhabi-khalidiyah-showroom-green-motors/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/liberty-car-care-al-shamkha/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,liberty tyre center,Navigational,0
+https://easyauto.ae/business/royal-auto-garage/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/park-lane-motors/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/coops-auto-used-spare-parts-trading/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/febest-middle-east-fze/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,febest dubai,Navigational,0
+https://easyauto.ae/business/al-ain-car-recovery-roadside-assistance/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/first-gear-car-polish-and-cleaning/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/popular-auto-parts-automobile-accessories-car-auto-spare-parts-supplier-retailer-in-mussafah-abu-dhabi/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-humaid-car-washing/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/jeep-ras-al-khaimah-showroom-trading-enterprises/,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/motorworks-auto-garage-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/golden-mart-automotive/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/eco-friendly-car-wash/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-souq-ajman-889/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sellanycar-fujairah-city-centre/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/alhattab-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1077/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-haram-auto-services/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/matar-auto-spare-parts-equib-company-br-1-al-ain-abu-dhabi/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/jahan-auto-repair-llc/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/page/247/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/smart-auto-care-swaidan-trading-co/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/page/323/?post_type=business,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/grace-cars-care/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/volkswagen-showroom-mussafah-new-and-certified-used-cars/,0,17,0,0,3,2,0,0,0,0,0,0,0,0,-3,search-gpt,vw mussafah,Commercial,2
+https://easyauto.ae/business-category/car-wash/page/20/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,easy car wash,Commercial,0
+https://easyauto.ae/business/speedway-auto-spare-parts-trd-llc-auh-br1/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/abu-dhabi-car-wash-and-detailing/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-habtoor-motors-company-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-garage-expert-downtown-br/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/clever-car-recovery-service/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/auto-experts-vehicle-maintenance/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-aswar-spare-parts-llc-br4/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/bmw-abu-dhabi-motors-al-ain-showroom/,0,12,0,0,0,1,1,0,0,0,0,0,0,0,0,,abu dhabi motors al ain,"Navigational, Informational",0
+https://easyauto.ae/business/adnoc-auto-car-wash-samnan-799/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/car-wash/page/66/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/popular-auto-parts-top-auto-spare-parts-automobile-accessories-supplier-in-abu-dhabi-uae/,0,8,0,0,0,0,0,0,0,0,0,0,0,0,-5,,,,0
+https://easyauto.ae/business/classic-vehicles-recovery-rak/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,recovery vehicle ras al khaimah,Commercial,0
+https://easyauto.ae/business/3m-union-coop-3m-tint-authorized-applicator/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/akmal-auto-spare-parts-trading-llc/,0,6,0,0,0,1,4,0,0,0,0,0,0,0,0,,akmal auto spare parts,Navigational,0
+https://easyauto.ae/business/roadside-assistance-dubai/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/renault-abu-dhabi-airport-road-showroom-al-masaood-automobiles/,0,5,0,0,0,0,2,0,0,0,0,0,0,0,0,,renault abu dhabi,Navigational,0
+https://easyauto.ae/business/bab-al-bostan-auto/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,bab al bustan,Commercial,0
+https://easyauto.ae/business/nissan-service-center-khorfakkan-arabian-automobiles-llc/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,arabian automobiles service center,Commercial,0
+https://easyauto.ae/business/adnoc-auto-car-wash-al-taawan-183/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/zarouni-auto-parts-jaz-auto-spare-parts-trd-llc-ras-al-khaimah-br/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/kenz-car-wash-knz-lgsyl-lsyrt/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/fountain-blue-auto-repairing/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-futtaim-auto-centers-ajman/,0,4,0,0,2,0,0,0,0,0,0,0,0,0,0,,al futtaim ajman service center,Commercial,0
+https://easyauto.ae/business/best-auto-parts-store-m9/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/abu-hetta-motors-ajman/,0,2,0,0,0,0,2,0,0,0,0,0,0,0,0,,abu hetta motors fzco,Navigational,0
+https://easyauto.ae/business/al-zahraa-al-jadeeda-auto-spare-parts-trading-llc/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-yas-south-687/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/beta-auto-spare-parts-tr-centre/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/new-diamond-palace-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dubai-cars-towing-and-recovery/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-futtaim-honda-retail-parts-umm-al-quwain/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-mariya-design-spot-printing-advertising/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/divya-auto-spare-parts-trading-llc-ajman/,0,10,0,0,0,0,0,0,0,0,0,0,0,0,-1,,,,0
+https://easyauto.ae/business/al-aswar-auto-spare-parts-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sellanycar-rak-manar-mall/,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,,sell any car review,Informational,0
+https://easyauto.ae/business/mumtaz-auto-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/model-automotive-parts-est-al-ain-branch/,0,5,0,0,0,0,1,0,0,0,0,0,0,0,0,,model automotive parts,Navigational,0
+https://easyauto.ae/business/bmw-abu-dhabi-showroom/,0,3,0,0,0,1,1,1,0,0,0,0,0,0,0,search-gpt,bmw umm al nar abu dhabi,"Transactional, Navigational",1
+https://easyauto.ae/business/al-saqaya-auto-spare-parts-br-1/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/page/354/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-mizan-al-thahabi-auto-spare-parts-llc-rak/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,al mizan al thahabi auto spare parts llc sharjah,Navigational,0
+https://easyauto.ae/business/porsche-centre-al-ain-new-cars-showroom/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/honda-umm-al-nar-showroom-trading-enterprises/,0,9,0,0,0,3,2,3,0,0,0,0,0,0,0,,honda showroom abu dhabi,"Transactional, Informational",0
+https://easyauto.ae/business-category/auto-care-products-store/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-14,,,,0
+https://easyauto.ae/business/ashraf-car-towing-car-recovery-service-ajman/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/galadari-preowned-car-showroom-deira-dubai/,0,3,0,0,0,0,1,0,0,0,0,0,0,0,-2,,galadari used cars dubai,Navigational,0
+https://easyauto.ae/business/al-heera-auto-spare-parts-trading-l-l-c/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,al shera car accessories,Commercial,0
+https://easyauto.ae/business-category/car-wash/page/70/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/maxus-showroom-sharjah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/umm-al-quwain-recovery-service-m-lqywyn-wnsh-rykfry-lqtr-lsyrt/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/vehicle-impound-yard-baniyas/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/spare-parts-mussafah/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-noor-auto-spare-parts-llc-sharjah-uae-land-rover-parts-range-rover-parts-discovery-parts-and-jaguar-parts-supplier/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/famous-auto-used-spare-parts-tradings-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/infiniti-centre-sharjah-arabian-automobiles-llc/,0,5,0,0,1,0,0,0,0,0,0,0,0,0,0,,infiniti parts sharjah,Commercial,0
+https://easyauto.ae/business/jeep-sharjah-showroom-trading-enterprises/,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/sparemax-auto-spare-parts-llc-musaffah-industrial-m-8-abu-dhabi/,0,10,0,0,3,0,0,0,0,0,0,0,0,0,0,,toyota spare parts mussafah,Commercial,0
+https://easyauto.ae/business/adnoc-service-station-mahawi-north-163/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-rahmaniyah-auto-spare-parts/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/mobile-carwash-khalifa-city/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,car wash khalifa city,Commercial,0
+https://easyauto.ae/business/fit-well-auto-parts-dubai/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/volkswagen-service-centre-al-ain/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/expat-autos-certified-pre-owned/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-car-wash-auto-and-manual-washing-2/,0,13,0,0,1,1,0,0,0,0,0,0,0,0,-12,,adnoc car wash abu dhabi,"Commercial, Informational",0
+https://easyauto.ae/business/mini-cooper-abu-dhabi-motors/,0,6,0,0,0,0,2,0,0,0,0,0,0,0,0,,mini cooper abu dhabi motors showroom,Navigational,0
+https://easyauto.ae/business/car-fair-deal/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,car fair deal,Navigational,0
+https://easyauto.ae/business/al-yamama-automobiles/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/autozone-uae/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/gulf-coast-used-cars-tr-llc-s-p/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/nissan-fleet-showroom-musaffah-al-masaood-automobiles/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/auto-world-general-trading-l-l-c-body-kits-spare-parts-dubai-shop-1/,0,3,0,0,0,2,0,0,0,0,0,0,0,0,0,,auto world general trading llc,Informational,0
+https://easyauto.ae/business/totalenergies-wellcome-car-washing-cleaning/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/aston-martin-showroom-dubai/,0,6,0,0,0,2,0,2,0,0,0,0,0,0,0,,aston martin showroom dubai,"Transactional, Informational",0
+https://easyauto.ae/business/juma-al-majid-est-hyundai-genesis-service/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/recovery-services-rak/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-al-maqam-862/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/souq-al-haraj-phase-2/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,-6,,,,0
+https://easyauto.ae/business/nissan-showroom-najda-al-masaood-automobiles/,0,8,0,0,0,5,2,1,0,0,0,0,0,0,0,,nissan showroom abu dhabi najda,Informational,0
+https://easyauto.ae/business/chery-abu-dhabi-service-center-awr-motors-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/nissan-dibba-showroom-arabian-automobiles-llc/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-auto-parts-llc-branch/,0,6,0,0,1,0,0,0,0,0,0,0,0,0,0,,premier auto parts al quoz,Commercial,0
+https://easyauto.ae/business/perfect-cars-used-car-dealers-in-abu-dhabi/,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/the-best-spare-parts-co-llc-dubai-branch/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/national-auto-spare-parts/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,,national auto spare parts,Commercial,0
+https://easyauto.ae/business/fasttrack-emarat-bawadi-mall-alain/,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,,fast track al ain,"Navigational, Informational",0
+https://easyauto.ae/business/renault-ras-al-khaimah-showroom-arabian-automobiles-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/chrysler-abu-dhabi-showroom-trading-enterprises/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,"gemini, search-gpt",,,2
+https://easyauto.ae/business/popular-auto-parts-auto-parts-suppliers-top-auto-spare-parts-supplier-retailer-company-in-musaffah-abu-dhabi/,0,16,0,0,4,1,3,2,0,0,0,0,0,0,0,,popular auto parts sharjah,Commercial,0
+https://easyauto.ae/business/buyanycar-com-al-ain-al-ain-mall/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/alahla-auto-spare-parts-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/korea-auto-parts-hyundai-and-kia-abu-dhabi/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/cars24-abu-dhabi-centre-buy-sell-used-cars/,0,4,0,0,0,0,1,1,0,0,0,0,0,0,0,,cars24 abu dhabi,"Transactional, Navigational",0
+https://easyauto.ae/business/popular-corner-auto-spare-tr/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/bosch-car-service-liberty-car-care-mushrif/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-shaheen-al-arabi-auto-spare-parts-trading/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/grand-city-auto-services-car-tire-shop-car-repair-car-service-in-al-quoz-dubai/,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/amc-motors-trading-llc-ras-al-khaimah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,1
+https://easyauto.ae/business/dunlop-service-center-al-ain-branch/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/totalenergies-al-bader-cars-washing-station-br-1/,0,4,0,0,2,0,0,1,0,0,0,0,0,0,0,,total oil change near me,Commercial,0
+https://easyauto.ae/business/al-futtaim-automall-trade/,0,16,0,0,1,1,5,0,0,0,0,0,0,0,-18,,sharjah auto mall,Navigational,0
+https://easyauto.ae/business/popular-auto-parts-spare-parts-suppliers-top-car-parts-supplier-company-in-abu-dhabi-uae/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dexol-sharjah/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,dexol sharjah reviews,Informational,0
+https://easyauto.ae/business/recovery-in-umm-al-quwain-m-lqwyn-wnsh-rkhfry-qtr-lsyrt/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/s-r-hybrid-auto-repair-workshop/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-mulla-automobiles-service-center/,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,,الملا للسيارات الفجيرة,"Transactional, Informational",0
+https://easyauto.ae/business/car-wash-rasalkhor/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/union-motors-changan-autos/,0,4,0,0,1,0,2,0,0,0,0,0,0,0,0,,union motors uae,Navigational,0
+https://easyauto.ae/business/nxt-used-cars-sharjah/,0,6,0,0,0,0,3,0,0,0,0,0,0,0,0,,awr used cars,Navigational,0
+https://easyauto.ae/business/toyota-service-center-madinat-zayed/,0,14,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-anoor-auto-garage-best-garage-in-umm-al-quwain-uae-al-raffah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/scrap-car-buyer-abu-dhabi/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/bright-spark-auto-repairing-musaffah/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,search-gpt,,,2
+https://easyauto.ae/business/aswar-al-dhaid-auto-used-cars-and-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/maymoon-auto-spare-parts-co-ras-al-khor-dubai/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,google-ai,car accessories ras al khor,Commercial,1
+https://easyauto.ae/business/al-ajwa-auto-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/scrap-car-buyer-dubai-mshtry-lsyrt-lkhrd-dby-judhur-al-tahalib/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/elite-international-motors-abu-dhabi-land-rover-and-jaguar-spare-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/adnoc-auto-car-wash-zayed-stadium-914/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/aaa-middle-east/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dubai-sharjah-recovery-service/,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/speedy-car-recovery-service/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/quality-motor-parts-llc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/queen-filter-trading-llc-rak-br/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,search-gpt,queen filter trading llc,Navigational,1
+https://easyauto.ae/business/digital-auto-accessories-battery-trading-abu-dhabi/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/new-best-auto-spare-parts-co-ll-dip/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/xpeng-uae-showroom-gulf-star-motors-ali-sons/,0,3,0,0,2,0,0,0,0,0,0,0,0,0,0,,star motors,Commercial,0
+https://easyauto.ae/business-category/car-accessories-store/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/land-rover-approved-al-barsha-showroom/,0,14,0,0,0,1,0,0,0,0,0,0,0,0,0,,jaguar approved al barsha showroom,Informational,0
+https://easyauto.ae/business/car-recovery-services-al-quoz/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-motors-al-ain-jaguar-showroom/,0,6,0,0,1,1,0,1,0,0,0,0,0,0,0,,jaguar car showroom,"Transactional, Commercial",0
+https://easyauto.ae/business/popular-auto-parts-automobile-accessories-top-auto-spare-parts-supplier-retailer-in-dubai-uae/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ppf-dubai-paint-protection-film-color-ppf-wrapping-car/,0,12,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/laser-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1060/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,,,,0
+https://easyauto.ae/business/silkway-cars-sharjah/,0,2,0,0,1,1,0,1,0,0,0,0,0,0,0,,silkway cars,"Transactional, Commercial",0
+https://easyauto.ae/business/geely-al-ain-agmc/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/speedway-auto-spare-parts-al-ain-br-1/,0,3,0,0,1,0,1,0,0,0,0,0,0,0,0,,speedway auto parts,"Commercial, Navigational",0
+https://easyauto.ae/business/exeed-al-ghurair-motors-al-ittihad-road/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/tank-haval-and-gwm-showroom-sharjah/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/easy-care-auto-service/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/premier-auto-parts-llc-ajman/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/gargash-mercedes-benz-showroom-szr/,0,15,0,0,1,0,1,0,0,0,0,0,0,0,-3,,mercedes showroom sheikh zayed road,"Commercial, Navigational",0
+https://easyauto.ae/business/extra-car-showroom-l-l-c/,0,3,0,0,0,1,0,0,0,0,0,0,0,0,0,,extra car,Informational,0
+https://easyauto.ae/business/west-loop-auto-repair-workshop/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/jetour-showroom-rabdan-abu-dhabi-uae/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/bin-hamoodah-auto-express-service/,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,,bin hamoodah airport road,Informational,0
+https://easyauto.ae/business/smart-auto-motorcity/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/recovery-services-dubai/,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/gargash-mercedes-benz-passenger-cars-service-centre-fujairah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1130/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/cadillac-boutique-by-al-ghandi-auto/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-satea-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/toyota-showroom-madinat-zayed-abu-dhabi/,0,10,0,0,0,0,3,0,0,0,0,0,0,0,0,,toyota showroom abu dhabi,Navigational,0
+https://easyauto.ae/business/dublin-auto-spare-parts-al-ain-dbln-lqtaa-gyr-lsyrt-laayn/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/best-car-recovery-services-3/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,-4,,,,0
+https://easyauto.ae/business/the-mechanic-garage/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/desert-rat-4x4-parts/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-ghail-car-washing/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-buraimi-new-auto-spare-parts-l-l-c/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/p-zero-world-pirelli-aht/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,p zero world,Navigational,0
+https://easyauto.ae/business/seres-ras-al-khaimah-showroom-green-motors/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/car-fix-pro-dubai/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/washman-mobile-car-wash/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/pitstop-automotive-service-llc-abu-dhabi/,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,,pitstop garage,Commercial,0
+https://easyauto.ae/business/baic-abu-dhabi-marwan-alshaali-group/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,gemini,,,1
+https://easyauto.ae/business/galaxy-car-battery-replacement-auto-spare-parts-trading-abu-dhabi/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-rais-auto-spare-parts/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/dublin-auto-spare-parts-l-l-c-branch-2/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/recovery-service-dibba/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/carz-hub-auto-parts-abu-dhabi/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/hnd-auto-spare-parts-co-llc-r5-branch/,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,,hnd auto spare parts co llc,Navigational,0
+https://easyauto.ae/business/toyota-service-center-khorfakkan/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/page/279/,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,,car wash yas mall,Transactional,0
+https://easyauto.ae/business/bin-yousef-recovery-service-branch-1-umm-al-quwain-2/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/landmark-int-auto-spare-parts-trading-llc-abudhabi/,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-madina-al-jadida-car-washing-car-polishing-ajman/,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/best-auto-parts-shop/,0,4,0,0,0,0,1,0,0,0,0,0,0,0,0,,best auto parts shop,Navigational,0
+https://easyauto.ae/business/durat-al-madeena-auto-spare-parts/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/munich-car-trading-llc/,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,,munich car trading,Informational,0
+https://easyauto.ae/business/automotive-repair-systems-llc-al-quoz/,0,4,0,0,0,0,1,0,0,0,0,0,0,0,0,search-gpt,automotive repair systems llc,Navigational,1
+https://easyauto.ae/business/al-sama-used-cars-and-auto-spare-parts-in-uae-sharjah/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-falah/,0,2,0,0,1,0,0,0,0,0,0,0,0,0,-1,,al falah car wash,Commercial,0
+https://easyauto.ae/business/ram-ras-al-khaimah-showroom-trading-enterprises/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/awr-certified-pre-owned-cars-fujairah/,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/abdur-rasheed-used-auto-spare-parts-tr/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/recovery-al-mirfa-recovery/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/al-rutbah-al-aulia-auto-spare-parts-tr-llc/,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,,al rutbah auto spare parts,Commercial,0
+https://easyauto.ae/business/auto-express-tyres-llc-umq/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/ghayar-auto-spare-parts-warehouse/,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/prowash-1203/,0,4,0,0,0,0,0,0,0,0,0,0,0,0,-14,,,,0
+https://easyauto.ae/business/prowash-1076/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/volvo-showroom-dubai-festival-city/,0,10,0,0,1,3,0,3,0,0,0,0,0,0,0,,volvo showroom dubai festival city,"Transactional, Informational",0
+https://easyauto.ae/business/aladeed-carwashing-station/,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business-category/oil-change-service/page/4/,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,0
+https://easyauto.ae/business/abdulla-nasir-auto-spare-parts-trading-al-ain-branch-aabdllh-wnsr-lqtaa-gyr-lsyrt-fraa-laayn/,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,,abdulla & nasir auto spare parts,Navigational,0
