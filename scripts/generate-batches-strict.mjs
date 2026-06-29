@@ -71,7 +71,7 @@ function generateDescription(business) {
 async function processBatch(batchNum, skip) {
   try {
     // Export data
-    const { stdout } = await execAsync(`node scripts/export-thin.mjs --limit 100 --skip ${skip}`, {
+    await execAsync(`node scripts/export-thin.mjs --limit 100 --skip ${skip}`, {
       cwd: 'C:\\Users\\seane\\Desktop\\EasyAuto'
     });
 
@@ -99,7 +99,7 @@ async function processBatch(batchNum, skip) {
         // Attempt to adjust
         if (wordCount < 45) {
           // Too short - add more detail
-          const { area, city } = business;
+          const { area } = business;
           desc += ` For customers seeking quality automotive service in ${area}, this establishment provides reliable solutions.`;
         } else {
           // Too long - trim

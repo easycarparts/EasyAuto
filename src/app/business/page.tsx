@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BusinessCard } from "@/components/business-card";
@@ -50,9 +51,9 @@ export default async function BusinessIndexPage({
           </h1>
           <p className="mt-2 text-muted">
             {formatCount(result.total)} businesses — browse the full directory or filter by{" "}
-            <a href="/" className="font-semibold text-brand-600 hover:text-brand-700">
+            <Link href="/" className="font-semibold text-brand-600 hover:text-brand-700">
               service category
-            </a>
+            </Link>
             .
           </p>
         </Container>

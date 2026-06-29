@@ -232,6 +232,9 @@ export function MapView({ serviceGroups, emirates }: MapViewProps) {
 
   useEffect(() => {
     if (searchQuery) {
+      // The map view is an external system: query/filter changes intentionally
+      // refresh marker state and then fit the result bounds.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       void fetchBusinesses(null, filters, searchQuery).then(() => {
         setFitResultsKey((k) => k + 1);
       });
