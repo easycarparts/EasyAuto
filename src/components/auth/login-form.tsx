@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 
 type Mode = "signin" | "signup";
+type OtpFlow = "email" | "signup";
 
 // Email + password sign-in, optional account creation, and magic-link fallback.
 export function LoginForm({ next }: { next: string }) {
@@ -13,7 +14,10 @@ export function LoginForm({ next }: { next: string }) {
   const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [otpCode, setOtpCode] = useState("");
+  const [otpFlow, setOtpFlow] = useState<OtpFlow>("email");
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
+  const [verifying, setVerifying] = useState(false);
   const [error, setError] = useState("");
   const [info, setInfo] = useState("");
 
@@ -62,6 +66,8 @@ export function LoginForm({ next }: { next: string }) {
       return;
     }
     setStatus("sent");
+    setOtpFlow("signup");
+    setOtpCode("");
     setInfo("Check your email to confirm your account, then sign in.");
   }
 
@@ -80,33 +86,86 @@ export function LoginForm({ next }: { next: string }) {
       setError(error.message);
     } else {
       setStatus("sent");
+      setOtpFlow("email");
+      setOtpCode("");
       setInfo("");
     }
   }
 
+  async function verifyEmailCode(e: React.FormEvent) {
+    e.preventDefault();
+    setVerifying(true);
+    setError("");
+    const { error } = await supabase.auth.verifyOtp({
+      email: email.trim(),
+      token: otpCode.trim(),
+      type: otpFlow,
+    });
+    setVerifying(false);
+    if (error) {
+      setError(error.message);
+      return;
+    }
+    router.push(next);
+    router.refresh();
+  }
+
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-line bg-surface p-6 text-center shadow-card">
-        <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full bg-success-500/10 text-2xl">
-          ✉️
+      <div className="rounded-2xl border border-line bg-surface p-6 shadow-card">
+        <div className="text-center">
+          <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full bg-success-500/10 text-2xl">
+            ✉️
+          </div>
+          <h2 className="text-lg font-bold text-ink">Check your inbox</h2>
+          <p className="mt-2 text-sm text-muted">
+            {info || (
+              <>
+                We sent a sign-in link to{" "}
+                <span className="font-medium text-body">{email}</span>. Open it on this device, or
+                enter the code from the email below.
+              </>
+            )}
+          </p>
         </div>
-        <h2 className="text-lg font-bold text-ink">Check your inbox</h2>
-        <p className="mt-2 text-sm text-muted">
-          {info || (
-            <>
-              We sent a sign-in link to{" "}
-              <span className="font-medium text-body">{email}</span>. Open it on this device to
-              continue.
-            </>
-          )}
-        </p>
+
+        <form onSubmit={verifyEmailCode} className="mt-5 space-y-3">
+          <label htmlFor="otp" className="block text-sm font-medium text-body">
+            One-time code
+          </label>
+          <input
+            id="otp"
+            type="text"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            required
+            minLength={6}
+            maxLength={8}
+            value={otpCode}
+            onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ""))}
+            placeholder="Enter code from email"
+            className="w-full rounded-xl border border-line bg-canvas px-4 py-2.5 text-center text-lg tracking-[0.2em] text-ink outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
+          />
+          <button
+            type="submit"
+            disabled={verifying || otpCode.length < 6}
+            className="w-full rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-60"
+          >
+            {verifying ? "Verifying…" : "Verify code"}
+          </button>
+        </form>
+
+        {error && <p className="mt-3 text-sm text-danger-600">{error}</p>}
+
         <button
           type="button"
           onClick={() => {
             setStatus("idle");
             setInfo("");
+            setError("");
+            setOtpCode("");
           }}
-          className="mt-4 text-sm font-semibold text-brand-600 hover:text-brand-700"
+          className="mt-4 w-full text-sm font-semibold text-brand-600 hover:text-brand-700"
         >
           Back to sign in
         </button>
