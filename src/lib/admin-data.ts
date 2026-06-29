@@ -44,23 +44,53 @@ export type LeadRow = {
   created_at: string;
   business_id: number | null;
   category_slug: string | null;
+  service_slug: string | null;
+  location_slug: string | null;
   city: string | null;
   action: string | null;
+  lead_type: string | null;
+  status: string | null;
   routed_to: string | null;
   source: string | null;
+  name: string | null;
+  phone: string | null;
+  email: string | null;
+  message: string | null;
   business: { slug: string; name: string } | null;
 };
 
-export async function getRecentLeads(limit = 50): Promise<LeadRow[]> {
+export const LEAD_STATUSES = ["new", "contacted", "won", "lost"] as const;
+
+export async function getRecentLeads(
+  limit = 100,
+  opts: { status?: string; formOnly?: boolean } = {},
+): Promise<LeadRow[]> {
   const db = createSupabaseAdminClient();
-  const { data } = await db
+  let q = db
     .from("leads")
     .select(
-      "id, created_at, business_id, category_slug, city, action, routed_to, source, business:businesses(slug, name)",
+      "id, created_at, business_id, category_slug, service_slug, location_slug, city, action, lead_type, status, routed_to, source, name, phone, email, message, business:businesses(slug, name)",
     )
     .order("created_at", { ascending: false })
     .limit(limit);
+  if (opts.status) q = q.eq("status", opts.status);
+  // Form submissions are the captured contact leads (vs raw click events).
+  if (opts.formOnly) q = q.eq("lead_type", "form");
+  const { data } = await q;
   return (data as LeadRow[] | null) ?? [];
+}
+
+export type LeadCounts = { all: number; new: number; form: number };
+
+export async function getLeadCounts(): Promise<LeadCounts> {
+  const db = createSupabaseAdminClient();
+  const head = { count: "exact" as const, head: true };
+  const [all, fresh, form] = await Promise.all([
+    db.from("leads").select("id", head),
+    db.from("leads").select("id", head).eq("status", "new"),
+    db.from("leads").select("id", head).eq("lead_type", "form"),
+  ]);
+  return { all: all.count ?? 0, new: fresh.count ?? 0, form: form.count ?? 0 };
 }
 
 export type PendingGoogleReviewRefresh = {

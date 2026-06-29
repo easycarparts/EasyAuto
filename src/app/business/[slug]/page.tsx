@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { RatingStars } from "@/components/rating-stars";
 import { ScorePanel } from "@/components/score-badge";
 import { LeadButtons } from "@/components/lead-buttons";
+import { LeadCapture } from "@/components/lead-capture";
 import { SocialLinkIcons } from "@/components/social-links";
 import { GoogleReviewCarousel } from "@/components/google-review-carousel";
 import { JsonLd } from "@/components/json-ld";
@@ -22,6 +23,8 @@ import {
 } from "@/lib/data";
 import { blogIndexPath, getPublishedPostsForBusiness, postPublicPath } from "@/lib/post-data";
 import { googleMapsDirectionsUrl, resolveCoordinates } from "@/lib/navigation-links";
+import { emirateForCity } from "@/lib/locations";
+import { resolveLeadService } from "@/lib/lead-services";
 import { hasSocialLinks } from "@/lib/social-links";
 import { SimilarBusinesses } from "@/components/similar-businesses";
 
@@ -51,9 +54,18 @@ export async function generateMetadata({
   const catName = category ? decodeEntities(category.name) : "Auto services";
   const area = business.city ?? "the UAE";
 
-  // Keyword + location in the title (was just "<name> in <city>"); category is the
-  // commercial query users actually search ("car detailing in Al Quoz").
-  const title = `${name} — ${catName} in ${area}`;
+  // Lead with the business name (matches the brand searches that drive most of our
+  // traffic) plus rating + review count — the trust signals that pull the click.
+  // Plain text "Rated X/5" rather than a ★ glyph, which Google often strips from
+  // titles. Fall back to keyword+location when there's no rating. (Many imported
+  // names already include the city, so we don't append it again here.)
+  const ratingLabel =
+    business.rating != null
+      ? `Rated ${business.rating}/5${business.google_reviews ? ` · ${formatCount(business.google_reviews)} Reviews` : ""}`
+      : null;
+  const title = ratingLabel
+    ? `${name} — ${ratingLabel}`
+    : `${name} — ${catName} in ${area}`;
   const ratingBit =
     business.rating != null
       ? `★ ${business.rating}${business.google_reviews ? ` · ${formatCount(business.google_reviews)} reviews` : ""}. `
@@ -88,6 +100,11 @@ export default async function BusinessPage({
     : null;
   const categoryName = category ? decodeEntities(category.name) : null;
 
+  // Lead-capture context: derive a meaningful service from the listing's
+  // service_tags (not its raw category, which is often an awkward label).
+  const leadService = resolveLeadService(business);
+  const showLeadBanner = business.lead_ads_enabled !== false;
+
   const media = await getBusinessMedia(business.id);
   const blogPosts = await getPublishedPostsForBusiness(business.id);
   const featuredReviews = await getFeaturedGoogleReviews(business.id);
@@ -114,7 +131,7 @@ export default async function BusinessPage({
 
   return (
     <>
-      <JsonLd data={localBusinessJsonLd(business, category?.name, featuredReviews)} />
+      <JsonLd data={localBusinessJsonLd(business, category?.name)} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", url: SITE.url },
@@ -210,6 +227,23 @@ export default async function BusinessPage({
               )}
             </div>
           </div>
+
+          {/* Adaptive lead funnel — high in the page so it's immediately visible to
+              the listing traffic (~99% of ours). Service is resolved from the
+              listing's tags, so the copy always reads right. Claimed owners can turn
+              it off from their dashboard (lead_ads_enabled). */}
+          {showLeadBanner && (
+            <div className="mt-6">
+              <LeadCapture
+                service={leadService.label}
+                serviceSlug={leadService.slug}
+                locationLabel={business.city ?? undefined}
+                locationSlug={emirateForCity(business.city)?.slug}
+                businessId={business.id}
+                variant="banner"
+              />
+            </div>
+          )}
 
           {business.description && (
             <section className="mt-8">

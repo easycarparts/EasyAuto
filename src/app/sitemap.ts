@@ -8,6 +8,9 @@ import {
 import { getAllPublishedPostsForSitemap, getBusinessSlugsWithBlog } from "@/lib/post-data";
 import { SERVICE_GROUPS } from "@/lib/taxonomy";
 import { computeLocationCombos } from "@/lib/location-combos";
+import { nearMeSlugs } from "@/lib/near-me";
+import { brandSlugs } from "@/lib/brands";
+import { guideSlugs } from "@/lib/guides";
 import { absoluteUrl } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -31,6 +34,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/claim-business"),
     entry("/business"),
     entry("/map"),
+    // P3 — "[service] near me" landing pages
+    ...nearMeSlugs().map((s) => entry(`/${s}`)),
+    // P4 — brand pages + guide cluster
+    entry("/brands"),
+    ...brandSlugs().map((s) => entry(`/brands/${s}`)),
+    entry("/guides"),
+    ...guideSlugs().map((s) => entry(`/guides/${s}`)),
     // Service-group hubs + raw category pages
     ...SERVICE_GROUPS.map((g) => entry(`/business-category/${g.slug}`)),
     ...categories.map((c) => entry(`/business-category/${c.slug}`)),

@@ -39,10 +39,10 @@ export async function generateMetadata({
 
   const group = getServiceGroup(slug);
   if (group) {
-    const title = `${group.name} in the UAE`;
+    const title = `Best ${group.name} in the UAE — Compare Top-Rated`;
     return {
       title,
-      description: `${group.tagline} Compare ratings, reviews and contact details on ${SITE.name}.`,
+      description: `${group.tagline} Compare top-rated providers by rating and reviews — see locations, hours and contact details on ${SITE.name}.`,
       alternates: { canonical: absoluteUrl(`/business-category/${slug}`) },
       openGraph: { title, url: absoluteUrl(`/business-category/${slug}`) },
     };
@@ -51,8 +51,9 @@ export async function generateMetadata({
   const category = await getCategoryBySlug(slug);
   if (!category) return { title: "Category not found" };
   const name = decodeEntities(category.name);
-  const title = `${name} in the UAE`;
-  const description = `Browse ${formatCount(category.listing_count)} ${name.toLowerCase()} businesses across the UAE. Compare ratings, reviews, locations and contact details on ${SITE.name}.`;
+  // Lead with "Best", carry the provider count — both pull clicks on category queries.
+  const title = `Best ${name} in the UAE — Compare ${formatCount(category.listing_count)} Providers`;
+  const description = `Compare ${formatCount(category.listing_count)} ${name.toLowerCase()} businesses across the UAE by rating and reviews. See locations, opening hours and contact details on ${SITE.name}.`;
   return {
     title,
     description,

@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BusinessCard } from "@/components/business-card";
 import { Pagination } from "@/components/pagination";
 import { JsonLd } from "@/components/json-ld";
+import { LeadCapture } from "@/components/lead-capture";
 import {
   getAllCategories,
   getBusinessesByLocation,
@@ -62,8 +63,10 @@ export async function generateMetadata({
   const r = await resolve(combo);
   if (!r) return { title: "Not found" };
   const serviceName = decodeEntities(r.service.name);
-  const title = `${serviceName} in ${r.location.name}`;
-  const description = `Find the best ${serviceName.toLowerCase()} in ${r.location.name}, UAE. Compare ratings, reviews, locations and contact details on ${SITE.name}.`;
+  // "Best … — Compare Top-Rated" earns more clicks on the generic commercial
+  // queries these pages target (e.g. "car wash in dubai") than a bare "X in Y".
+  const title = `Best ${serviceName} in ${r.location.name} — Compare Top-Rated`;
+  const description = `Compare the best ${serviceName.toLowerCase()} in ${r.location.name}, UAE by rating and reviews. See locations, opening hours, phone numbers and directions on ${SITE.name}.`;
   return {
     title,
     description,
@@ -171,6 +174,18 @@ export default async function LocationServicePage({
       </div>
 
       <Container className="py-10">
+        {/* Adaptive lead funnel — service + location context drives copy + routing. */}
+        {service.slug !== ALL_SERVICES.slug && (
+          <div className="mb-8">
+            <LeadCapture
+              service={serviceName}
+              serviceSlug={service.slug}
+              locationLabel={location.name}
+              locationSlug={location.slug}
+            />
+          </div>
+        )}
+
         {/* Other services in this location */}
         <FilterRow
           label="Service"

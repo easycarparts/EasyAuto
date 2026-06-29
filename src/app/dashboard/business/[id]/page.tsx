@@ -6,6 +6,7 @@ import { getAllCategories } from "@/lib/data";
 import { BusinessForm } from "@/components/dashboard/business-form";
 import { FeaturedReviewsPicker } from "@/components/dashboard/featured-reviews-picker";
 import { GoogleReviewsRefresh } from "@/components/dashboard/google-reviews-refresh";
+import { LeadAdsToggle } from "@/components/dashboard/lead-ads-toggle";
 import { MediaManager } from "@/components/dashboard/media-manager";
 import { ScorePanel } from "@/components/score-badge";
 import { resolvePlaceId } from "@/lib/google-review-refresh";
@@ -112,6 +113,11 @@ export default async function EditBusinessPage({
             pendingRequest={pendingReviewRequest}
             canRequest={canRequest}
             requestHint={requestHint}
+          />
+          <LeadAdsToggle
+            businessId={businessId}
+            claimed={business.claimed}
+            enabled={business.lead_ads_enabled !== false}
           />
           <div className="rounded-2xl border border-line bg-surface p-5 text-sm text-muted shadow-card">
             <p className="font-semibold text-ink">Status</p>

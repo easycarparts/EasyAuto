@@ -131,7 +131,7 @@ export const getBusinessesByCategory = cache(
       supabase
         .from("businesses")
         .select("*", { count: "exact" })
-        .eq("category_slug", slug)
+        .contains("service_tags", [slug])
         .order("easy_auto_score", { ascending: false, nullsFirst: false })
         .order("google_reviews", { ascending: false, nullsFirst: false })
         .range(start, start + perPage - 1),
@@ -149,7 +149,7 @@ export const getBusinessesByCategorySlugs = cache(
       supabase
         .from("businesses")
         .select("*", { count: "exact" })
-        .in("category_slug", slugs)
+        .overlaps("service_tags", slugs)
         .order("easy_auto_score", { ascending: false, nullsFirst: false })
         .order("google_reviews", { ascending: false, nullsFirst: false })
         .range(start, start + perPage - 1),
@@ -267,10 +267,15 @@ export const getCategorySlugsForBusiness = cache(
 // Light facet rows used to compute which /<service>-in-<location> combos have
 // inventory (for generateStaticParams) and homepage location counts. Selects only
 // the three columns needed — never the heavy text fields.
-export type Facet = { category_slug: string | null; city: string | null; address: string | null };
+export type Facet = {
+  category_slug: string | null;
+  city: string | null;
+  address: string | null;
+  service_tags: string[] | null;
+};
 
 export const getLocationFacets = cache(async (): Promise<Facet[]> => {
-  return selectColumn<Facet>("businesses", "category_slug,city,address", "id");
+  return selectColumn<Facet>("businesses", "category_slug,city,address,service_tags", "id");
 });
 
 // Listings filtered by a service (a set of category slugs, or null = all) AND a
@@ -295,7 +300,7 @@ export const getBusinessesByLocation = cache(
           .select("*", { count: "exact" })
           .in("city", emirate.cityNames);
         if (categorySlugs && categorySlugs.length > 0) {
-          q = q.in("category_slug", categorySlugs);
+          q = q.overlaps("service_tags", categorySlugs);
         }
         if (location.kind === "community") {
           q = q.or(

@@ -45,3 +45,11 @@ next-env.d.ts
 *.stackdump
 dev*.log
 *.tmp
+
+# Raw WordPress export (62MB — keep out of git)
+*.WordPress.*.xml
+easyauto.WordPress.*.xml
+
+# enrichment session scratch files
+scripts/_batch.json
+scripts/_results.json

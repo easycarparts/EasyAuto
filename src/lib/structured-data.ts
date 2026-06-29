@@ -2,7 +2,7 @@
 // shapes are reusable. We have rating, address, geo and hours → LocalBusiness is
 // eligible for rich results.
 
-import type { Business, BusinessGoogleReview, BusinessPost } from "./types";
+import type { Business, BusinessPost } from "./types";
 import { businessSameAs } from "./business-same-as";
 import { openingHoursSpecification, openingHoursStrings } from "./hours-schema";
 import { postPublicPath } from "./post-data";
@@ -12,7 +12,6 @@ import { decodeEntities, stripHtml } from "./format";
 export function localBusinessJsonLd(
   business: Business,
   categoryName?: string,
-  featuredReviews: BusinessGoogleReview[] = [],
 ): Record<string, unknown> {
   const listingUrl = absoluteUrl(`/business/${business.slug}`);
   const data: Record<string, unknown> = {
@@ -57,34 +56,13 @@ export function localBusinessJsonLd(
     if (hoursLines) data.openingHours = hoursLines;
   }
 
-  if (business.rating != null && (business.google_reviews ?? 0) > 0) {
-    data.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: business.rating,
-      reviewCount: business.google_reviews,
-      bestRating: 5,
-      worstRating: 1,
-    };
-  }
-
-  if (featuredReviews.length > 0) {
-    data.review = featuredReviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.author_name ?? "Google user" },
-      ...(r.rating != null
-        ? {
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: r.rating,
-              bestRating: 5,
-              worstRating: 1,
-            },
-          }
-        : {}),
-      reviewBody: r.text,
-      ...(r.published_at ? { datePublished: r.published_at } : {}),
-    }));
-  }
+  // NOTE: We intentionally do NOT emit aggregateRating / review here. Those ratings
+  // and reviews are Google's (third-party), and Google's structured-data policy
+  // requires review markup to be first-party (sourced from our own users). Marking
+  // up third-party reviews to fish for star rich results risks a manual action —
+  // and Google already isn't granting the stars (empty Search-appearance report).
+  // The rating still shows to users on-page; re-introduce schema here only when we
+  // collect genuine first-party reviews.
 
   if (business.updated_at) data.dateModified = business.updated_at;
 
@@ -161,6 +139,32 @@ export function editorialArticleJsonLd(post: {
   else if (post.content) data.description = stripHtml(post.content).slice(0, 300);
   if (post.thumbnail_url) data.image = [post.thumbnail_url];
   if (post.published_at) data.datePublished = post.published_at;
+  return data;
+}
+
+// Generic first-party Article — for the /guides cluster and /brands pages. The
+// site is the author/publisher (these are editorial, not per-business). Keeps the
+// content eligible for Article rich results without claiming third-party authorship.
+export function siteArticleJsonLd(args: {
+  url: string;
+  headline: string;
+  description?: string;
+  datePublished?: string;
+  dateModified?: string;
+}): Record<string, unknown> {
+  const data: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": args.url,
+    headline: args.headline,
+    url: args.url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": args.url },
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  };
+  if (args.description) data.description = args.description;
+  if (args.datePublished) data.datePublished = args.datePublished;
+  if (args.dateModified) data.dateModified = args.dateModified;
   return data;
 }
 

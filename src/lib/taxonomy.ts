@@ -33,6 +33,8 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
       "Detailing, ceramic coating, paint protection and interior care specialists.",
     members: [
       "car-detailing-service",
+      "paint-protection-film",
+      "ceramic-coating-service",
       "auto-restoration-service",
       "auto-care-products-store",
       "wash-detail-tint",

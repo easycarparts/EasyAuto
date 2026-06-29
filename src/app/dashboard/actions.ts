@@ -216,6 +216,33 @@ export async function updateBusiness(_prev: FormResult, formData: FormData): Pro
 }
 
 // --- Google review refresh (owner requests; admin approves & runs API) -------
+// Claimed owners can turn the directory lead-capture banner off (or back on) for
+// their own listing. Verifies ownership, then flips `lead_ads_enabled`.
+export async function setLeadAdsEnabled(
+  businessId: number,
+  enabled: boolean,
+): Promise<FormResult> {
+  const user = await requireUser();
+  if (!businessId) return { error: "Missing business reference." };
+
+  const db = createSupabaseAdminClient();
+  const business = await getOwnedBusiness(user.id, businessId);
+  if (!business) return { error: "You don't have access to this listing." };
+  if (!business.claimed) {
+    return { error: "Claim this listing before changing its lead settings." };
+  }
+
+  const { error } = await db
+    .from("businesses")
+    .update({ lead_ads_enabled: enabled })
+    .eq("id", businessId);
+  if (error) return { error: error.message };
+
+  revalidatePath(`/dashboard/business/${businessId}`);
+  revalidatePath(`/business/${business.slug}`);
+  return { ok: true };
+}
+
 export async function requestGoogleReviewRefresh(businessId: number): Promise<FormResult> {
   const user = await requireUser();
   if (!businessId) return { error: "Missing business reference." };

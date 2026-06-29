@@ -159,6 +159,18 @@ export async function approveGoogleReviewRefresh(formData: FormData) {
   revalidatePath(`/dashboard/business/${business.id}`);
 }
 
+const LEAD_STATUS_VALUES = new Set(["new", "contacted", "won", "lost"]);
+
+export async function updateLeadStatus(formData: FormData) {
+  await requireAdmin();
+  const leadId = String(formData.get("leadId") ?? "");
+  const status = String(formData.get("status") ?? "");
+  if (!leadId || !LEAD_STATUS_VALUES.has(status)) return;
+  const db = createSupabaseAdminClient();
+  await db.from("leads").update({ status }).eq("id", leadId);
+  revalidatePath("/admin");
+}
+
 export async function rejectGoogleReviewRefresh(formData: FormData) {
   const admin = await requireAdmin();
   const requestId = String(formData.get("requestId") ?? "");

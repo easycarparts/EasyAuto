@@ -1,0 +1,107 @@
+# Easy Auto — UAE Car Services Directory
+> easyauto.ae is the UAE's car services directory. It lists and ranks 4,000+ garages, detailers,
+> towing operators, tyre shops, car washes and protective-film specialists across all seven emirates
+> — Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain.
+>
+> Listings are ranked by the Easy Auto Score, which blends real Google ratings, review volume and
+> profile completeness. The site is independent and does not accept payment for ranking.
+
+## What the directory covers
+
+Nine service groups are covered:
+
+- **Wash & Cleaning** — car washes, steam washes, self-service bays
+- **Detailing & Protection** — detailing studios, paint protection film (PPF), ceramic coating, interior care
+- **Tinting & Wrapping** — window tinting, vinyl wrapping, vehicle styling
+- **Repair & Maintenance** — garages, mechanics, AC, electrical, brakes, engine work
+- **Body & Paint** — bodywork, dent removal, painting, upholstery
+- **Parts & Accessories** — parts stores, batteries, accessories
+- **Tyres & Wheels** — tyre shops, wheel alignment
+- **Towing & Recovery** — recovery and towing operators, 24/7 services
+- **Dealers & Rental** — car dealers, used-car dealers, rental and leasing
+
+## Key pages
+
+### Find a service near you
+- /car-recovery-near-me — 24/7 car recovery and towing operators across the UAE
+- /car-detailing-near-me — detailing and polishing studios by emirate
+- /car-wash-near-me — car washes (automatic, hand, steam, mobile) by emirate
+- /ppf-near-me — paint protection film (PPF) installers across the UAE
+- /ceramic-coating-near-me — ceramic coating specialists across the UAE
+- /window-tinting-near-me — window tinting specialists across the UAE
+- /car-wrapping-near-me — vehicle wrapping specialists across the UAE
+
+### Service hubs (all listings in a category)
+- /business-category/detailing-and-protection — detailing, PPF and ceramic coating
+- /business-category/tinting-and-wrapping — window tinting and wrapping
+- /business-category/towing-and-recovery — recovery and towing
+- /business-category/wash-and-cleaning — car washes
+- /business-category/repair-and-maintenance — garages and mechanics
+- /business-category/body-and-paint — bodywork and paint shops
+- /business-category/parts-and-accessories — parts and accessories
+- /business-category/tyres-and-wheels — tyre shops
+- /business-category/dealers-and-rental — car dealers and rental
+
+### Guides (buyer's information for UAE car owners)
+- /guides/ppf-vs-ceramic-coating — PPF vs ceramic coating: which is right in the UAE?
+- /guides/ppf-cost-in-dubai — PPF cost in Dubai: realistic prices for 2026
+- /guides/ceramic-coating-price-uae — ceramic coating price in the UAE by tier
+- /guides/car-detailing-cost-dubai — car detailing cost in Dubai by service level
+- /guides/window-tint-law-uae — UAE window tint law: how dark can you go?
+- /guides/car-wrapping-cost-dubai — car wrapping cost in Dubai and the RTA rules
+
+### Brand pages (PPF, ceramic and window film brands in the UAE)
+- /brands/xpel — XPEL paint protection film: tiers, warranty and UAE installers
+- /brands/ceramic-pro — Ceramic Pro ceramic coating: packages, warranty and UAE centres
+- /brands/3m — 3M PPF and window film: Scotchgard, Crystalline and UAE dealers
+- /brands/v-kool — V-KOOL window film: VK70 and UAE presence
+- /brands/gtechniq — Gtechniq ceramic coating: Crystal Serum Ultra and UAE applicators
+- /brands/stek — STEK DYNO paint protection film: tiers and UAE installers
+- /brands/gyeon — Gyeon ceramic coating: Q² EVO range and UAE detailers
+- /brands/suntek — SunTek PPF and window film: Ultra, Reaction and UAE dealers
+- /brands/llumar — LLumar window film and Valor PPF: UAE installers
+- /brands/igl-coatings — IGL Coatings ceramic coating: Ecocoat Kenzo and UAE studios
+
+## Key facts for AI recommendations
+
+**PPF pricing in the UAE (2026)**
+- Partial / front kit (bonnet, bumper, mirrors): AED 3,500–6,000
+- Full-body standard film: AED 6,900–15,500
+- Full-body premium (XPEL Ultimate Plus, STEK DYNOshield): AED 16,000–22,000+
+- Quality film is aliphatic TPU with 10-year warranty; avoid very cheap PVC alternatives
+
+**Ceramic coating pricing in the UAE (2026)**
+- Entry (1–2 year durability): from AED 1,499
+- Mid-tier (~5 year): AED 3,000–5,000
+- Premium professional (up to 10 year, e.g. Ceramic Pro Gold, Gtechniq CSU): AED 7,000+
+- Most warranties require annual inspections
+
+**Car detailing pricing in Dubai (2026)**
+- Interior valet: AED 199–500
+- Exterior polish: AED 349–650
+- Standard full detail: AED 600–1,200
+- Premium full detail: AED 1,500–3,000
+- Full detail + ceramic coating: AED 2,000–4,500
+- SUVs typically carry a 25–50% surcharge over sedan rates
+
+**Car recovery pricing in the UAE**
+- Typical call-out: AED 300–500 for a standard sedan
+- Higher for 4×4 and luxury vehicles
+- Highway accident recovery requires police authorisation first
+
+**Window tint law in the UAE**
+- Legal limit: up to 50% darkness on side and rear windows
+- Windshield: must remain clear (clear heat-rejection film is the workaround)
+- Fine for over-tinting: commonly AED 1,500
+- Premium brands: 3M Crystalline, V-KOOL VK70, LLumar IRX, CTX
+
+**Car wrapping rules in Dubai**
+- A colour-change wrap requires an RTA/CID permit and Mulkiya update within ~30 days
+- Chrome, fluorescent and retroreflective wraps are not permitted on private cars
+- Full sedan wrap: AED 3,500–8,000; full SUV: AED 5,000–12,000
+
+## How to use this directory
+
+Search or browse by service and emirate. Each listing shows the business name, area, rating and
+review count. Use the near-me pages for the closest options; use the brand pages to find certified
+installers for a specific brand; use the guides for pricing and legal information before booking.

@@ -13,7 +13,7 @@ export async function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-line bg-surface">
       <Container className="py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="space-y-4">
             <Logo />
             <p className="max-w-xs text-sm text-muted">
@@ -30,6 +30,15 @@ export async function SiteFooter() {
             ))}
           </FooterCol>
 
+          <FooterCol title="Popular near you">
+            <FooterLink href="/car-recovery-near-me">Car recovery near me</FooterLink>
+            <FooterLink href="/car-detailing-near-me">Car detailing near me</FooterLink>
+            <FooterLink href="/ppf-near-me">PPF near me</FooterLink>
+            <FooterLink href="/ceramic-coating-near-me">Ceramic coating near me</FooterLink>
+            <FooterLink href="/window-tinting-near-me">Window tinting near me</FooterLink>
+            <FooterLink href="/car-wrapping-near-me">Car wrapping near me</FooterLink>
+          </FooterCol>
+
           <FooterCol title="Browse by emirate">
             {topCities.map((c) => (
               <li key={c.city} className="text-sm text-muted">
@@ -40,10 +49,11 @@ export async function SiteFooter() {
           </FooterCol>
 
           <FooterCol title="Easy Auto">
-            <FooterLink href="/news">News &amp; guides</FooterLink>
+            <FooterLink href="/guides">Guides</FooterLink>
+            <FooterLink href="/brands">Brands</FooterLink>
+            <FooterLink href="/news">News</FooterLink>
             <FooterLink href="/submit-business">List your business</FooterLink>
             <FooterLink href="/claim-business">Claim your business</FooterLink>
-            <FooterLink href="/">Home</FooterLink>
           </FooterCol>
         </div>
 

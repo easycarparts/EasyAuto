@@ -283,3 +283,37 @@ h1, h2, h3, h4 {
 .leaflet-popup-content {
   margin: 10px 12px;
 }
+
+/* Lead-capture banner: a gentle "breathing" sheen on the CTA to draw the eye
+   without being a flashing ad. Disabled for reduced-motion users. */
+@keyframes lead-sheen {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 250% 0;
+  }
+}
+.lead-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.lead-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgb(255 255 255 / 35%) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: lead-sheen 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lead-sheen::after {
+    animation: none;
+  }
+}

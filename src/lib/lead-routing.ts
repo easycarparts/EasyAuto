@@ -13,6 +13,8 @@ export const OWNER_SERVICE_CATEGORIES: Record<string, string[]> = {
   "Detailing, ceramic & PPF": [
     "car-detailing-service",
     "wash-detail-tint",
+    "paint-protection-film", // PPF (service category added in migration 0010)
+    "ceramic-coating-service", // ceramic coating (added in migration 0010)
     "vehicle-wrapping-service", // PPF / wraps
   ],
   Tinting: ["auto-window-tinting-service", "window-tinting-service"],
@@ -68,4 +70,11 @@ export function routeFor(categorySlug: string | null): LeadRoute {
     return "own_service";
   }
   return "business";
+}
+
+// Is this service/category one the owner's own business competes in? Independent
+// of whether the funnel number is configured yet — used to TAG captured form leads
+// (`routed_to`) so high-intent enquiries are attributable to the owner from day one.
+export function isHighIntentService(slug: string | null): boolean {
+  return Boolean(slug && HIGH_INTENT_CATEGORIES.has(slug));
 }

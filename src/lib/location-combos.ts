@@ -8,6 +8,7 @@ export type LocationFacet = {
   category_slug: string | null;
   city: string | null;
   address: string | null;
+  service_tags: string[] | null;
 };
 
 export function computeLocationCombos(
@@ -27,11 +28,18 @@ export function computeLocationCombos(
         locations.push(c.slug);
       }
     }
+    // A business counts toward every service it's tagged with (multi-service),
+    // plus each tag's group hub, plus the all-services hub.
     const services = new Set<string>([ALL_SERVICES.slug]);
-    if (f.category_slug) {
-      const g = getGroupForCategory(f.category_slug);
+    const tags = f.service_tags && f.service_tags.length > 0
+      ? f.service_tags
+      : f.category_slug
+        ? [f.category_slug]
+        : [];
+    for (const tag of tags) {
+      const g = getGroupForCategory(tag);
       if (g) services.add(g.slug);
-      if (topCategorySlugs.has(f.category_slug)) services.add(f.category_slug);
+      if (topCategorySlugs.has(tag)) services.add(tag);
     }
     for (const s of services) {
       for (const l of locations) {

@@ -34,6 +34,8 @@ export type Business = {
   featured: boolean;
   status: string;
   owner_id: string | null;
+  lead_ads_enabled: boolean | null; // show the lead-capture banner on the public listing (default true)
+  service_tags: string[] | null; // every service the shop offers (multi-service discovery + lead context)
   easy_auto_score: number | null;
   score_breakdown: ScoreBreakdown | null;
   created_at: string | null;
