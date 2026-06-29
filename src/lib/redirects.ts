@@ -121,6 +121,23 @@ const LEGACY_REDIRECTS: Redirect[] = [
   { source: "/category/uncategorized", destination: "/", permanent: true },
 ];
 
+// Old WordPress business permalinks carried a second Google-place-id segment:
+//   /business/{slug}/{placeid}/   e.g. /business/mrcap-al-quoz/af1qip…s1024/
+// The new canonical is single-segment /business/{slug}. The old *sitemap* only
+// ever listed the single-segment form, but these 2-segment permalinks may still
+// have crawl history / inbound links, so collapse them to the canonical slug.
+// The place-id is a long lowercase hash (40+ chars); the {19,} length guard means
+// this can NEVER match the real 2-segment route /business/{slug}/blog (4 chars) or
+// its nested posts — those stay untouched. Single-segment destination can't match
+// the 2-segment source, so there is no redirect loop.
+const BUSINESS_LEGACY_PERMALINK_REDIRECTS: Redirect[] = [
+  {
+    source: "/business/:slug/:placeid([a-z0-9][a-z0-9_-]{19,})",
+    destination: "/business/:slug",
+    permanent: true,
+  },
+];
+
 // WordPress plugin utility pages that moved under /dashboard or were consolidated.
 const UTILITY_REDIRECTS: Redirect[] = [
   { source: "/submit-business-2", destination: "/submit-business", permanent: true },
@@ -139,5 +156,11 @@ export function categoryRedirects(): Redirect[] {
     destination: ORPHAN_TARGETS[slug] ?? "/",
     permanent: true,
   }));
-  return [...orphanRedirects, ...LEGACY_REDIRECTS, ...UTILITY_REDIRECTS, ...businessDedupeRedirects()];
+  return [
+    ...orphanRedirects,
+    ...LEGACY_REDIRECTS,
+    ...UTILITY_REDIRECTS,
+    ...BUSINESS_LEGACY_PERMALINK_REDIRECTS,
+    ...businessDedupeRedirects(),
+  ];
 }
