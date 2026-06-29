@@ -5,7 +5,7 @@
 
 import "server-only";
 import { createSupabaseAdminClient } from "./supabase/admin";
-import type { Business, BusinessMedia } from "./types";
+import type { Business, BusinessGoogleReview, BusinessMedia } from "./types";
 
 export type ClaimRequestRow = {
   id: string;
@@ -75,4 +75,29 @@ export async function getCategorySlugs(businessId: number): Promise<string[]> {
     .select("category_slug")
     .eq("business_id", businessId);
   return ((data as { category_slug: string }[] | null) ?? []).map((r) => r.category_slug);
+}
+
+export async function getPendingGoogleReviewRefresh(
+  businessId: number,
+): Promise<{ id: string; created_at: string } | null> {
+  const db = createSupabaseAdminClient();
+  const { data } = await db
+    .from("google_review_refresh_requests")
+    .select("id, created_at")
+    .eq("business_id", businessId)
+    .eq("status", "pending")
+    .maybeSingle();
+  return (data as { id: string; created_at: string } | null) ?? null;
+}
+
+export async function getGoogleReviewsForOwner(
+  businessId: number,
+): Promise<BusinessGoogleReview[]> {
+  const db = createSupabaseAdminClient();
+  const { data } = await db
+    .from("business_google_reviews")
+    .select("*")
+    .eq("business_id", businessId)
+    .order("sort_order", { ascending: true });
+  return (data as BusinessGoogleReview[] | null) ?? [];
 }

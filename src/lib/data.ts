@@ -11,7 +11,7 @@
 
 import { cache } from "react";
 import { supabase } from "./supabase";
-import type { Business, BusinessMedia, Category, NewsPost } from "./types";
+import type { Business, BusinessGoogleReview, BusinessMedia, Category, NewsPost } from "./types";
 import { getEmirate, type Location } from "./locations";
 
 export type Page<T> = {
@@ -204,6 +204,22 @@ export const getAllBusinessSlugs = cache(async (): Promise<string[]> => {
   return rows.map((r) => r.slug);
 });
 
+export const getAllBusinesses = cache(
+  async (page = 1, perPage = 24): Promise<Page<Business>> => {
+    const start = (page - 1) * perPage;
+    const { data, count } = await run<Business[]>(`all businesses p${page}`, () =>
+      supabase
+        .from("businesses")
+        .select("*", { count: "exact" })
+        .eq("status", "publish")
+        .order("easy_auto_score", { ascending: false, nullsFirst: false })
+        .order("google_reviews", { ascending: false, nullsFirst: false })
+        .range(start, start + perPage - 1),
+    );
+    return toPage(data ?? [], count ?? 0, page, perPage);
+  },
+);
+
 // Owner-uploaded photos + videos for a listing (Step 1). Public read (RLS).
 export const getBusinessMedia = cache(
   async (businessId: number): Promise<BusinessMedia[]> => {
@@ -214,6 +230,21 @@ export const getBusinessMedia = cache(
         .eq("business_id", businessId)
         .order("sort_order", { ascending: true })
         .order("created_at", { ascending: true }),
+    );
+    return data ?? [];
+  },
+);
+
+export const getFeaturedGoogleReviews = cache(
+  async (businessId: number): Promise<BusinessGoogleReview[]> => {
+    const { data } = await run<BusinessGoogleReview[]>(`featured-reviews ${businessId}`, () =>
+      supabase
+        .from("business_google_reviews")
+        .select("*")
+        .eq("business_id", businessId)
+        .eq("featured", true)
+        .order("sort_order", { ascending: true })
+        .limit(5),
     );
     return data ?? [];
   },
@@ -283,6 +314,106 @@ export const getBusinessesByLocation = cache(
 
 export type NearbyBusiness = Business & { distanceKm: number };
 
+export type MapBusinessPin = {
+  id: number;
+  slug: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+  category_slug: string | null;
+  rating: number | null;
+  google_reviews: number | null;
+  city: string | null;
+  thumbnail_url: string | null;
+  easy_auto_score: number | null;
+  claimed: boolean;
+};
+
+export type MapBounds = {
+  south: number;
+  west: number;
+  north: number;
+  east: number;
+};
+
+export type MapBusinessFilters = {
+  categorySlugs?: string[];
+  cities?: string[];
+  minScore?: number;
+  claimedOnly?: boolean;
+  query?: string;
+};
+
+/** Map pins — bbox or search, ordered by Easy Auto Score (highest first). */
+export async function getMapBusinesses(
+  bounds: MapBounds | null,
+  filters: MapBusinessFilters = {},
+  limit = 400,
+): Promise<MapBusinessPin[]> {
+  const q = filters.query?.trim().replace(/[,()*%]/g, " ").replace(/\s+/g, " ").trim();
+
+  if (!q && bounds) {
+    const { south, west, north, east } = bounds;
+    if (
+      !Number.isFinite(south) ||
+      !Number.isFinite(west) ||
+      !Number.isFinite(north) ||
+      !Number.isFinite(east) ||
+      south >= north ||
+      west >= east
+    ) {
+      return [];
+    }
+  }
+
+  let query = supabase
+    .from("businesses")
+    .select(
+      "id, slug, name, latitude, longitude, category_slug, rating, google_reviews, city, thumbnail_url, easy_auto_score, claimed",
+    )
+    .eq("status", "publish")
+    .not("latitude", "is", null)
+    .not("longitude", "is", null);
+
+  if (q) {
+    const term = `%${q}%`;
+    query = query.or(`name.ilike.${term},city.ilike.${term},address.ilike.${term}`);
+  } else if (bounds) {
+    query = query
+      .gte("latitude", bounds.south)
+      .lte("latitude", bounds.north)
+      .gte("longitude", bounds.west)
+      .lte("longitude", bounds.east);
+  } else {
+    return [];
+  }
+
+  if (filters.categorySlugs && filters.categorySlugs.length > 0) {
+    query = query.in("category_slug", filters.categorySlugs);
+  }
+  if (filters.cities && filters.cities.length > 0) {
+    query = query.in("city", filters.cities);
+  }
+  if (filters.minScore != null) {
+    query = query.gte("easy_auto_score", filters.minScore);
+  }
+  if (filters.claimedOnly) {
+    query = query.eq("claimed", true);
+  }
+
+  query = query
+    .order("easy_auto_score", { ascending: false, nullsFirst: false })
+    .order("google_reviews", { ascending: false, nullsFirst: false })
+    .limit(limit);
+
+  const { data, error } = await query;
+  if (error) throw new Error(error.message);
+
+  return ((data as MapBusinessPin[]) ?? []).filter(
+    (b) => b.latitude != null && b.longitude != null,
+  );
+}
+
 // Businesses near a point, sorted by distance. Uses a bounding-box query (cheap,
 // indexable) then ranks the candidates by exact Haversine distance.
 export const getNearbyBusinesses = cache(
@@ -304,6 +435,47 @@ export const getNearbyBusinesses = cache(
       .map((b) => ({ ...b, distanceKm: haversineKm(lat, lng, b.latitude!, b.longitude!) }))
       .sort((a, b) => a.distanceKm - b.distanceKm)
       .slice(0, limit);
+  },
+);
+
+/** Same category (when possible) + nearby — for internal linking on listing pages. */
+export const getSimilarBusinesses = cache(
+  async (
+    businessId: number,
+    categorySlug: string | null,
+    lat: number | null,
+    lng: number | null,
+    city: string | null,
+    limit = 6,
+  ): Promise<(Business & { distanceKm?: number })[]> => {
+    const exclude = (list: Business[]) => list.filter((b) => b.id !== businessId).slice(0, limit);
+
+    if (lat != null && lng != null) {
+      const nearby = await getNearbyBusinesses(lat, lng, 40);
+      const sameCategory = exclude(
+        nearby.filter((b) => !categorySlug || b.category_slug === categorySlug),
+      ) as (Business & { distanceKm?: number })[];
+      if (sameCategory.length >= 3) return sameCategory;
+      const anyNearby = exclude(nearby) as (Business & { distanceKm?: number })[];
+      if (anyNearby.length > 0) return anyNearby;
+    }
+
+    if (categorySlug) {
+      const { data } = await run<Business[]>(`similar ${categorySlug} ${city ?? "uae"}`, () => {
+        let q = supabase
+          .from("businesses")
+          .select("*")
+          .eq("category_slug", categorySlug)
+          .neq("id", businessId)
+          .order("easy_auto_score", { ascending: false, nullsFirst: false })
+          .limit(limit);
+        if (city) q = q.eq("city", city);
+        return q;
+      });
+      if (data && data.length > 0) return data;
+    }
+
+    return [];
   },
 );
 

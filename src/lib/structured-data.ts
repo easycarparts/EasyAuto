@@ -2,7 +2,9 @@
 // shapes are reusable. We have rating, address, geo and hours → LocalBusiness is
 // eligible for rich results.
 
-import type { Business, BusinessPost } from "./types";
+import type { Business, BusinessGoogleReview, BusinessPost } from "./types";
+import { businessSameAs } from "./business-same-as";
+import { openingHoursSpecification, openingHoursStrings } from "./hours-schema";
 import { postPublicPath } from "./post-data";
 import { SITE, absoluteUrl } from "./site";
 import { decodeEntities, stripHtml } from "./format";
@@ -10,20 +12,25 @@ import { decodeEntities, stripHtml } from "./format";
 export function localBusinessJsonLd(
   business: Business,
   categoryName?: string,
+  featuredReviews: BusinessGoogleReview[] = [],
 ): Record<string, unknown> {
+  const listingUrl = absoluteUrl(`/business/${business.slug}`);
   const data: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": absoluteUrl(`/business/${business.slug}`),
+    "@id": listingUrl,
     name: business.name,
-    url: absoluteUrl(`/business/${business.slug}`),
+    url: listingUrl,
   };
 
   if (categoryName) data.description = `${decodeEntities(categoryName)} in ${business.city ?? "the UAE"}.`;
   if (business.description) data.description = stripHtml(business.description).slice(0, 300);
   if (business.thumbnail_url) data.image = business.thumbnail_url;
   if (business.phone) data.telephone = business.phone;
-  if (business.website) data.url = business.website;
+  if (business.email) data.email = business.email;
+
+  const sameAs = businessSameAs(business);
+  if (sameAs.length > 0) data.sameAs = sameAs;
 
   if (business.address) {
     data.address = {
@@ -42,6 +49,14 @@ export function localBusinessJsonLd(
     };
   }
 
+  const hoursSpec = openingHoursSpecification(business.hours);
+  if (hoursSpec) {
+    data.openingHoursSpecification = hoursSpec;
+  } else {
+    const hoursLines = openingHoursStrings(business.hours);
+    if (hoursLines) data.openingHours = hoursLines;
+  }
+
   if (business.rating != null && (business.google_reviews ?? 0) > 0) {
     data.aggregateRating = {
       "@type": "AggregateRating",
@@ -51,6 +66,27 @@ export function localBusinessJsonLd(
       worstRating: 1,
     };
   }
+
+  if (featuredReviews.length > 0) {
+    data.review = featuredReviews.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author_name ?? "Google user" },
+      ...(r.rating != null
+        ? {
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: r.rating,
+              bestRating: 5,
+              worstRating: 1,
+            },
+          }
+        : {}),
+      reviewBody: r.text,
+      ...(r.published_at ? { datePublished: r.published_at } : {}),
+    }));
+  }
+
+  if (business.updated_at) data.dateModified = business.updated_at;
 
   return data;
 }
@@ -84,6 +120,48 @@ export function faqJsonLd(
       acceptedAnswer: { "@type": "Answer", text: it.answer },
     })),
   };
+}
+
+export function itemListJsonLd(
+  items: { name: string; url: string }[],
+  listName?: string,
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    ...(listName ? { name: listName } : {}),
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: item.url,
+    })),
+  };
+}
+
+export function editorialArticleJsonLd(post: {
+  title: string;
+  slug: string;
+  excerpt: string | null;
+  content: string | null;
+  published_at: string | null;
+  thumbnail_url: string | null;
+}): Record<string, unknown> {
+  const url = absoluteUrl(`/news/${post.slug}`);
+  const data: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": url,
+    headline: post.title,
+    url,
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  };
+  if (post.excerpt) data.description = stripHtml(post.excerpt).slice(0, 300);
+  else if (post.content) data.description = stripHtml(post.content).slice(0, 300);
+  if (post.thumbnail_url) data.image = [post.thumbnail_url];
+  if (post.published_at) data.datePublished = post.published_at;
+  return data;
 }
 
 export function websiteJsonLd(): Record<string, unknown> {

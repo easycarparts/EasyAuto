@@ -2,28 +2,29 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { SearchBar } from "@/components/search-bar";
 import { BusinessCard } from "@/components/business-card";
+import { ArticleFeedCard } from "@/components/article-feed-card";
 import { JsonLd } from "@/components/json-ld";
 import { GeolocateButton } from "@/components/geolocate-button";
 import {
   getAllCategories,
   getCities,
   getFeaturedBusinesses,
-  getAllNews,
 } from "@/lib/data";
+import { getRecentContentFeed } from "@/lib/content-feed";
 import { SERVICE_GROUPS, ALL_SERVICES } from "@/lib/taxonomy";
 import { EMIRATES, emirateForCity } from "@/lib/locations";
-import { decodeEntities, formatCount } from "@/lib/format";
+import { formatCount } from "@/lib/format";
 import { websiteJsonLd } from "@/lib/structured-data";
 
 // Regenerate daily so the featured rotation refreshes (ISR).
 export const revalidate = 86400;
 
 export default async function Home() {
-  const [categories, featured, cities, news] = await Promise.all([
+  const [categories, featured, cities, recentArticles] = await Promise.all([
     getAllCategories(),
     getFeaturedBusinesses(8),
     getCities(),
-    getAllNews(),
+    getRecentContentFeed(3),
   ]);
 
   const categoryNames = new Map(categories.map((c) => [c.slug, c.name]));
@@ -153,27 +154,13 @@ export default async function Home() {
       </Container>
 
       {/* News teaser */}
-      {news.length > 0 && (
+      {recentArticles.length > 0 && (
         <section className="bg-surface py-14">
           <Container>
             <SectionHeading title="Guides & news" action={{ href: "/news", label: "All articles" }} />
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {news.slice(0, 3).map((post) => (
-                <Link
-                  key={post.id}
-                  href={`/news/${post.slug}`}
-                  className="rounded-2xl border border-line bg-canvas p-6 shadow-card transition-shadow hover:shadow-pop"
-                >
-                  <h3 className="font-semibold text-ink">{decodeEntities(post.title)}</h3>
-                  {post.excerpt && (
-                    <p className="mt-2 line-clamp-3 text-sm text-muted">
-                      {decodeEntities(post.excerpt)}
-                    </p>
-                  )}
-                  <span className="mt-3 inline-block text-sm font-semibold text-brand-600">
-                    Read guide →
-                  </span>
-                </Link>
+              {recentArticles.map((item) => (
+                <ArticleFeedCard key={item.id} item={item} />
               ))}
             </div>
           </Container>

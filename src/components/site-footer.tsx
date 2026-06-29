@@ -41,6 +41,8 @@ export async function SiteFooter() {
 
           <FooterCol title="Easy Auto">
             <FooterLink href="/news">News &amp; guides</FooterLink>
+            <FooterLink href="/submit-business">List your business</FooterLink>
+            <FooterLink href="/claim-business">Claim your business</FooterLink>
             <FooterLink href="/">Home</FooterLink>
           </FooterCol>
         </div>

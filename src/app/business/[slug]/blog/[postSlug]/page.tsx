@@ -4,8 +4,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ArticleRelated } from "@/components/article-related";
 import { JsonLd } from "@/components/json-ld";
-import { getBusinessBySlug } from "@/lib/data";
+import { getAllCategories, getBusinessBySlug } from "@/lib/data";
+import { businessDirectoryLinks } from "@/lib/article-links";
+import { findRelatedFeedItems, getMixedContentFeed } from "@/lib/content-feed";
 import {
   blogIndexPath,
   getAllPublishedPostParams,
@@ -45,11 +48,23 @@ export default async function BusinessBlogPostPage({
   const post = await getPublishedPost(business.id, postSlug);
   if (!post) notFound();
 
+  const [categories, feed] = await Promise.all([getAllCategories(), getMixedContentFeed()]);
+  const categoryName = business.category_slug
+    ? categories.find((c) => c.slug === business.category_slug)?.name
+    : undefined;
+
   const name = decodeEntities(business.name);
   const title = decodeEntities(post.title);
   const author = post.author_name?.trim() || name;
   const published = post.published_at ? new Date(post.published_at) : null;
   const modified = new Date(post.updated_at);
+  const postHref = postPublicPath(slug, postSlug);
+
+  const relatedFromFeed = findRelatedFeedItems(postHref, feed, {
+    categorySlug: business.category_slug,
+    limit: 3,
+  });
+  const directoryLinks = businessDirectoryLinks(business, categoryName);
 
   const related = (await getPublishedPostsForBusiness(business.id))
     .filter((p) => p.id !== post.id)
@@ -170,6 +185,8 @@ export default async function BusinessBlogPostPage({
             </Link>
           </footer>
         </article>
+
+        <ArticleRelated directoryLinks={directoryLinks} related={relatedFromFeed} />
 
         {related.length > 0 && (
           <aside className="mx-auto mt-14 max-w-3xl">

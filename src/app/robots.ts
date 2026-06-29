@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       // Personalised / low-value pages — keep crawlers off them.
       disallow: ["/search", "/near-me"],
     },
-    sitemap: `${SITE.url}/sitemap.xml`,
+    sitemap: `${SITE.url}/sitemap_index.xml`,
     host: SITE.url,
   };
 }

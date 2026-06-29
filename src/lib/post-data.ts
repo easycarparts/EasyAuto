@@ -97,3 +97,34 @@ export async function getAllPublishedPostsForSitemap(): Promise<
       updated_at: r.updated_at,
     }));
 }
+
+export type BusinessPostFeedRow = {
+  post: BusinessPost;
+  business: {
+    id: number;
+    slug: string;
+    name: string;
+    city: string | null;
+    category_slug: string | null;
+    address: string | null;
+    claimed: boolean;
+    status: string;
+  };
+};
+
+export const getPublishedBusinessPostsForFeed = cache(async (): Promise<BusinessPostFeedRow[]> => {
+  const { data, error } = await supabase
+    .from("business_posts")
+    .select(
+      "*, business:businesses!inner(id, slug, name, city, category_slug, address, claimed, status)",
+    )
+    .eq("status", "publish");
+  if (error) throw new Error(error.message);
+
+  return ((data as (BusinessPost & { business: BusinessPostFeedRow["business"] })[]) ?? [])
+    .filter((row) => row.business?.status === "publish")
+    .map((row) => {
+      const { business, ...post } = row;
+      return { post, business };
+    });
+});

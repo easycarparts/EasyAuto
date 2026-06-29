@@ -1,5 +1,5 @@
-// OAuth + magic-link landing. Supabase redirects here after the user authenticates.
-// OAuth and PKCE flows arrive with `?code`; email OTP links may arrive with
+// Magic-link landing (+ OAuth if enabled later). Supabase redirects here after the user
+// authenticates. PKCE flows arrive with `?code`; email OTP links may arrive with
 // `?token_hash&type`. We exchange that for a session (sets the auth cookies via the
 // server client), then forward the user to their intended destination.
 

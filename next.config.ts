@@ -9,6 +9,23 @@ const nextConfig: NextConfig = {
   async redirects() {
     return categoryRedirects();
   },
+  // Serve the Next.js sitemap at the old Yoast URLs (rewrite, not redirect — same
+  // address bar / GSC entry, no 301 risk). Generation still lives at /sitemap.xml.
+  async rewrites() {
+    const sitemap = "/sitemap.xml";
+    return [
+      { source: "/sitemap_index.xml", destination: sitemap },
+      { source: "/business-sitemap.xml", destination: sitemap },
+      { source: "/business-sitemap2.xml", destination: sitemap },
+      { source: "/business-sitemap3.xml", destination: sitemap },
+      { source: "/business-sitemap4.xml", destination: sitemap },
+      { source: "/business-sitemap5.xml", destination: sitemap },
+      { source: "/category-sitemap.xml", destination: sitemap },
+      { source: "/post-sitemap.xml", destination: sitemap },
+      { source: "/page-sitemap.xml", destination: sitemap },
+      { source: "/author-sitemap.xml", destination: sitemap },
+    ];
+  },
   images: {
     // Listing thumbnails were migrated off the old WordPress install to Cloudinary
     // (scripts/migrate-images-cloudinary.mjs). The easyauto.ae/wp-content pattern was

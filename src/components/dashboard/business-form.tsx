@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { submitBusiness, updateBusiness, type FormResult } from "@/app/dashboard/actions";
+import { SOCIAL_PLATFORMS, type SocialLinks } from "@/lib/social-links";
 
 type Cat = { slug: string; name: string };
 
@@ -16,6 +17,7 @@ type Initial = Partial<{
   hours: string;
   googleMapsLink: string;
   hasMapPin: boolean;
+  socialLinks: SocialLinks;
 }>;
 
 export function BusinessForm({
@@ -24,16 +26,40 @@ export function BusinessForm({
   initial = {},
   businessId,
   selected = [],
+  primaryCategory: initialPrimary = "",
 }: {
   mode: "create" | "edit";
   categories: Cat[];
   initial?: Initial;
   businessId?: number;
   selected?: string[];
+  primaryCategory?: string;
 }) {
   const action = mode === "create" ? submitBusiness : updateBusiness;
   const [state, formAction, pending] = useActionState<FormResult, FormData>(action, {});
-  const selectedSet = new Set(selected);
+  const [checked, setChecked] = useState<Set<string>>(() => {
+    const set = new Set(selected);
+    if (initialPrimary) set.add(initialPrimary);
+    return set;
+  });
+  const [primary, setPrimary] = useState(() => {
+    if (initialPrimary && selected.includes(initialPrimary)) return initialPrimary;
+    if (initialPrimary) return initialPrimary;
+    return selected[0] ?? "";
+  });
+
+  function toggleCategory(slug: string, on: boolean) {
+    const next = new Set(checked);
+    if (on) next.add(slug);
+    else next.delete(slug);
+    setChecked(next);
+
+    if (!on && primary === slug) {
+      setPrimary([...next][0] ?? "");
+    } else if (on && (!primary || !next.has(primary))) {
+      setPrimary(slug);
+    }
+  }
 
   return (
     <form action={formAction} className="space-y-7">
@@ -101,6 +127,27 @@ export function BusinessForm({
         )}
       </Field>
 
+      <div>
+        <span className={labelCls}>Social media</span>
+        <p className="mt-0.5 text-xs text-faint">
+          Add links to your profiles — they appear as icons on your public listing. Leave blank
+          to hide.
+        </p>
+        <fieldset className="mt-3 grid gap-4 sm:grid-cols-2">
+          {SOCIAL_PLATFORMS.map((p) => (
+            <Field key={p.key} label={p.label}>
+              <input
+                name={`social_${p.key}`}
+                type="url"
+                defaultValue={initial.socialLinks?.[p.key] ?? ""}
+                className={inputCls}
+                placeholder={p.placeholder}
+              />
+            </Field>
+          ))}
+        </fieldset>
+      </div>
+
       <Field label="Opening hours" hint="One line per day, e.g. “Monday: 9:00 AM – 9:00 PM”.">
         <textarea
           name="hours"
@@ -114,9 +161,35 @@ export function BusinessForm({
       <div>
         <span className={labelCls}>Categories</span>
         <p className="mt-0.5 text-xs text-faint">
-          Pick every service you offer — businesses can belong to multiple categories. The first
-          one is treated as primary.
+          Pick every service you offer — businesses can belong to multiple categories.
         </p>
+
+        {checked.size > 0 && (
+          <div className="mt-3">
+            <label className="block">
+              <span className={labelCls}>Main category</span>
+              <span className="mt-0.5 block text-xs text-faint">
+                Shown on your public listing page and in search results.
+              </span>
+              <select
+                name="primaryCategory"
+                value={primary}
+                onChange={(e) => setPrimary(e.target.value)}
+                className={`${inputCls} mt-2`}
+              >
+                {[...checked].map((slug) => {
+                  const cat = categories.find((c) => c.slug === slug);
+                  return (
+                    <option key={slug} value={slug}>
+                      {cat?.name ?? slug}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+          </div>
+        )}
+
         <div className="mt-3 max-h-64 overflow-y-auto rounded-xl border border-line bg-canvas p-3">
           <div className="grid gap-1 sm:grid-cols-2">
             {categories.map((c) => (
@@ -128,7 +201,8 @@ export function BusinessForm({
                   type="checkbox"
                   name="categories"
                   value={c.slug}
-                  defaultChecked={selectedSet.has(c.slug)}
+                  checked={checked.has(c.slug)}
+                  onChange={(e) => toggleCategory(c.slug, e.target.checked)}
                   className="h-4 w-4 rounded border-line-strong text-brand-600 focus:ring-brand-400"
                 />
                 {c.name}

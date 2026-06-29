@@ -6,6 +6,8 @@
 import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/auth";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { fetchLiveGoogleReviews } from "@/lib/google-review-refresh";
+import { syncBusinessGoogleReviews } from "@/lib/google-review-sync";
 import { recomputeScore } from "@/lib/score";
 import type { Business } from "@/lib/types";
 
@@ -102,5 +104,74 @@ export async function rejectClaim(formData: FormData) {
     .from("claim_requests")
     .update({ status: "rejected", decided_by: admin.id, decided_at: new Date().toISOString() })
     .eq("id", claimId);
+  revalidatePath("/admin");
+}
+
+export async function approveGoogleReviewRefresh(formData: FormData) {
+  const admin = await requireAdmin();
+  const requestId = String(formData.get("requestId") ?? "");
+  if (!requestId) return;
+
+  const db = createSupabaseAdminClient();
+  const { data: request } = await db
+    .from("google_review_refresh_requests")
+    .select("*")
+    .eq("id", requestId)
+    .eq("status", "pending")
+    .maybeSingle();
+  if (!request) return;
+
+  const { data: biz } = await db
+    .from("businesses")
+    .select("*")
+    .eq("id", request.business_id)
+    .maybeSingle();
+  if (!biz) return;
+
+  const business = biz as Business;
+  if (!business.claimed || !business.owner_id) return;
+
+  const fetched = await fetchLiveGoogleReviews(business);
+  if ("error" in fetched) {
+    throw new Error(fetched.error);
+  }
+
+  const updates: Partial<Business> & { updated_at: string } = {
+    rating: fetched.rating,
+    google_reviews: fetched.reviewCount,
+    updated_at: new Date().toISOString(),
+  };
+  if (!business.place_id) updates.place_id = fetched.placeId;
+
+  const { error: updateError } = await db.from("businesses").update(updates).eq("id", business.id);
+  if (updateError) throw new Error(updateError.message);
+
+  await syncBusinessGoogleReviews(db, business.id, fetched.reviews);
+
+  const now = new Date().toISOString();
+  await db
+    .from("google_review_refresh_requests")
+    .update({ status: "approved", decided_by: admin.id, decided_at: now })
+    .eq("id", requestId);
+
+  revalidatePath("/admin");
+  revalidatePath(`/business/${business.slug}`);
+  revalidatePath(`/dashboard/business/${business.id}`);
+}
+
+export async function rejectGoogleReviewRefresh(formData: FormData) {
+  const admin = await requireAdmin();
+  const requestId = String(formData.get("requestId") ?? "");
+  if (!requestId) return;
+  const db = createSupabaseAdminClient();
+  await db
+    .from("google_review_refresh_requests")
+    .update({
+      status: "rejected",
+      decided_by: admin.id,
+      decided_at: new Date().toISOString(),
+    })
+    .eq("id", requestId)
+    .eq("status", "pending");
   revalidatePath("/admin");
 }

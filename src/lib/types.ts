@@ -1,6 +1,8 @@
 // Shared domain types — mirror the Supabase schema (supabase/schema.sql) so the
 // data layer can swap from local JSON (Step 2) to Supabase (Step 4) with no churn.
 
+import type { SocialLinks } from "./social-links";
+
 export type Business = {
   id: number;
   slug: string;
@@ -18,6 +20,7 @@ export type Business = {
   phone: string | null;
   email: string | null;
   website: string | null;
+  social_links: SocialLinks | null;
   latitude: number | null;
   longitude: number | null;
   hours: string | null;
@@ -72,6 +75,22 @@ export type NewsPost = {
   excerpt: string | null;
   published_at: string | null;
   thumbnail_url: string | null;
+};
+
+export type BusinessGoogleReview = {
+  id: string;
+  business_id: number;
+  google_review_id: string;
+  author_name: string | null;
+  author_photo_url: string | null;
+  author_uri: string | null;
+  rating: number | null;
+  text: string;
+  relative_time: string | null;
+  published_at: string | null;
+  featured: boolean;
+  sort_order: number;
+  fetched_at: string;
 };
 
 export type BusinessPost = {

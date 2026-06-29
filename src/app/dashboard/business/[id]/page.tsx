@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth";
-import { getOwnedBusiness, getMediaForOwner, getCategorySlugs } from "@/lib/owner-data";
+import { getOwnedBusiness, getMediaForOwner, getCategorySlugs, getPendingGoogleReviewRefresh, getGoogleReviewsForOwner } from "@/lib/owner-data";
 import { getAllCategories } from "@/lib/data";
 import { BusinessForm } from "@/components/dashboard/business-form";
+import { FeaturedReviewsPicker } from "@/components/dashboard/featured-reviews-picker";
+import { GoogleReviewsRefresh } from "@/components/dashboard/google-reviews-refresh";
 import { MediaManager } from "@/components/dashboard/media-manager";
 import { ScorePanel } from "@/components/score-badge";
+import { resolvePlaceId } from "@/lib/google-review-refresh";
 import { decodeEntities } from "@/lib/format";
 
 export default async function EditBusinessPage({
@@ -19,12 +22,25 @@ export default async function EditBusinessPage({
   const business = await getOwnedBusiness(user.id, businessId);
   if (!business) notFound();
 
-  const [cats, media, selected] = await Promise.all([
+  const [cats, media, selected, pendingReviewRequest, googleReviews] = await Promise.all([
     getAllCategories(),
     getMediaForOwner(businessId),
     getCategorySlugs(businessId),
+    getPendingGoogleReviewRefresh(businessId),
+    getGoogleReviewsForOwner(businessId),
   ]);
   const categories = cats.map((c) => ({ slug: c.slug, name: decodeEntities(c.name) }));
+  const hasGooglePlaceRef = Boolean(resolvePlaceId(business));
+
+  let canRequest = business.claimed && hasGooglePlaceRef && !pendingReviewRequest;
+  let requestHint: string | undefined;
+  if (!business.claimed) {
+    canRequest = false;
+    requestHint = "Claim this listing before requesting a review refresh.";
+  } else if (!hasGooglePlaceRef) {
+    canRequest = false;
+    requestHint = "Save a Google Maps link above first.";
+  }
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -45,6 +61,7 @@ export default async function EditBusinessPage({
               businessId={businessId}
               categories={categories}
               selected={selected}
+              primaryCategory={business.category_slug ?? ""}
               initial={{
                 name: decodeEntities(business.name),
                 description: business.description ?? "",
@@ -53,6 +70,7 @@ export default async function EditBusinessPage({
                 phone: business.phone ?? "",
                 email: business.email ?? "",
                 website: business.website ?? "",
+                socialLinks: business.social_links ?? {},
                 hours: business.hours ?? "",
                 googleMapsLink:
                   business.google_link ??
@@ -79,10 +97,22 @@ export default async function EditBusinessPage({
               />
             </div>
           </div>
+
+          <FeaturedReviewsPicker businessId={businessId} reviews={googleReviews} />
         </div>
 
         <aside className="order-1 space-y-4 lg:order-2">
           <ScorePanel score={business.easy_auto_score} breakdown={business.score_breakdown} />
+          <GoogleReviewsRefresh
+            businessId={businessId}
+            rating={business.rating}
+            reviewCount={business.google_reviews}
+            claimed={business.claimed}
+            hasGooglePlaceRef={hasGooglePlaceRef}
+            pendingRequest={pendingReviewRequest}
+            canRequest={canRequest}
+            requestHint={requestHint}
+          />
           <div className="rounded-2xl border border-line bg-surface p-5 text-sm text-muted shadow-card">
             <p className="font-semibold text-ink">Status</p>
             <p className="mt-1 capitalize">{business.status === "publish" ? "Live" : business.status}</p>

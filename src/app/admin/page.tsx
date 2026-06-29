@@ -1,17 +1,20 @@
 import Link from "next/link";
-import { getPendingSubmissions, getPendingClaims, getRecentLeads } from "@/lib/admin-data";
+import { getPendingSubmissions, getPendingClaims, getRecentLeads, getPendingGoogleReviewRefreshes } from "@/lib/admin-data";
 import {
   approveSubmission,
   rejectSubmission,
   approveClaim,
   rejectClaim,
+  approveGoogleReviewRefresh,
+  rejectGoogleReviewRefresh,
 } from "./actions";
 import { decodeEntities } from "@/lib/format";
 
 export default async function AdminPage() {
-  const [submissions, claims, leads] = await Promise.all([
+  const [submissions, claims, reviewRefreshes, leads] = await Promise.all([
     getPendingSubmissions(),
     getPendingClaims(),
+    getPendingGoogleReviewRefreshes(),
     getRecentLeads(50),
   ]);
 
@@ -114,6 +117,72 @@ export default async function AdminPage() {
         )}
       </section>
 
+      {/* Google review refresh requests (paid API — admin approves each) -------- */}
+      <section className="mt-10">
+        <h2 className="text-lg font-bold text-ink">
+          Google review refresh requests{" "}
+          <span className="text-sm font-normal text-muted">({reviewRefreshes.length})</span>
+        </h2>
+        <p className="mt-1 text-sm text-muted">
+          Each approval calls the Google Places API (paid). Only approve for claimed listings.
+        </p>
+        {reviewRefreshes.length === 0 ? (
+          <Empty>No review refresh requests awaiting approval.</Empty>
+        ) : (
+          <ul className="mt-4 space-y-3">
+            {reviewRefreshes.map((r) => (
+              <li
+                key={r.id}
+                className="flex flex-wrap items-start justify-between gap-4 rounded-xl border border-line bg-surface p-4"
+              >
+                <div className="min-w-0">
+                  <p className="font-bold text-ink">
+                    {r.business ? decodeEntities(r.business.name) : `Business #${r.business_id}`}
+                    {r.business && (
+                      <Link
+                        href={`/business/${r.business.slug}`}
+                        className="ml-2 text-xs font-semibold text-brand-600 hover:text-brand-700"
+                      >
+                        view
+                      </Link>
+                    )}
+                  </p>
+                  <p className="mt-0.5 text-xs text-muted">
+                    Requested by {r.profile?.email ?? "owner"} ·{" "}
+                    {new Date(r.created_at).toLocaleString("en-GB", {
+                      dateStyle: "medium",
+                      timeStyle: "short",
+                    })}
+                  </p>
+                  {r.business && (
+                    <p className="mt-1 text-sm text-body">
+                      Current:{" "}
+                      {r.business.rating != null ? `${r.business.rating}★` : "no rating"}
+                      {r.business.google_reviews != null
+                        ? ` · ${r.business.google_reviews} reviews`
+                        : ""}
+                      {!r.business.claimed && (
+                        <span className="ml-2 text-danger-600">(not claimed — reject)</span>
+                      )}
+                    </p>
+                  )}
+                </div>
+                <div className="flex shrink-0 gap-2">
+                  <form action={approveGoogleReviewRefresh}>
+                    <input type="hidden" name="requestId" value={r.id} />
+                    <ApproveButton>Approve &amp; refresh</ApproveButton>
+                  </form>
+                  <form action={rejectGoogleReviewRefresh}>
+                    <input type="hidden" name="requestId" value={r.id} />
+                    <RejectButton>Reject</RejectButton>
+                  </form>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
       {/* Recent leads ------------------------------------------------------- */}
       <section className="mt-10">
         <h2 className="text-lg font-bold text-ink">Recent leads</h2>
@@ -126,6 +195,7 @@ export default async function AdminPage() {
                 <tr>
                   <th className="px-4 py-2.5 font-semibold">When</th>
                   <th className="px-4 py-2.5 font-semibold">Action</th>
+                  <th className="px-4 py-2.5 font-semibold">Business</th>
                   <th className="px-4 py-2.5 font-semibold">Category</th>
                   <th className="px-4 py-2.5 font-semibold">City</th>
                   <th className="px-4 py-2.5 font-semibold">Routed</th>
@@ -141,6 +211,18 @@ export default async function AdminPage() {
                       })}
                     </td>
                     <td className="px-4 py-2.5 font-medium text-body">{l.action ?? "—"}</td>
+                    <td className="px-4 py-2.5 text-body">
+                      {l.business ? (
+                        <Link
+                          href={`/business/${l.business.slug}`}
+                          className="font-medium text-brand-600 hover:text-brand-700"
+                        >
+                          {decodeEntities(l.business.name)}
+                        </Link>
+                      ) : (
+                        "—"
+                      )}
+                    </td>
                     <td className="px-4 py-2.5 text-body">{l.category_slug ?? "—"}</td>
                     <td className="px-4 py-2.5 text-body">{l.city ?? "—"}</td>
                     <td className="px-4 py-2.5 text-body">{l.routed_to ?? "—"}</td>

@@ -20,7 +20,7 @@ import { COMMUNITIES, getEmirate, getLocation } from "@/lib/locations";
 import { computeLocationCombos } from "@/lib/location-combos";
 import { decodeEntities, formatCount, formatRating } from "@/lib/format";
 import { SITE, absoluteUrl } from "@/lib/site";
-import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, faqJsonLd, itemListJsonLd } from "@/lib/structured-data";
 
 const PER_PAGE = 24;
 const MIN_LISTINGS = 3; // don't build thin pages
@@ -130,6 +130,17 @@ export default async function LocationServicePage({
         ])}
       />
       <JsonLd data={faqJsonLd(faqs)} />
+      {items.length > 0 && (
+        <JsonLd
+          data={itemListJsonLd(
+            items.map((b) => ({
+              name: decodeEntities(b.name),
+              url: absoluteUrl(`/business/${b.slug}`),
+            })),
+            `${serviceName} in ${location.name}`,
+          )}
+        />
+      )}
 
       <div className="border-b border-line bg-surface">
         <Container className="py-8">

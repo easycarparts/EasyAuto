@@ -20,7 +20,7 @@ import {
 } from "@/lib/taxonomy";
 import { decodeEntities, formatCount } from "@/lib/format";
 import { SITE, absoluteUrl } from "@/lib/site";
-import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/structured-data";
 
 const PER_PAGE = 24;
 
@@ -101,6 +101,17 @@ async function GroupHub({ slug, page }: { slug: string; page: number }) {
           { name: group.name, url: absoluteUrl(`/business-category/${slug}`) },
         ])}
       />
+      {items.length > 0 && (
+        <JsonLd
+          data={itemListJsonLd(
+            items.map((b) => ({
+              name: decodeEntities(b.name),
+              url: absoluteUrl(`/business/${b.slug}`),
+            })),
+            `${group.name} in the UAE`,
+          )}
+        />
+      )}
 
       <div className="border-b border-line bg-surface">
         <Container className="py-8">
@@ -182,6 +193,17 @@ async function CategoryListing({ slug, page }: { slug: string; page: number }) {
           { name, url: absoluteUrl(`/business-category/${slug}`) },
         ])}
       />
+      {items.length > 0 && (
+        <JsonLd
+          data={itemListJsonLd(
+            items.map((b) => ({
+              name: decodeEntities(b.name),
+              url: absoluteUrl(`/business/${b.slug}`),
+            })),
+            `${name} in the UAE`,
+          )}
+        />
+      )}
 
       <div className="border-b border-line bg-surface">
         <Container className="py-8">
@@ -197,6 +219,12 @@ async function CategoryListing({ slug, page }: { slug: string; page: number }) {
           </h1>
           <p className="mt-2 text-muted">
             {formatCount(total)} {total === 1 ? "business" : "businesses"} listed
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-body">
+            Browse {formatCount(total)} {name.toLowerCase()}{" "}
+            {total === 1 ? "business" : "businesses"} across the UAE. Each listing includes
+            Google ratings, reviews, opening hours, photos and direct contact options — ranked
+            by the Easy Auto Score so you can compare trusted providers quickly.
           </p>
         </Container>
       </div>

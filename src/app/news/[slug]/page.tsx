@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ArticleRelated } from "@/components/article-related";
 import { JsonLd } from "@/components/json-ld";
 import { getAllNews, getNewsBySlug } from "@/lib/data";
+import { findRelatedFeedItems, getMixedContentFeed } from "@/lib/content-feed";
 import { cleanPostHtml, decodeEntities, stripHtml, truncate } from "@/lib/format";
 import { SITE, absoluteUrl } from "@/lib/site";
+import { editorialArticleJsonLd } from "@/lib/structured-data";
 
 export async function generateStaticParams() {
   const posts = await getAllNews();
@@ -49,20 +52,14 @@ export default async function NewsPostPage({
 
   const title = decodeEntities(post.title);
   const published = post.published_at ? new Date(post.published_at) : null;
+  const canonicalHref = `/news/${slug}`;
 
-  const articleJsonLd: Record<string, unknown> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    url: absoluteUrl(`/news/${slug}`),
-    publisher: { "@type": "Organization", name: SITE.name },
-  };
-  if (post.thumbnail_url) articleJsonLd.image = post.thumbnail_url;
-  if (post.published_at) articleJsonLd.datePublished = post.published_at;
+  const feed = await getMixedContentFeed();
+  const related = findRelatedFeedItems(canonicalHref, feed, { limit: 3 });
 
   return (
     <>
-      <JsonLd data={articleJsonLd} />
+      <JsonLd data={editorialArticleJsonLd(post)} />
 
       <Container className="py-8">
         <Breadcrumbs
@@ -76,16 +73,19 @@ export default async function NewsPostPage({
 
       <Container className="pb-16">
         <article className="mx-auto max-w-3xl">
-          <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">Editorial</p>
+          <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
             {title}
           </h1>
           {published && (
             <p className="mt-3 text-sm text-muted">
-              {published.toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
+              <time dateTime={post.published_at!}>
+                {published.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </time>
             </p>
           )}
           {post.content && (
@@ -95,6 +95,8 @@ export default async function NewsPostPage({
             />
           )}
         </article>
+
+        <ArticleRelated related={related} />
       </Container>
     </>
   );

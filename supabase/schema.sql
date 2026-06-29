@@ -31,6 +31,7 @@ create table if not exists businesses (
   phone          text,
   email          text,
   website        text,
+  social_links   jsonb,                      -- {instagram, facebook, x, linkedin, youtube, tiktok, whatsapp, snapchat}
   latitude       numeric(10,7),
   longitude      numeric(10,7),
   hours          text,

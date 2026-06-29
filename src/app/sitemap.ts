@@ -27,6 +27,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: absoluteUrl("/"), priority: 1 },
     entry("/news"),
+    entry("/submit-business"),
+    entry("/claim-business"),
+    entry("/business"),
+    entry("/map"),
     // Service-group hubs + raw category pages
     ...SERVICE_GROUPS.map((g) => entry(`/business-category/${g.slug}`)),
     ...categories.map((c) => entry(`/business-category/${c.slug}`)),

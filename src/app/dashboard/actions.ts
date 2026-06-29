@@ -11,7 +11,10 @@ import { requireUser } from "@/lib/auth";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { getOwnedBusiness, getMediaForOwner } from "@/lib/owner-data";
 import { parseGoogleMapsUrl } from "@/lib/parse-google-maps-url";
+import { MAX_FEATURED_GOOGLE_REVIEWS } from "@/lib/google-review-policy";
+import { resolvePlaceId } from "@/lib/google-review-refresh";
 import { recomputeScore } from "@/lib/score";
+import { socialLinksFromForm } from "@/lib/social-links";
 import type { Business } from "@/lib/types";
 
 export type FormResult = { error?: string; ok?: boolean };
@@ -104,6 +107,18 @@ async function syncCategories(db: AdminDb, businessId: number, categories: strin
   }
 }
 
+function resolvePrimaryCategory(
+  formData: FormData,
+  categories: string[],
+  fallback?: string | null,
+): string | null {
+  const primary = field(formData, "primaryCategory");
+  if (categories.length === 0) return primary ?? fallback ?? null;
+  if (primary && categories.includes(primary)) return primary;
+  if (fallback && categories.includes(fallback)) return fallback;
+  return categories[0] ?? null;
+}
+
 // --- submit a new (pending) business --------------------------------------
 export async function submitBusiness(_prev: FormResult, formData: FormData): Promise<FormResult> {
   const user = await requireUser("/dashboard/submit");
@@ -111,6 +126,7 @@ export async function submitBusiness(_prev: FormResult, formData: FormData): Pro
   if (!name || name.length < 2) return { error: "Please enter the business name." };
 
   const categories = formData.getAll("categories").map(String).filter(Boolean);
+  const primaryCategory = resolvePrimaryCategory(formData, categories);
   const geo = geoFromForm(formData);
   if ("error" in geo && geo.error) return { error: geo.error };
   const geoFields = "skip" in geo ? {} : geoPatch(geo as ParsedGeo);
@@ -130,9 +146,10 @@ export async function submitBusiness(_prev: FormResult, formData: FormData): Pro
       phone: field(formData, "phone"),
       email: field(formData, "email"),
       website: normaliseUrl(field(formData, "website")),
+      social_links: socialLinksFromForm(formData.entries()),
       hours: field(formData, "hours"),
       ...geoFields,
-      category_slug: categories[0] ?? null,
+      category_slug: primaryCategory,
       owner_id: user.id,
       claimed: true, // owner submitted it themselves
       status: "pending", // awaits admin approval before going public
@@ -161,6 +178,7 @@ export async function updateBusiness(_prev: FormResult, formData: FormData): Pro
   if (!existing) return { error: "You don't have access to this listing." };
 
   const categories = formData.getAll("categories").map(String).filter(Boolean);
+  const primaryCategory = resolvePrimaryCategory(formData, categories, existing.category_slug);
   const geo = geoFromForm(formData, existing);
   if ("error" in geo && geo.error) return { error: geo.error };
 
@@ -171,9 +189,10 @@ export async function updateBusiness(_prev: FormResult, formData: FormData): Pro
     phone: field(formData, "phone"),
     email: field(formData, "email"),
     website: normaliseUrl(field(formData, "website")),
+    social_links: socialLinksFromForm(formData.entries()),
     hours: field(formData, "hours"),
     ...("skip" in geo ? {} : geoPatch(geo as ParsedGeo)),
-    category_slug: categories[0] ?? existing.category_slug,
+    category_slug: primaryCategory,
     updated_at: new Date().toISOString(),
   };
 
@@ -193,6 +212,85 @@ export async function updateBusiness(_prev: FormResult, formData: FormData): Pro
   revalidatePath(`/business/${existing.slug}`);
   revalidatePath(`/dashboard/business/${id}`);
   revalidatePath("/dashboard");
+  return { ok: true };
+}
+
+// --- Google review refresh (owner requests; admin approves & runs API) -------
+export async function requestGoogleReviewRefresh(businessId: number): Promise<FormResult> {
+  const user = await requireUser();
+  if (!businessId) return { error: "Missing business reference." };
+
+  const db = createSupabaseAdminClient();
+  const business = await getOwnedBusiness(user.id, businessId);
+  if (!business) return { error: "You don't have access to this listing." };
+  if (!business.claimed) {
+    return { error: "Only claimed listings can request a Google review refresh." };
+  }
+  if (!resolvePlaceId(business)) {
+    return {
+      error:
+        "Save a Google Maps link in your listing first so we can match your business on Google.",
+    };
+  }
+
+  const { data: pending } = await db
+    .from("google_review_refresh_requests")
+    .select("id")
+    .eq("business_id", businessId)
+    .eq("status", "pending")
+    .maybeSingle();
+  if (pending) return { error: "You already have a refresh request awaiting admin approval." };
+
+  const { error } = await db.from("google_review_refresh_requests").insert({
+    business_id: businessId,
+    user_id: user.id,
+    status: "pending",
+  });
+  if (error) return { error: error.message };
+
+  revalidatePath(`/dashboard/business/${businessId}`);
+  revalidatePath("/admin");
+  return { ok: true };
+}
+
+export async function updateFeaturedGoogleReviews(
+  businessId: number,
+  reviewIds: string[],
+): Promise<FormResult> {
+  const user = await requireUser();
+  if (!businessId) return { error: "Missing business reference." };
+  if (reviewIds.length > MAX_FEATURED_GOOGLE_REVIEWS) {
+    return { error: `Choose at most ${MAX_FEATURED_GOOGLE_REVIEWS} reviews.` };
+  }
+
+  const db = createSupabaseAdminClient();
+  const business = await getOwnedBusiness(user.id, businessId);
+  if (!business) return { error: "You don't have access to this listing." };
+  if (!business.claimed) {
+    return { error: "Only claimed listings can feature Google reviews." };
+  }
+
+  const { data: owned } = await db
+    .from("business_google_reviews")
+    .select("id")
+    .eq("business_id", businessId);
+  const ownedIds = new Set(((owned as { id: string }[] | null) ?? []).map((r) => r.id));
+  if (reviewIds.some((id) => !ownedIds.has(id))) {
+    return { error: "Invalid review selection." };
+  }
+
+  await db.from("business_google_reviews").update({ featured: false }).eq("business_id", businessId);
+  if (reviewIds.length > 0) {
+    const { error } = await db
+      .from("business_google_reviews")
+      .update({ featured: true })
+      .eq("business_id", businessId)
+      .in("id", reviewIds);
+    if (error) return { error: error.message };
+  }
+
+  revalidatePath(`/business/${business.slug}`);
+  revalidatePath(`/dashboard/business/${businessId}`);
   return { ok: true };
 }
 

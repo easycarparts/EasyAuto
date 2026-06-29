@@ -121,11 +121,23 @@ const LEGACY_REDIRECTS: Redirect[] = [
   { source: "/category/uncategorized", destination: "/", permanent: true },
 ];
 
+// WordPress plugin utility pages that moved under /dashboard or were consolidated.
+const UTILITY_REDIRECTS: Redirect[] = [
+  { source: "/submit-business-2", destination: "/submit-business", permanent: true },
+  { source: "/submit-business-3", destination: "/submit-business", permanent: true },
+  { source: "/business-dashboard", destination: "/dashboard", permanent: true },
+  { source: "/user-dashboard", destination: "/dashboard", permanent: true },
+  { source: "/my-subscription-dashboard", destination: "/dashboard", permanent: true },
+  { source: "/claim-status", destination: "/dashboard", permanent: true },
+  { source: "/sample-page", destination: "/", permanent: true },
+  { source: "/author/:path*", destination: "/", permanent: true },
+];
+
 export function categoryRedirects(): Redirect[] {
   const orphanRedirects: Redirect[] = ALL_ORPHANS.map((slug) => ({
     source: `/business-category/${slug}`,
     destination: ORPHAN_TARGETS[slug] ?? "/",
     permanent: true,
   }));
-  return [...orphanRedirects, ...LEGACY_REDIRECTS, ...businessDedupeRedirects()];
+  return [...orphanRedirects, ...LEGACY_REDIRECTS, ...UTILITY_REDIRECTS, ...businessDedupeRedirects()];
 }

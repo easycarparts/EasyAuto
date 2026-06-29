@@ -1,0 +1,1 @@
+export const MAX_FEATURED_GOOGLE_REVIEWS = 5;

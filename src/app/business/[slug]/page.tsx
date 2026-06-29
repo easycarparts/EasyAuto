@@ -7,14 +7,23 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { RatingStars } from "@/components/rating-stars";
 import { ScorePanel } from "@/components/score-badge";
 import { LeadButtons } from "@/components/lead-buttons";
+import { SocialLinkIcons } from "@/components/social-links";
+import { GoogleReviewCarousel } from "@/components/google-review-carousel";
 import { JsonLd } from "@/components/json-ld";
 import {
   getAllBusinessSlugs,
   getBusinessBySlug,
   getBusinessMedia,
   getCategoryBySlug,
+  getCategoriesBySlugs,
+  getCategorySlugsForBusiness,
+  getFeaturedGoogleReviews,
+  getSimilarBusinesses,
 } from "@/lib/data";
 import { blogIndexPath, getPublishedPostsForBusiness, postPublicPath } from "@/lib/post-data";
+import { googleMapsDirectionsUrl, resolveCoordinates } from "@/lib/navigation-links";
+import { hasSocialLinks } from "@/lib/social-links";
+import { SimilarBusinesses } from "@/components/similar-businesses";
 
 // ISR: owner edits, new photos/videos and claim approvals appear without a full
 // rebuild. generateStaticParams still prerenders every listing at build time.
@@ -81,17 +90,31 @@ export default async function BusinessPage({
 
   const media = await getBusinessMedia(business.id);
   const blogPosts = await getPublishedPostsForBusiness(business.id);
+  const featuredReviews = await getFeaturedGoogleReviews(business.id);
+  const [categorySlugs, similarBusinesses] = await Promise.all([
+    getCategorySlugsForBusiness(business.id),
+    getSimilarBusinesses(
+      business.id,
+      business.category_slug,
+      business.latitude,
+      business.longitude,
+      business.city,
+      6,
+    ),
+  ]);
+  const linkedCategories = await getCategoriesBySlugs(
+    categorySlugs.length > 0 ? categorySlugs : business.category_slug ? [business.category_slug] : [],
+  );
 
-  const hasGeo = business.latitude != null && business.longitude != null;
-  const mapsLink = business.google_link
-    ? business.google_link
-    : hasGeo
-      ? `https://www.google.com/maps/search/?api=1&query=${business.latitude},${business.longitude}`
-      : null;
+  const coords = resolveCoordinates(business.latitude, business.longitude);
+  const hasGeo = coords != null;
+  const mapsLink = coords
+    ? googleMapsDirectionsUrl(coords.latitude, coords.longitude, business.google_link)
+    : business.google_link;
 
   return (
     <>
-      <JsonLd data={localBusinessJsonLd(business, category?.name)} />
+      <JsonLd data={localBusinessJsonLd(business, category?.name, featuredReviews)} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", url: SITE.url },
@@ -135,15 +158,34 @@ export default async function BusinessPage({
           </div>
 
           <div className="mt-6">
-            {categoryName && category && (
-              <Link
-                href={`/business-category/${category.slug}`}
-                className="text-sm font-semibold text-brand-600 hover:text-brand-700"
-              >
-                {categoryName}
-              </Link>
+            {linkedCategories.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {linkedCategories.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/business-category/${c.slug}`}
+                    className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
+                      c.slug === business.category_slug
+                        ? "bg-brand-600 text-white"
+                        : "border border-line bg-canvas text-brand-600 hover:border-brand-300 hover:bg-brand-50"
+                    }`}
+                  >
+                    {decodeEntities(c.name)}
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              categoryName &&
+              category && (
+                <Link
+                  href={`/business-category/${category.slug}`}
+                  className="text-sm font-semibold text-brand-600 hover:text-brand-700"
+                >
+                  {categoryName}
+                </Link>
+              )
             )}
-            <h1 className="mt-1 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
               {business.name}
             </h1>
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -156,6 +198,16 @@ export default async function BusinessPage({
                   Verified
                 </span>
               )}
+              {business.updated_at && (
+                <span className="text-xs text-faint">
+                  Updated{" "}
+                  {new Date(business.updated_at).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </span>
+              )}
             </div>
           </div>
 
@@ -166,6 +218,10 @@ export default async function BusinessPage({
                 {business.description}
               </p>
             </section>
+          )}
+
+          {featuredReviews.length > 0 && (
+            <GoogleReviewCarousel reviews={featuredReviews} mapsLink={mapsLink} />
           )}
 
           {/* Unique, crawlable content from real Google reviews. Strengthens
@@ -253,7 +309,7 @@ export default async function BusinessPage({
                     >
                       <Image
                         src={m.url}
-                        alt={`${business.name} photo`}
+                        alt={`${business.name}${categoryName ? ` — ${categoryName}` : ""} photo`}
                         fill
                         sizes="(max-width: 640px) 50vw, 220px"
                         className="object-cover"
@@ -282,6 +338,12 @@ export default async function BusinessPage({
               )}
             </section>
           )}
+
+          <SimilarBusinesses
+            businesses={similarBusinesses}
+            categoryName={categoryName}
+            city={business.city}
+          />
         </div>
 
         {/* Sidebar — contact / actions. Real lead capture lands here in Step 6. */}
@@ -323,6 +385,15 @@ export default async function BusinessPage({
               })()}
             </div>
 
+            {hasSocialLinks(business.social_links) && (
+              <div className="mt-5 border-t border-line pt-5">
+                <span className="block text-xs font-medium uppercase tracking-wide text-faint">
+                  Social
+                </span>
+                <SocialLinkIcons links={business.social_links} className="mt-2.5 flex flex-wrap gap-2" />
+              </div>
+            )}
+
             <div className="mt-6">
               <LeadButtons
                 business={{
@@ -333,6 +404,8 @@ export default async function BusinessPage({
                   city: business.city,
                 }}
                 mapsLink={mapsLink}
+                latitude={business.latitude}
+                longitude={business.longitude}
               />
             </div>
           </div>

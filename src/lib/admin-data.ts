@@ -48,14 +48,44 @@ export type LeadRow = {
   action: string | null;
   routed_to: string | null;
   source: string | null;
+  business: { slug: string; name: string } | null;
 };
 
 export async function getRecentLeads(limit = 50): Promise<LeadRow[]> {
   const db = createSupabaseAdminClient();
   const { data } = await db
     .from("leads")
-    .select("id, created_at, business_id, category_slug, city, action, routed_to, source")
+    .select(
+      "id, created_at, business_id, category_slug, city, action, routed_to, source, business:businesses(slug, name)",
+    )
     .order("created_at", { ascending: false })
     .limit(limit);
   return (data as LeadRow[] | null) ?? [];
+}
+
+export type PendingGoogleReviewRefresh = {
+  id: string;
+  business_id: number;
+  created_at: string;
+  business: {
+    slug: string;
+    name: string;
+    rating: number | null;
+    google_reviews: number | null;
+    claimed: boolean;
+  } | null;
+  profile: { email: string | null } | null;
+};
+
+export async function getPendingGoogleReviewRefreshes(): Promise<PendingGoogleReviewRefresh[]> {
+  const db = createSupabaseAdminClient();
+  const { data, error } = await db
+    .from("google_review_refresh_requests")
+    .select(
+      "id, business_id, created_at, business:businesses(slug, name, rating, google_reviews, claimed), profile:profiles!user_id(email)",
+    )
+    .eq("status", "pending")
+    .order("created_at", { ascending: true });
+  if (error) throw new Error(`getPendingGoogleReviewRefreshes: ${error.message}`);
+  return (data as never) ?? [];
 }

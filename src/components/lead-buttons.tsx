@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { whatsappNumber } from "@/lib/format";
+import { resolveCoordinates, wazeDirectionsUrl } from "@/lib/navigation-links";
 import { OWNER_FUNNEL, routeFor } from "@/lib/lead-routing";
 
 // Only the fields the client needs — avoids shipping the heavy description /
@@ -21,14 +22,21 @@ export type LeadTarget = {
 export function LeadButtons({
   business,
   mapsLink,
+  latitude,
+  longitude,
 }: {
   business: LeadTarget;
   mapsLink: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
 }) {
   const pathname = usePathname();
   const route = routeFor(business.categorySlug);
   const waNumber =
     route === "own_service" ? OWNER_FUNNEL.whatsapp : whatsappNumber(business.phone);
+  const coords = resolveCoordinates(latitude, longitude);
+  const wazeLink = coords ? wazeDirectionsUrl(coords.latitude, coords.longitude) : null;
+  const showDirections = Boolean(mapsLink || wazeLink);
 
   const text = encodeURIComponent(
     `Hi ${business.name}, I came from your Easy Auto listing and I'd like to enquire about your services.`,
@@ -76,16 +84,31 @@ export function LeadButtons({
           Call
         </a>
       )}
-      {mapsLink && (
-        <a
-          href={mapsLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => logLead("directions")}
-          className="flex h-11 w-full items-center justify-center rounded-xl border border-line bg-surface font-semibold text-body transition-colors hover:border-brand-300 hover:text-brand-700"
-        >
-          Get directions
-        </a>
+      {showDirections && (
+        <div className={mapsLink && wazeLink ? "grid grid-cols-2 gap-2" : "space-y-2"}>
+          {mapsLink && (
+            <a
+              href={mapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => logLead("directions_maps")}
+              className="flex h-11 w-full items-center justify-center rounded-xl border border-line bg-surface font-semibold text-body transition-colors hover:border-brand-300 hover:text-brand-700"
+            >
+              Maps
+            </a>
+          )}
+          {wazeLink && (
+            <a
+              href={wazeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => logLead("directions_waze")}
+              className="flex h-11 w-full items-center justify-center rounded-xl border border-line bg-surface font-semibold text-body transition-colors hover:border-brand-300 hover:text-brand-700"
+            >
+              Waze
+            </a>
+          )}
+        </div>
       )}
     </div>
   );
