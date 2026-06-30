@@ -103,6 +103,29 @@ export default async function AnalyticsPage({ searchParams }: PageProps<"/admin/
         <p className="mt-3 text-xs text-faint">Funnel reflects the date range (segment filters above don’t apply to it).</p>
       </Card>
 
+      {/* Auth & signups --------------------------------------------------- */}
+      <Card title="Auth & signups" className="mt-6">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          <Mini label="Sign-ups" value={a.events.signup_completed ?? 0} />
+          <Mini label="Logins" value={a.events.login_completed ?? 0} />
+          <Mini
+            label="Visit→signup"
+            value={`${a.current.visitors > 0 ? (((a.events.signup_completed ?? 0) / a.current.visitors) * 100).toFixed(1) : "0"}%`}
+          />
+          <Mini label="Sign-in link emails" value={a.events.email_magic_link ?? 0} />
+          <Mini label="Confirmation emails" value={a.events.email_confirmation ?? 0} />
+          <Mini label="Reset emails" value={a.events.email_recovery ?? 0} />
+        </div>
+        {(a.events.signup_failed || a.events.login_failed) && (
+          <p className="mt-3 text-xs text-faint">
+            Failed attempts — sign-up: {a.events.signup_failed ?? 0}, sign-in: {a.events.login_failed ?? 0}.
+          </p>
+        )}
+        <p className="mt-3 text-xs text-faint">
+          Emails are logged when triggered (Resend SMTP). Auth events aren’t affected by the segment filters.
+        </p>
+      </Card>
+
       {/* Top pages — full width so long paths are readable */}
       <Card title="Top pages" className="mt-6">
         <RankTable
@@ -199,6 +222,15 @@ function Kpi({
         )}
         {hint ? <span className="text-faint">{hint}</span> : <span className="text-faint">vs prev.</span>}
       </div>
+    </div>
+  );
+}
+
+function Mini({ label, value }: { label: string; value: number | string }) {
+  return (
+    <div className="rounded-lg border border-line bg-canvas p-3">
+      <p className="text-xs font-medium text-faint">{label}</p>
+      <p className="mt-0.5 text-xl font-extrabold text-ink">{typeof value === "number" ? fmt(value) : value}</p>
     </div>
   );
 }

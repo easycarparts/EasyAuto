@@ -28,7 +28,7 @@ const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 const NO_CONTENT = new NextResponse(null, { status: 204 });
 
 type Payload = {
-  t?: "view" | "exit";
+  t?: "view" | "exit" | "event";
   sid?: string;
   vid?: string;
   pvid?: string;
@@ -38,6 +38,10 @@ type Payload = {
   utm?: { source?: string; medium?: string; campaign?: string } | null;
   dur?: number;
   scroll?: number;
+  // event payload
+  name?: string;
+  category?: string;
+  props?: Record<string, unknown> | null;
 };
 
 export async function POST(request: Request) {
@@ -49,7 +53,13 @@ export async function POST(request: Request) {
   }
 
   const { t, sid, pvid } = body;
-  if ((t !== "view" && t !== "exit") || !sid || !pvid || !UUID_RE.test(sid) || !UUID_RE.test(pvid)) {
+  if (
+    (t !== "view" && t !== "exit" && t !== "event") ||
+    !sid ||
+    !pvid ||
+    !UUID_RE.test(sid) ||
+    !UUID_RE.test(pvid)
+  ) {
     return NO_CONTENT;
   }
 
@@ -59,6 +69,23 @@ export async function POST(request: Request) {
 
   const db = createSupabaseAdminClient();
   const now = new Date().toISOString();
+
+  // --- Event: a named custom event (auth funnel, email-sent, …). Not admin-
+  // excluded — we want every signup/login/email regardless of who fired it. -----
+  if (t === "event") {
+    const name = typeof body.name === "string" ? body.name.trim().slice(0, 60) : "";
+    if (!name) return NO_CONTENT;
+    await db.from("analytics_events").insert({
+      id: pvid,
+      session_id: sid,
+      visitor_id: typeof body.vid === "string" && UUID_RE.test(body.vid) ? body.vid : null,
+      name,
+      category: typeof body.category === "string" ? body.category.slice(0, 40) : null,
+      props: body.props && typeof body.props === "object" ? body.props : null,
+      path: typeof body.path === "string" ? body.path.slice(0, 512) : null,
+    });
+    return NO_CONTENT;
+  }
 
   // --- Exit: just finalise the existing pageview + bump the session. ----------
   if (t === "exit") {
