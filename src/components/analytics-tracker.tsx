@@ -117,23 +117,33 @@ export function AnalyticsTracker() {
       );
     }
 
-    // Heartbeat: bump last_seen so long single-page sessions still register
-    // duration even without a clean exit.
-    const heartbeat = window.setInterval(() => {
+    // Send the current engaged time without ending the view. An early ping (4s)
+    // means a genuine reader's duration is recorded quickly and reliably — so the
+    // server-side "≥3s = human" rule doesn't wrongly drop real short visits when a
+    // final exit beacon is unreliable. Then a steady heartbeat for longer reads.
+    function ping() {
       if (document.visibilityState === "visible") {
-        send({ t: "exit", sid, pvid: pvId.current, dur: activeMs.current + (Date.now() - lastTick.current), scroll: maxScroll.current }, false);
+        send(
+          { t: "exit", sid, pvid: pvId.current, dur: activeMs.current + (Date.now() - lastTick.current), scroll: maxScroll.current },
+          false,
+        );
       }
-    }, 15_000);
+    }
+    const early = window.setTimeout(ping, 4_000);
+    const heartbeat = window.setInterval(ping, 12_000);
 
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("pagehide", flush);
+    window.addEventListener("blur", flush);
 
     return () => {
+      window.clearTimeout(early);
       window.clearInterval(heartbeat);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pagehide", flush);
+      window.removeEventListener("blur", flush);
       flush();
     };
   }, [pathname, searchParams]);

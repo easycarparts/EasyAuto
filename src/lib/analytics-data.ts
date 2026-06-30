@@ -226,6 +226,7 @@ export type OverviewBundle = {
   cta: Breakdown[];
   funnel: Funnel;
   events: Record<string, number>; // custom-event counts by name (auth funnel, emails)
+  excludedBots: number; // sessions filtered out as automated (behavioural rule)
   options: FilterOptions;
 };
 
@@ -245,7 +246,7 @@ export async function getOverviewBundle(f: AnalyticsFilters): Promise<OverviewBu
   // Unfiltered option lists for the filter dropdowns (full range).
   const optArgs = { p_from: f.from, p_to: f.to };
 
-  const [cur, prev, ts, pages, biz, src, dev, brow, ctry, ret, fnl, cta, evc, optDev, optCtry, optSrc, optBiz] =
+  const [cur, prev, ts, pages, biz, src, dev, brow, ctry, ret, fnl, cta, evc, bots, optDev, optCtry, optSrc, optBiz] =
     await Promise.all([
       db.rpc("analytics_overview_v2", args),
       db.rpc("analytics_overview_v2", prevArgs),
@@ -260,6 +261,7 @@ export async function getOverviewBundle(f: AnalyticsFilters): Promise<OverviewBu
       db.rpc("analytics_funnel", { p_from: f.from, p_to: f.to }),
       db.rpc("analytics_cta_breakdown", { p_from: f.from, p_to: f.to }),
       db.rpc("analytics_event_counts", { p_from: f.from, p_to: f.to }),
+      db.rpc("analytics_excluded_bots", { p_from: f.from, p_to: f.to }),
       db.rpc("analytics_breakdown_v2", { ...optArgs, p_dimension: "device" }),
       db.rpc("analytics_breakdown_v2", { ...optArgs, p_dimension: "country" }),
       db.rpc("analytics_sources_v2", { ...optArgs, p_limit: 50 }),
@@ -304,6 +306,7 @@ export async function getOverviewBundle(f: AnalyticsFilters): Promise<OverviewBu
     events: Object.fromEntries(
       ((evc.data ?? []) as { name: string; count: number }[]).map((e) => [e.name, num(e.count)]),
     ),
+    excludedBots: num(bots.data),
     funnel: fn
       ? {
           listing_views: num(fn.listing_views),

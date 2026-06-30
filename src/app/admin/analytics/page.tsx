@@ -92,6 +92,13 @@ export default async function AnalyticsPage({ searchParams }: PageProps<"/admin/
         <Kpi label="Leads" value={fmt(a.current.leads_total)} cur={a.current.leads_total} prev={a.previous.leads_total} hint={`${a.current.conversion_rate}% conv.`} />
       </section>
 
+      {a.excludedBots > 0 && (
+        <p className="mt-3 text-xs text-faint">
+          🤖 {fmt(a.excludedBots)} automated session{a.excludedBots === 1 ? "" : "s"} filtered out (no engagement —
+          single page, under 3s, no scroll or action). Stats above are humans only.
+        </p>
+      )}
+
       {/* Trend chart ------------------------------------------------------ */}
       <Card title="Trend" className="mt-6">
         {a.timeseries.length === 0 ? <Empty>No traffic in this period yet.</Empty> : <OverviewChart data={a.timeseries} />}
