@@ -16,6 +16,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { submitLead } from "@/app/actions/lead";
+import { sessionId } from "@/lib/analytics/ids";
 
 export type LeadCaptureProps = {
   // Human label, e.g. "Paint protection film (PPF)".
@@ -135,6 +136,9 @@ function LeadModal({
   async function onSubmit(formData: FormData) {
     setSubmitting(true);
     setError(null);
+    // Stamp the analytics session id at submit time so this lead links back to
+    // the visitor's journey (reading sessionStorage here avoids an effect).
+    formData.set("sessionId", sessionId());
     const res = await submitLead(formData);
     setSubmitting(false);
     if (res.ok) setDone(true);

@@ -37,10 +37,20 @@ export default async function AdminPage({ searchParams }: PageProps<"/admin">) {
 
   return (
     <div>
-      <h1 className="text-3xl font-extrabold tracking-tight text-ink">Admin</h1>
-      <p className="mt-1 text-sm text-muted">
-        Review submissions and claims, and monitor leads.
-      </p>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h1 className="text-3xl font-extrabold tracking-tight text-ink">Admin</h1>
+          <p className="mt-1 text-sm text-muted">
+            Review submissions and claims, and monitor leads.
+          </p>
+        </div>
+        <Link
+          href="/admin/analytics"
+          className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
+        >
+          View analytics →
+        </Link>
+      </div>
 
       {/* Pending submissions ------------------------------------------------ */}
       <section className="mt-10">
