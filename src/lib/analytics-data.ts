@@ -176,6 +176,14 @@ const EMPTY_OVERVIEW_V2: OverviewV2 = {
   conversion_rate: 0,
 };
 
+// Friendly labels for the raw CTA action values stored on leads.
+const CTA_LABELS: Record<string, string> = {
+  whatsapp: "WhatsApp",
+  call: "Call",
+  directions_maps: "Directions (Maps)",
+  directions_waze: "Directions (Waze)",
+};
+
 // Shared filter args for every v2 RPC (null = ignore).
 function filterArgs(f: AnalyticsFilters) {
   return {
@@ -215,9 +223,13 @@ export type OverviewBundle = {
   browsers: Breakdown[];
   countries: Breakdown[];
   returning: Breakdown[];
+  cta: Breakdown[];
   funnel: Funnel;
   options: FilterOptions;
 };
+
+// WhatsApp / call / directions click counts for the period.
+export type CtaRow = { cta: string; clicks: number };
 
 export async function getOverviewBundle(f: AnalyticsFilters): Promise<OverviewBundle> {
   const db = createSupabaseAdminClient();
@@ -232,7 +244,7 @@ export async function getOverviewBundle(f: AnalyticsFilters): Promise<OverviewBu
   // Unfiltered option lists for the filter dropdowns (full range).
   const optArgs = { p_from: f.from, p_to: f.to };
 
-  const [cur, prev, ts, pages, biz, src, dev, brow, ctry, ret, fnl, optDev, optCtry, optSrc, optBiz] =
+  const [cur, prev, ts, pages, biz, src, dev, brow, ctry, ret, fnl, cta, optDev, optCtry, optSrc, optBiz] =
     await Promise.all([
       db.rpc("analytics_overview_v2", args),
       db.rpc("analytics_overview_v2", prevArgs),
@@ -245,6 +257,7 @@ export async function getOverviewBundle(f: AnalyticsFilters): Promise<OverviewBu
       db.rpc("analytics_breakdown_v2", { ...args, p_dimension: "country" }),
       db.rpc("analytics_breakdown_v2", { ...args, p_dimension: "returning" }),
       db.rpc("analytics_funnel", { p_from: f.from, p_to: f.to }),
+      db.rpc("analytics_cta_breakdown", { p_from: f.from, p_to: f.to }),
       db.rpc("analytics_breakdown_v2", { ...optArgs, p_dimension: "device" }),
       db.rpc("analytics_breakdown_v2", { ...optArgs, p_dimension: "country" }),
       db.rpc("analytics_sources_v2", { ...optArgs, p_limit: 50 }),
@@ -285,6 +298,7 @@ export async function getOverviewBundle(f: AnalyticsFilters): Promise<OverviewBu
     browsers: bd(brow),
     countries: bd(ctry),
     returning: bd(ret),
+    cta: ((cta.data ?? []) as CtaRow[]).map((c) => ({ label: CTA_LABELS[c.cta] ?? c.cta, sessions: num(c.clicks) })),
     funnel: fn
       ? {
           listing_views: num(fn.listing_views),

@@ -103,14 +103,16 @@ export default async function AnalyticsPage({ searchParams }: PageProps<"/admin/
         <p className="mt-3 text-xs text-faint">Funnel reflects the date range (segment filters above don’t apply to it).</p>
       </Card>
 
+      {/* Top pages — full width so long paths are readable */}
+      <Card title="Top pages" className="mt-6">
+        <RankTable
+          head={["Page", "Views", "Avg time", "Scroll", "Exits"]}
+          rows={a.topPages.map((p) => [p.path, fmt(p.views), duration(p.avg_sec), `${p.avg_scroll}%`, fmt(p.exits)])}
+          empty="No page views yet."
+        />
+      </Card>
+
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <Card title="Top pages">
-          <RankTable
-            head={["Page", "Views", "Avg time", "Scroll", "Exits"]}
-            rows={a.topPages.map((p) => [truncate(p.path, 36), fmt(p.views), duration(p.avg_sec), `${p.avg_scroll}%`, fmt(p.exits)])}
-            empty="No page views yet."
-          />
-        </Card>
         <Card title="Most-viewed listings">
           <RankTable
             head={["Business", "Views", "Avg time"]}
@@ -118,6 +120,15 @@ export default async function AnalyticsPage({ searchParams }: PageProps<"/admin/
             empty="No listing views yet."
           />
         </Card>
+        <Card title="CTA clicks">
+          <BarList items={toItems(a.cta)} />
+          <p className="mt-3 text-xs text-faint">
+            WhatsApp / call / directions clicks on listings (date range; segment filters don’t apply).
+          </p>
+        </Card>
+      </div>
+
+      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Card title="Traffic sources">
           <BarList items={a.sources.map((s) => ({ label: s.referrer_host, value: s.sessions }))} />
         </Card>
@@ -154,10 +165,6 @@ function duration(sec: number): string {
   const s = Math.round(sec % 60);
   return m > 0 ? `${m}m ${s}s` : `${s}s`;
 }
-function truncate(s: string, n: number): string {
-  return s.length > n ? `${s.slice(0, n - 1)}…` : s;
-}
-
 /* ---------------------------------------------------------------- components */
 
 function Kpi({
@@ -274,11 +281,21 @@ function RankTable({ head, rows, empty }: { head: string[]; rows: (string | numb
         <tbody>
           {rows.map((r, ri) => (
             <tr key={ri} className="border-b border-line/60 last:border-0">
-              {r.map((cell, ci) => (
-                <td key={ci} className={`py-2 ${ci === 0 ? "max-w-[1px] truncate pr-2 text-body" : "text-right font-medium text-ink"}`}>
-                  {cell}
-                </td>
-              ))}
+              {r.map((cell, ci) =>
+                ci === 0 ? (
+                  // First column takes the remaining width and truncates with a
+                  // hover tooltip showing the full value (long paths/names).
+                  <td key={ci} className="w-full max-w-0 py-2 pr-3 text-body">
+                    <span className="block truncate" title={String(cell)}>
+                      {cell}
+                    </span>
+                  </td>
+                ) : (
+                  <td key={ci} className="whitespace-nowrap py-2 pl-3 text-right font-medium text-ink">
+                    {cell}
+                  </td>
+                ),
+              )}
             </tr>
           ))}
         </tbody>
