@@ -11,6 +11,14 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 let client: SupabaseClient | null = null;
 
+// True when the public Supabase env vars are present. Build-time data readers
+// use this to degrade gracefully (return empty) instead of crashing the build
+// when an environment hasn't been given the vars — e.g. a Vercel Preview deploy
+// scoped to Production-only env. Runtime reads still surface a clear error.
+export function supabaseConfigured(): boolean {
+  return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+}
+
 function getClient(): SupabaseClient {
   if (client) return client;
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;

@@ -10,7 +10,7 @@
 // Signatures are unchanged from the JSON-backed version, so pages didn't change.
 
 import { cache } from "react";
-import { supabase } from "./supabase";
+import { supabase, supabaseConfigured } from "./supabase";
 import type { Business, BusinessGoogleReview, BusinessMedia, Category, NewsPost } from "./types";
 import { getEmirate, type Location } from "./locations";
 
@@ -36,6 +36,9 @@ async function run<T>(
   query: () => PromiseLike<QueryResult>,
   attempts = 5,
 ): Promise<{ data: T | null; count: number | null }> {
+  // No env (e.g. a Preview build without the vars) → degrade to empty rather
+  // than throw and abort the build. A real DB error WITH env still throws below.
+  if (!supabaseConfigured()) return { data: null, count: 0 };
   let lastError = "";
   for (let attempt = 0; attempt < attempts; attempt++) {
     try {
