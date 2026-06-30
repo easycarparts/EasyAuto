@@ -1,7 +1,7 @@
 // Public reads for owner-authored business blog posts.
 
 import { cache } from "react";
-import { supabase } from "./supabase";
+import { supabase, supabaseConfigured } from "./supabase";
 import type { BusinessPost } from "./types";
 
 export function postPublicPath(businessSlug: string, postSlug: string): string {
@@ -13,6 +13,9 @@ export function blogIndexPath(businessSlug: string): string {
 }
 
 async function publishedBusinessSlugMap(): Promise<Map<number, string>> {
+  // No env at build (e.g. a Preview deploy) → empty, so generateStaticParams /
+  // sitemap don't crash the build. Runtime reads still error clearly.
+  if (!supabaseConfigured()) return new Map();
   const { data: posts, error: postsErr } = await supabase
     .from("business_posts")
     .select("business_id")

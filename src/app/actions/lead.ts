@@ -37,6 +37,9 @@ export async function submitLead(formData: FormData): Promise<LeadFormState> {
   const locationLabel = clean(formData.get("locationLabel"), 120);
   const source = clean(formData.get("source"), 300);
   const businessIdRaw = clean(formData.get("businessId"), 20);
+  const sessionIdRaw = clean(formData.get("sessionId"), 40);
+  const sessionId =
+    sessionIdRaw && /^[0-9a-f-]{36}$/i.test(sessionIdRaw) ? sessionIdRaw : null;
 
   // Name + phone are required; phone must contain enough digits to be real.
   if (!name || !phone) {
@@ -62,6 +65,7 @@ export async function submitLead(formData: FormData): Promise<LeadFormState> {
     action: "form",
     lead_type: "form",
     status: "new",
+    session_id: sessionId,
     // Flag high-intent (owner-service) enquiries for the Grand Touch funnel.
     routed_to: isHighIntentService(serviceSlug) ? "own_service" : "directory",
     source: source ?? (serviceLabel ? `lead-form:${serviceLabel}` : "lead-form"),

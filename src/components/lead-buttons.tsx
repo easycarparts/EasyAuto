@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase";
 import { whatsappNumber } from "@/lib/format";
 import { resolveCoordinates, wazeDirectionsUrl } from "@/lib/navigation-links";
 import { OWNER_FUNNEL, routeFor } from "@/lib/lead-routing";
+import { sessionId } from "@/lib/analytics/ids";
 
 // Only the fields the client needs — avoids shipping the heavy description /
 // competitors / raw hours text into the browser payload.
@@ -52,8 +53,10 @@ export function LeadButtons({
         category_slug: business.categorySlug,
         city: business.city,
         action,
+        lead_type: action,
         routed_to: route,
         source: pathname,
+        session_id: sessionId(),
       })
       .then(
         () => {},
