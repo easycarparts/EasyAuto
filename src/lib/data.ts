@@ -207,12 +207,14 @@ export const getAllBusinessSlugs = cache(async (): Promise<string[]> => {
   return rows.map((r) => r.slug);
 });
 
-// Slug + thumbnail for the sitemap's image entries (Google image discovery).
+// Slug + thumbnail + last-modified for the sitemap. thumbnail → image entries
+// (Google image discovery); updated_at → lastmod so Google re-crawls the pages
+// enriched on that date.
 export const getBusinessSitemapEntries = cache(
-  async (): Promise<{ slug: string; thumbnail_url: string | null }[]> => {
-    return selectColumn<{ slug: string; thumbnail_url: string | null }>(
+  async (): Promise<{ slug: string; thumbnail_url: string | null; updated_at: string | null }[]> => {
+    return selectColumn<{ slug: string; thumbnail_url: string | null; updated_at: string | null }>(
       "businesses",
-      "slug,thumbnail_url",
+      "slug,thumbnail_url,updated_at",
       "id",
     );
   },

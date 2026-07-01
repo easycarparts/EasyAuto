@@ -52,6 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // discover and rank the listing images (image:image extension).
     ...bizEntries.map((b) => ({
       url: absoluteUrl(`/business/${b.slug}`),
+      ...(b.updated_at ? { lastModified: b.updated_at } : {}),
       ...(b.thumbnail_url ? { images: [b.thumbnail_url] } : {}),
     })),
     // Business blogs
