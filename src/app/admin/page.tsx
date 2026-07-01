@@ -44,12 +44,20 @@ export default async function AdminPage({ searchParams }: PageProps<"/admin">) {
             Review submissions and claims, and monitor leads.
           </p>
         </div>
-        <Link
-          href="/admin/analytics"
-          className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
-        >
-          View analytics →
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href="/admin/users"
+            className="rounded-lg border border-line bg-surface px-4 py-2 text-sm font-semibold text-body transition hover:border-brand-300 hover:text-brand-700"
+          >
+            Users →
+          </Link>
+          <Link
+            href="/admin/analytics"
+            className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700"
+          >
+            View analytics →
+          </Link>
+        </div>
       </div>
 
       {/* Pending submissions ------------------------------------------------ */}

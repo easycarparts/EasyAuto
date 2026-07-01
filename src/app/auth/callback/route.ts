@@ -5,8 +5,34 @@
 
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import type { EmailOtpType } from "@supabase/supabase-js";
+import type { EmailOtpType, User } from "@supabase/supabase-js";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+
+// Record an auth completion into analytics_events. Fires here (not the client)
+// so Google sign-ins and clicked email links — which never touch the login
+// form — still show up in the dashboard's auth funnel. No browser session id is
+// available server-side, so the event isn't linked to a visitor journey; it
+// still counts by name.
+async function recordAuth(user: User | null | undefined, method: string, type: EmailOtpType | null) {
+  if (!user) return;
+  let name: string;
+  if (type === "signup") name = "signup_completed";
+  else if (type === "recovery") name = "password_reset_completed";
+  else {
+    // OAuth / magic-link: first sign-in ≈ created_at == last_sign_in_at.
+    const created = new Date(user.created_at).getTime();
+    const last = user.last_sign_in_at ? new Date(user.last_sign_in_at).getTime() : created;
+    name = Math.abs(last - created) < 10_000 ? "signup_completed" : "login_completed";
+  }
+  try {
+    await createSupabaseAdminClient()
+      .from("analytics_events")
+      .insert({ id: crypto.randomUUID(), name, category: "auth", props: { method }, path: "/auth/callback" });
+  } catch {
+    /* never block sign-in on tracking */
+  }
+}
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
@@ -31,13 +57,15 @@ export async function GET(request: Request) {
   let failed = true;
   let message = "No sign-in code was provided.";
   if (code) {
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
     failed = Boolean(error);
     if (error) message = error.message;
+    else await recordAuth(data.user, data.user?.app_metadata?.provider ?? "oauth", null);
   } else if (tokenHash && type) {
-    const { error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
+    const { data, error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
     failed = Boolean(error);
     if (error) message = error.message;
+    else await recordAuth(data.user, "email_link", type);
   }
 
   // Clear the destination cookie either way.
