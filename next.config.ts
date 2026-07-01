@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    // Optimise via Cloudinary's CDN, not Vercel's metered image optimizer (which
+    // returned 402 once we passed its quota and broke uncached listing images).
+    // See src/lib/cloudinary-loader.ts — this bypasses /_next/image entirely.
+    loader: "custom",
+    loaderFile: "./src/lib/cloudinary-loader.ts",
     // Listing thumbnails were migrated off the old WordPress install to Cloudinary
     // (scripts/migrate-images-cloudinary.mjs). The easyauto.ae/wp-content pattern was
     // removed once the DB held zero wp-content references.
