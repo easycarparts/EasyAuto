@@ -207,6 +207,17 @@ export const getAllBusinessSlugs = cache(async (): Promise<string[]> => {
   return rows.map((r) => r.slug);
 });
 
+// Slug + thumbnail for the sitemap's image entries (Google image discovery).
+export const getBusinessSitemapEntries = cache(
+  async (): Promise<{ slug: string; thumbnail_url: string | null }[]> => {
+    return selectColumn<{ slug: string; thumbnail_url: string | null }>(
+      "businesses",
+      "slug,thumbnail_url",
+      "id",
+    );
+  },
+);
+
 export const getAllBusinesses = cache(
   async (page = 1, perPage = 24): Promise<Page<Business>> => {
     const start = (page - 1) * perPage;

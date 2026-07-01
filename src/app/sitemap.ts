@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import {
-  getAllBusinessSlugs,
+  getBusinessSitemapEntries,
   getAllCategories,
   getAllNews,
   getLocationFacets,
@@ -14,8 +14,8 @@ import { guideSlugs } from "@/lib/guides";
 import { absoluteUrl } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [bizSlugs, categories, news, facets, blogPosts, blogIndexes] = await Promise.all([
-    getAllBusinessSlugs(),
+  const [bizEntries, categories, news, facets, blogPosts, blogIndexes] = await Promise.all([
+    getBusinessSitemapEntries(),
     getAllCategories(),
     getAllNews(),
     getLocationFacets(),
@@ -48,8 +48,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...combos.map((c) => entry(`/${c}`)),
     // News
     ...news.map((n) => entry(`/news/${n.slug}`)),
-    // Every listing
-    ...bizSlugs.map((s) => entry(`/business/${s}`)),
+    // Every listing — with its photo as an image-sitemap entry so Google can
+    // discover and rank the listing images (image:image extension).
+    ...bizEntries.map((b) => ({
+      url: absoluteUrl(`/business/${b.slug}`),
+      ...(b.thumbnail_url ? { images: [b.thumbnail_url] } : {}),
+    })),
     // Business blogs
     ...blogIndexes.map((s) => entry(`/business/${s}/blog`)),
     ...blogPosts.map((p) => ({

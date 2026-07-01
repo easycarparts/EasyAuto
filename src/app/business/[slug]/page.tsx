@@ -161,7 +161,11 @@ export default async function BusinessPage({
             {business.thumbnail_url ? (
               <Image
                 src={business.thumbnail_url}
-                alt={business.name}
+                alt={
+                  categoryName
+                    ? `${business.name} — ${categoryName}${business.city ? ` in ${business.city}` : ""}`
+                    : business.name
+                }
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 700px"
